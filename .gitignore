@@ -1,0 +1,5 @@
+other/
+.vscode/
+*.exe
+*.pdb
+*.obj
