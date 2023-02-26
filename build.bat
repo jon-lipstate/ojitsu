@@ -1,0 +1,1 @@
+odin run . -collection:profiling=profiling -out:jit.exe
