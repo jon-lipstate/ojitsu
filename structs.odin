@@ -3,9 +3,10 @@ package ojitsu
 Label :: struct {}
 // Section :: [dynamic]Block // asmjit::Section* text = code.textSection();
 Procedure :: struct {
-	buf: [dynamic]u8,
+	buf: [dynamic]Instruction,
 } // make Section union to Label? seems reasonable
 Asm :: struct {
+	// Convention: procs[0] is always the 'main' proc
 	procs: []Procedure, // TODO: replace this with main:Block & Label{name,code:Block} ??
 	// labels: [dynamic]Label,
 	// sections: map[^Block]string, // Lookup Section a block belongs in? 
@@ -15,6 +16,11 @@ Reg :: struct {
 	bits: u8,
 }
 
+RMI :: union {
+	Reg,
+	Mem,
+	Imm,
+}
 RegMem :: union {
 	Reg,
 	Mem,
@@ -22,7 +28,12 @@ RegMem :: union {
 MemReal :: struct {} // m32real, m64real, m80real
 Mem :: struct {}
 MemPtr :: struct {} // m16:16, m16:32
-Imm :: u64
+Imm :: union {
+	u8,
+	u16,
+	u32,
+	u64,
+}
 Rel :: struct {}
 Ptr :: struct {} // jmp far [bx+si+0x7401]   jnz near 0x4856
 MOff :: struct {}
@@ -150,4 +161,15 @@ GeneralPurpose :: enum {
 	R15S,
 	R15W,
 	R15B,
+}
+
+
+REX :: bit_set[REX_Flag]
+REX_Flag :: enum {
+	// Ref ISR-V2 Fig 2-6
+	Enable = 0b0100_0000,
+	W      = 0b1000, // 1: 64-bit Operand, 0: Operand size determined by CS.D
+	R      = 0b0100, // Extends ModRM Reg (Dest)
+	X      = 0b0010, // Extends SIB Index
+	B      = 0b0001, // Extends SIB Base
 }
