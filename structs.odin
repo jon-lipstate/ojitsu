@@ -1,32 +1,40 @@
 package ojitsu
-
-Label :: struct {}
-// Section :: [dynamic]Block // asmjit::Section* text = code.textSection();
+// Label is empty struct, becomes an address during assembly.
+Label :: struct {} // TODO: Address Forward usage for labels, jump ahead in the bitstream before label has been placed & addr known, handle with temp map to patch up after??
 Procedure :: struct {
 	buf: [dynamic]Instruction,
-} // make Section union to Label? seems reasonable
+}
 Asm :: struct {
 	// Convention: procs[0] is always the 'main' proc
-	procs: []Procedure, // TODO: replace this with main:Block & Label{name,code:Block} ??
-	// labels: [dynamic]Label,
-	// sections: map[^Block]string, // Lookup Section a block belongs in? 
+	procs: []Procedure,
 }
 Reg :: struct {
-	reg:  GeneralPurpose,
-	bits: u8,
+	reg:    GeneralPurpose,
+	offset: Offset,
 }
-
-RMI :: union {
+Offset :: struct {
+	add: u16,
+	mul: u8, // can only be 1,2,4,8
+}
+// TODO: add Size?
+Operand :: union {
+	// Naked Registers
+	GeneralPurpose,
+	// Offset Registers
 	Reg,
 	Mem,
 	Imm,
+	Label,
 }
 RegMem :: union {
 	Reg,
 	Mem,
 }
 MemReal :: struct {} // m32real, m64real, m80real
-Mem :: struct {}
+Mem :: struct {
+	addr:   u64, // ??
+	offset: Offset,
+}
 MemPtr :: struct {} // m16:16, m16:32
 Imm :: union {
 	u8,
@@ -37,7 +45,6 @@ Imm :: union {
 Rel :: struct {}
 Ptr :: struct {} // jmp far [bx+si+0x7401]   jnz near 0x4856
 MOff :: struct {}
-Prefixes :: bit_set[GeneralPurpose]
 
 // `zax` - mapped to either `eax` or `rax` Z prefix for native size
 
@@ -161,15 +168,4 @@ GeneralPurpose :: enum {
 	R15S,
 	R15W,
 	R15B,
-}
-
-
-REX :: bit_set[REX_Flag]
-REX_Flag :: enum {
-	// Ref ISR-V2 Fig 2-6
-	Enable = 0b0100_0000,
-	W      = 0b1000, // 1: 64-bit Operand, 0: Operand size determined by CS.D
-	R      = 0b0100, // Extends ModRM Reg (Dest)
-	X      = 0b0010, // Extends SIB Index
-	B      = 0b0001, // Extends SIB Base
 }
