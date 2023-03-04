@@ -21,9 +21,10 @@ main :: proc() {
 		spall.event_scope(&ctx, &buffer, #procedure)
 	}
 	//
+	// TEMP_descriptors()
 	a := make_assembler()
 	main := get_main_proc(&a)
-	mov(main, .RAX, .RCX)
+	mov(main, .AX, .CX)
 	add(main, .RAX, .RAX)
 	ret(main)
 	fn_ptr := transmute(proc(x: i64) -> i64)assemble(&a)
@@ -54,6 +55,7 @@ assemble :: proc(a: ^Asm) -> rawptr {
 	label_offsets := map[rawptr]int{}
 	instructions := m.buf
 	for instr in &instructions {
+		fmt.println(instr)
 		switch i in instr {
 		case (Label):
 			label_offsets[&instr] = current_offset // TODO: Verify `&instr` is dangling or not
@@ -61,8 +63,18 @@ assemble :: proc(a: ^Asm) -> rawptr {
 			m := i.mneumnoic
 			args := i.args
 			pfx := i.prefixes
-
-			panic("no impl")
+			if m != .mov do continue
+			o0 := get_operand_flag(args[0])
+			o1 := get_operand_flag(args[1])
+			fmt.println(m)
+			fmt.println(args[0], args[1])
+			fmt.println(o0, o1)
+			d := get_descriptor(.Any, o0, o1)
+			fmt.printf("0x%X\n", d)
+			op := movs[d]
+			assert(d in movs, "d not in movs")
+			fmt.println(op)
+		// 
 		}
 
 	}
@@ -78,8 +90,9 @@ Mneumnoic :: enum {
 	ret,
 }
 // TODO: Prefixes confuses final varag - find resolution
-push_op :: proc(p: ^Procedure, m: Mneumnoic, args: ..Operand) { 	// , prefixes := Prefixes{}) {
-	append(&p.buf, ArgsInstruction{m, {}, args})
+import "core:mem"
+push_op :: proc(p: ^Procedure, m: Mneumnoic, args: ..Operand) { 	//, prefixes := Prefixes{}) {
+	append(&p.buf, ArgsInstruction{m, {}, mem.clone_slice(args)})
 	fmt.println(len(args), args)
 }
 push_local :: proc(p: ^Procedure, size: Size) -> Ptr {
@@ -108,7 +121,8 @@ address_of :: proc(rm: RegMem) -> Operand {
 // TODO: GeneralPurpose is no longer bit-indexed, need to lookup in a static-map now..?
 mod_rm :: proc(mod: u8, src: GeneralPurpose, dst: GeneralPurpose) -> u8 {
 	// TODO: lookup indices, fix mod
-	return u8(mod) << 6 | u8(dst) << 3 | u8(src)
+	//	      mod	         reg            rm
+	return u8(mod) << 6 | u8(src) << 3 | u8(dst)
 }
 
 ty :: enum {
