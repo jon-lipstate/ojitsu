@@ -89,7 +89,6 @@ get_encoding :: proc(args: ..OperandFlag) -> Encoding {
 		// return .TD // .FD
 		}
 	case 2:
-
 	case:
 		panic("Not impl")
 	}
