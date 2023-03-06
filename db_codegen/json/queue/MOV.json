@@ -1,0 +1,340 @@
+{
+  "mnemonic": "MOV",
+  "summary": "Move",
+  "index": 345,
+  "instructions": [
+    {
+      "opcode": "88 /r",
+      "instr": "MOV r/m8,r8",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move r8 to r/m8."
+    },
+    {
+      "opcode": "REX + 88 /r",
+      "instr": "MOV r/m8***,r8***",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move r8 to r/m8."
+    },
+    {
+      "opcode": "89 /r",
+      "instr": "MOV r/m16,r16",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move r16 to r/m16."
+    },
+    {
+      "opcode": "89 /r",
+      "instr": "MOV r/m32,r32",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move r32 to r/m32."
+    },
+    {
+      "opcode": "REX.W + 89 /r",
+      "instr": "MOV r/m64,r64",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move r64 to r/m64."
+    },
+    {
+      "opcode": "8A /r",
+      "instr": "MOV r8,r/m8",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move r/m8 to r8."
+    },
+    {
+      "opcode": "REX + 8A /r",
+      "instr": "MOV r8***,r/m8***",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move r/m8 to r8."
+    },
+    {
+      "opcode": "8B /r",
+      "instr": "MOV r16,r/m16",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move r/m16 to r16."
+    },
+    {
+      "opcode": "8B /r",
+      "instr": "MOV r32,r/m32",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move r/m32 to r32."
+    },
+    {
+      "opcode": "REX.W + 8B /r",
+      "instr": "MOV r64,r/m64",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move r/m64 to r64."
+    },
+    {
+      "opcode": "8C /r",
+      "instr": "MOV r/m16,Sreg**",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move segment register to r/m16."
+    },
+    {
+      "opcode": "8C /r",
+      "instr": "MOV r16/r32/m16, Sreg**",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move zero extended 16-bit segment register to r16/r32/m16."
+    },
+    {
+      "opcode": "REX.W + 8C /r",
+      "instr": "MOV r64/m16, Sreg**",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move zero extended 16-bit segment register to r64/m16."
+    },
+    {
+      "opcode": "8E /r",
+      "instr": "MOV Sreg,r/m16**",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move r/m16 to segment register."
+    },
+    {
+      "opcode": "REX.W + 8E /r",
+      "instr": "MOV Sreg,r/m64**",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move lower 16 bits of r/m64 to segment register."
+    },
+    {
+      "opcode": "A0",
+      "instr": "MOV AL,moffs8*",
+      "op_en": "FD",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move byte at (seg:offset) to AL."
+    },
+    {
+      "opcode": "REX.W + A0",
+      "instr": "MOV AL,moffs8*",
+      "op_en": "FD",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move byte at (offset) to AL."
+    },
+    {
+      "opcode": "A1",
+      "instr": "MOV AX,moffs16*",
+      "op_en": "FD",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move word at (seg:offset) to AX."
+    },
+    {
+      "opcode": "A1",
+      "instr": "MOV EAX,moffs32*",
+      "op_en": "FD",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move doubleword at (seg:offset) to EAX."
+    },
+    {
+      "opcode": "REX.W + A1",
+      "instr": "MOV RAX,moffs64*",
+      "op_en": "FD",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move quadword at (offset) to RAX."
+    },
+    {
+      "opcode": "A2",
+      "instr": "MOV moffs8,AL",
+      "op_en": "TD",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move AL to (seg:offset)."
+    },
+    {
+      "opcode": "REX.W + A2",
+      "instr": "MOV moffs8***,AL",
+      "op_en": "TD",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move AL to (offset)."
+    },
+    {
+      "opcode": "A3",
+      "instr": "MOV moffs16*,AX",
+      "op_en": "TD",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move AX to (seg:offset)."
+    },
+    {
+      "opcode": "A3",
+      "instr": "MOV moffs32*,EAX",
+      "op_en": "TD",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move EAX to (seg:offset)."
+    },
+    {
+      "opcode": "REX.W + A3",
+      "instr": "MOV moffs64*,RAX",
+      "op_en": "TD",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move RAX to (offset)."
+    },
+    {
+      "opcode": "B0+ rb ib",
+      "instr": "MOV r8, imm8",
+      "op_en": "OI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move imm8 to r8."
+    },
+    {
+      "opcode": "REX + B0+ rb ib",
+      "instr": "MOV r8***, imm8",
+      "op_en": "OI",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move imm8 to r8."
+    },
+    {
+      "opcode": "B8+ rw iw",
+      "instr": "MOV r16, imm16",
+      "op_en": "OI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move imm16 to r16."
+    },
+    {
+      "opcode": "B8+ rd id",
+      "instr": "MOV r32, imm32",
+      "op_en": "OI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move imm32 to r32."
+    },
+    {
+      "opcode": "REX.W + B8+ rd io",
+      "instr": "MOV r64, imm64",
+      "op_en": "OI",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move imm64 to r64."
+    },
+    {
+      "opcode": "C6 /0 ib",
+      "instr": "MOV r/m8, imm8",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move imm8 to r/m8."
+    },
+    {
+      "opcode": "REX + C6 /0 ib",
+      "instr": "MOV r/m8***, imm8",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move imm8 to r/m8."
+    },
+    {
+      "opcode": "C7 /0 iw",
+      "instr": "MOV r/m16, imm16",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move imm16 to r/m16."
+    },
+    {
+      "opcode": "C7 /0 id",
+      "instr": "MOV r/m32, imm32",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move imm32 to r/m32."
+    },
+    {
+      "opcode": "REX.W + C7 /0 id",
+      "instr": "MOV r/m64, imm32",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move imm32 sign extended to 64-bits to r/m64."
+    }
+  ],
+  "op_en": [
+    {
+      "op_en": "MR",
+      "tuple_type": "ModRM:r/m (w)",
+      "operand_1": "ModRM:reg (r)",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "RM",
+      "tuple_type": "ModRM:reg (w)",
+      "operand_1": "ModRM:r/m (r)",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "FD",
+      "tuple_type": "AL/AX/EAX/RAX",
+      "operand_1": "Moffs",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "TD",
+      "tuple_type": "Moffs (w)",
+      "operand_1": "AL/AX/EAX/RAX",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "OI",
+      "tuple_type": "opcode + rd (w)",
+      "operand_1": "imm8/16/32/64",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "MI",
+      "tuple_type": "ModRM:r/m (w)",
+      "operand_1": "imm8/16/32/64",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    }
+  ],
+  "page_desc": [
+    "Copies the second operand (source operand) to the first operand (destination operand). The source operand can be an immediate value, general-purpose register, segment register, or memory location; the destination register can be a general-purpose register, segment register, or memory location. Both operands must be the same size, which can be a byte, a word, a doubleword, or a quadword.",
+    "The MOV instruction cannot be used to load the CS register. Attempting to do so results in an invalid opcode exception (#UD). To load the CS register, use the far JMP, CALL, or RET instruction.",
+    "If the destination operand is a segment register (DS, ES, FS, GS, or SS), the source operand must be a valid segment selector. In protected mode, moving a segment selector into a segment register automatically causes the segment descriptor information associated with that segment selector to be loaded into the hidden (shadow) part of the segment register. While loading this information, the segment selector and segment descriptor information is validated (see the \u201cOperation\u201d algorithm below). The segment descriptor data is obtained from the GDT or LDT entry for the specified segment selector.",
+    "A NULL segment selector (values 0000-0003) can be loaded into the DS, ES, FS, and GS registers without causing a protection exception. However, any subsequent attempt to reference a segment whose corresponding segment register is loaded with a NULL value causes a general protection exception (#GP) and no memory reference occurs.",
+    "Loading the SS register with a MOV instruction suppresses or inhibits some debug exceptions and inhibits interrupts on the following instruction boundary. (The inhibition ends after delivery of an exception or the execution of the next instruction.) This behavior allows a stack pointer to be loaded into the ESP register with the next instruction (MOV ESP,stack-pointer value) before an event can be delivered. See Section 6.8.3, \u201cMasking Exceptions and Interrupts When Switching Stacks,\u201d inIntel\u00ae 64 and IA-32 Architectures Software Developer\u2019s Manual, Volume 3A.Intel recommends that software use the LSS instruction to load the SS register and ESP together.",
+    "When executing MOV Reg, Sreg, the processor copies the content of Sreg to the 16 least significant bits of the general-purpose register. The upper bits of the destination register are zero for most IA-32 processors (Pentium Pro processors and later) and all Intel 64 processors, with the exception that bits 31:16 are undefined for Intel Quark X1000 processors, Pentium and earlier processors.",
+    "In 64-bit mode, the instruction\u2019s default operation size is 32 bits. Use of the REX.R prefix permits access to additional registers (R8-R15). Use of the REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning of this section for encoding data and limits."
+  ]
+}

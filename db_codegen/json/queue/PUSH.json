@@ -1,0 +1,167 @@
+{
+  "mnemonic": "PUSH",
+  "summary": "Push Word, Doubleword or Quadword Onto the Stack",
+  "index": 540,
+  "instructions": [
+    {
+      "opcode": "FF /6",
+      "instr": "PUSH r/m16",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Push r/m16."
+    },
+    {
+      "opcode": "FF /6",
+      "instr": "PUSH r/m32",
+      "op_en": "M",
+      "x64": "N.E.",
+      "x32": "Valid",
+      "desc": "Push r/m32."
+    },
+    {
+      "opcode": "FF /6",
+      "instr": "PUSH r/m64",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Push r/m64."
+    },
+    {
+      "opcode": "50+rw",
+      "instr": "PUSH r16",
+      "op_en": "O",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Push r16."
+    },
+    {
+      "opcode": "50+rd",
+      "instr": "PUSH r32",
+      "op_en": "O",
+      "x64": "N.E.",
+      "x32": "Valid",
+      "desc": "Push r32."
+    },
+    {
+      "opcode": "50+rd",
+      "instr": "PUSH r64",
+      "op_en": "O",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Push r64."
+    },
+    {
+      "opcode": "6A ib",
+      "instr": "PUSH imm8",
+      "op_en": "I",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Push imm8."
+    },
+    {
+      "opcode": "68 iw",
+      "instr": "PUSH imm16",
+      "op_en": "I",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Push imm16."
+    },
+    {
+      "opcode": "68 id",
+      "instr": "PUSH imm32",
+      "op_en": "I",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Push imm32."
+    },
+    {
+      "opcode": "0E",
+      "instr": "PUSH CS",
+      "op_en": "ZO",
+      "x64": "Invalid",
+      "x32": "Valid",
+      "desc": "Push CS."
+    },
+    {
+      "opcode": "16",
+      "instr": "PUSH SS",
+      "op_en": "ZO",
+      "x64": "Invalid",
+      "x32": "Valid",
+      "desc": "Push SS."
+    },
+    {
+      "opcode": "1E",
+      "instr": "PUSH DS",
+      "op_en": "ZO",
+      "x64": "Invalid",
+      "x32": "Valid",
+      "desc": "Push DS."
+    },
+    {
+      "opcode": "06",
+      "instr": "PUSH ES",
+      "op_en": "ZO",
+      "x64": "Invalid",
+      "x32": "Valid",
+      "desc": "Push ES."
+    },
+    {
+      "opcode": "0F A0",
+      "instr": "PUSH FS",
+      "op_en": "ZO",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Push FS."
+    },
+    {
+      "opcode": "0F A8",
+      "instr": "PUSH GS",
+      "op_en": "ZO",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Push GS."
+    }
+  ],
+  "op_en": [
+    {
+      "op_en": "M",
+      "tuple_type": "ModRM:r/m (r)",
+      "operand_1": "NA",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "O",
+      "tuple_type": "opcode + rd (r)",
+      "operand_1": "NA",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "I",
+      "tuple_type": "imm8/16/32",
+      "operand_1": "NA",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "ZO",
+      "tuple_type": "NA",
+      "operand_1": "NA",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    }
+  ],
+  "page_desc": [
+    "Decrements the stack pointer and then stores the source operand on the top of the stack. Address and operand sizes are determined and used as follows:",
+    "The address size is used only when referencing a source operand in memory.",
+    "The operand size (16, 32, or 64 bits) determines the amount by which the stack pointer is decremented (2, 4 or 8).",
+    "If the source operand is an immediate of size less than the operand size, a sign-extended value is pushed on the stack. If the source operand is a segment register (16 bits) and the operand size is 64-bits, a zero-extended value is pushed on the stack; if the operand size is 32-bits, either a zero-extended value is pushed on the stack or the segment selector is written on the stack using a 16-bit move. For the last case, all recent Intel Core and Intel Atom processors perform a 16-bit move, leaving the upper portion of the stack location unmodified.",
+    "The stack-address size determines the width of the stack pointer when writing to the stack in memory and when decrementing the stack pointer. (As stated above, the amount by which the stack pointer is decremented is determined by the operand size.)",
+    "If the operand size is less than the stack-address size, the PUSH instruction may result in a misaligned stack pointer (a stack pointer that is not aligned on a doubleword or quadword boundary).",
+    "The PUSH ESP instruction pushes the value of the ESP register as it existed before the instruction was executed. If a PUSH instruction uses a memory operand in which the ESP register is used for computing the operand address, the address of the operand is computed before the ESP register is decremented.",
+    "If the ESP or SP register is 1 when the PUSH instruction is executed in real-address mode, a stack-fault exception (#SS) is generated (because the limit of the stack segment is violated). Its delivery encounters a second stack-fault exception (for the same reason), causing generation of a double-fault exception (#DF). Delivery of the double-fault exception encounters a third stack-fault exception, and the logical processor enters shutdown mode. See the discussion of the double-fault exception in Chapter 6 of theIntel\u00ae 64 and IA-32 Architectures Software Developer\u2019s Manual, Volume 3A."
+  ]
+}

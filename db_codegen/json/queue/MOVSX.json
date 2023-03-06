@@ -1,0 +1,84 @@
+{
+  "mnemonic": "MOVSX",
+  "summary": "Move with Sign-Extension",
+  "index": 384,
+  "instructions": [
+    {
+      "opcode": "0F BE /r",
+      "instr": "MOVSX r16, r/m8",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move byte to word with sign-extension."
+    },
+    {
+      "opcode": "0F BE /r",
+      "instr": "MOVSX r32, r/m8",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move byte to doubleword with sign-extension."
+    },
+    {
+      "opcode": "REX.W + 0F BE /r",
+      "instr": "MOVSX r64, r/m8",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move byte to quadword with sign-extension."
+    },
+    {
+      "opcode": "0F BF /r",
+      "instr": "MOVSX r32, r/m16",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Move word to doubleword, with sign-extension."
+    },
+    {
+      "opcode": "REX.W + 0F BF /r",
+      "instr": "MOVSX r64, r/m16",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move word to quadword with sign-extension."
+    },
+    {
+      "opcode": "63 /r*",
+      "instr": "MOVSXD r16, r/m16",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move word to word with sign-extension."
+    },
+    {
+      "opcode": "63 /r*",
+      "instr": "MOVSXD r32, r/m32",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move doubleword to doubleword with sign-extension."
+    },
+    {
+      "opcode": "REX.W + 63 /r",
+      "instr": "MOVSXD r64, r/m32",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Move doubleword to quadword with sign-extension."
+    }
+  ],
+  "op_en": [
+    {
+      "op_en": "RM",
+      "tuple_type": "ModRM:reg (w)",
+      "operand_1": "ModRM:r/m (r)",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    }
+  ],
+  "page_desc": [
+    "Copies the contents of the source operand (register or memory location) to the destination operand (register) and sign extends the value to 16 or 32 bits (seeFigure 7-6in theIntel\u00ae 64 and IA-32 Architectures Software Developer\u2019s Manual, Volume 1). The size of the converted value depends on the operand-size attribute.",
+    "In 64-bit mode, the instruction\u2019s default operation size is 32 bits. Use of the REX.R prefix permits access to additional registers (R8-R15). Use of the REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning of this section for encoding data and limits."
+  ]
+}

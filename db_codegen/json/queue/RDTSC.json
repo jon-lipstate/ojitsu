@@ -1,0 +1,33 @@
+{
+  "mnemonic": "RDTSC",
+  "summary": "Read Time-Stamp Counter",
+  "index": 561,
+  "instructions": [
+    {
+      "opcode": "0F 31",
+      "instr": "RDTSC",
+      "op_en": "ZO",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Read time-stamp counter into EDX:EAX."
+    }
+  ],
+  "op_en": [
+    {
+      "op_en": "ZO",
+      "tuple_type": "NA",
+      "operand_1": "NA",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    }
+  ],
+  "page_desc": [
+    "Reads the current value of the processor\u2019s time-stamp counter (a 64-bit MSR) into the EDX:EAX registers. The EDX register is loaded with the high-order 32 bits of the MSR and the EAX register is loaded with the low-order 32 bits. (On processors that support the Intel 64 architecture, the high-order 32 bits of each of RAX and RDX are cleared.)",
+    "The processor monotonically increments the time-stamp counter MSR every clock cycle and resets it to 0 whenever the processor is reset. See \u201cTime Stamp Counter\u201d in Chapter 17 of theIntel\u00ae 64 and IA-32 Architectures Software Developer\u2019s Manual, Volume 3B, for specific details of the time stamp counter behavior.",
+    "The time stamp disable (TSD) flag in register CR4 restricts the use of the RDTSC instruction as follows. When the flag is clear, the RDTSC instruction can be executed at any privilege level; when the flag is set, the instruction can only be executed at privilege level 0.",
+    "The time-stamp counter can also be read with the RDMSR instruction, when executing at privilege level 0.",
+    "The RDTSC instruction is not a serializing instruction. It does not necessarily wait until all previous instructions have been executed before reading the counter. Similarly, subsequent instructions may begin execution before the read operation is performed. The following items may guide software seeking to order executions of RDTSC:",
+    "This instruction was introduced by the Pentium processor.",
+    "See \u201cChanges to Instruction Behavior in VMX Non-Root Operation\u201d in Chapter 25 of theIntel\u00ae 64 and IA-32 Architectures Software Developer\u2019s Manual, Volume 3C, for more information about the behavior of this instruction in VMX non-root operation."
+  ]
+}

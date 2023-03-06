@@ -1,4 +1,7 @@
 other/
+db_codegen/*.json
+db_codegen/json/old/
+db_codegen/json/unimplemented/
 .vscode/
 *.exe
 *.pdb

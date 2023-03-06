@@ -25,10 +25,10 @@ OpcodeFilter :: struct {
 	arch:          u8, // 1:x86, 2:x64, 4:x86_64
 	special_flags: u32,
 }
-Arch :: enum {
+Arch :: bit_set[ArchFlag]
+ArchFlag :: enum {
 	x86,
 	x64,
-	Any,
 }
 
 reg_to_flag :: proc(gp: GeneralPurpose) -> OperandFlag {
@@ -135,50 +135,48 @@ get_descriptor :: proc(arch: Arch, operands: ..OperandFlag) -> InstrDesc { 	//sp
 	}
 	return desc
 }
-@(link_section = ".rdata")
-MOV_ARR := []Opcode{{{0x8A, 0, 0}, .Any, {.r8, .m8}, {.REX_Opt}, {.mod_rm}}, {{0x8A, 0, 0}, .Any, {.r8, .m8}, {.REX_Opt}, {.mod_rm}}}
 rets: map[InstrDesc]Opcode = {}
 movs: map[InstrDesc]Opcode = {
-	0x22024 = {{0x88, 0, 0}, .Any, {.m8, .r8}, {.REX_Opt}, {.mod_rm}},
-	0x24022 = {{0x8A, 0, 0}, .Any, {.r8, .m8}, {.REX_Opt}, {.mod_rm}},
-	0x22022 = {{0x88, 0, 0}, .Any, {.r8, .r8}, {.REX_Opt}, {.mod_rm}},
-	0x20022 = {{0xA0, 0, 0}, .Any, {.al, .moffs8}, {.REX_Opt, .REX_W}, nil}, // implicit AL dest
-	0x22020 = {{0xA2, 0, 0}, .Any, {.moffs8, .al}, {.REX_Opt, .REX_W}, nil}, // implicit AL src
-	0x30022 = {{0xB0, 0, 0}, .Any, {.r8, .imm8}, {.REX_Opt}, {.rb, .ib}},
-	0x30024 = {{0xC6, 0, 0}, .Any, {.m8, .imm8}, {.REX_Opt}, {.digit_0, .ib}},
+	0x22024 = {{0x88, 0, 0}, {.x86, .x64}, {.m8, .r8}, {.REX_Opt}, {.mod_rm}},
+	0x24022 = {{0x8A, 0, 0}, {.x86, .x64}, {.r8, .m8}, {.REX_Opt}, {.mod_rm}},
+	0x22022 = {{0x88, 0, 0}, {.x86, .x64}, {.r8, .r8}, {.REX_Opt}, {.mod_rm}},
+	0x20022 = {{0xA0, 0, 0}, {.x86, .x64}, {.al, .moffs8}, {.REX_Opt, .REX_W}, nil}, // implicit AL dest
+	0x22020 = {{0xA2, 0, 0}, {.x86, .x64}, {.moffs8, .al}, {.REX_Opt, .REX_W}, nil}, // implicit AL src
+	0x30022 = {{0xB0, 0, 0}, {.x86, .x64}, {.r8, .imm8}, {.REX_Opt}, {.rb, .ib}},
+	0x30024 = {{0xC6, 0, 0}, {.x86, .x64}, {.m8, .imm8}, {.REX_Opt}, {.digit_0, .ib}},
 	//
-	0x42044 = {{0x89, 0, 0}, .Any, {.m16, .r16}, nil, {.mod_rm}}, // need 66 prefx??
-	0x42042 = {{0x89, 0, 0}, .Any, {.r16, .r16}, nil, {.mod_rm}}, // need 66 prefx??
-	0x44042 = {{0x8B, 0, 0}, .Any, {.r16, .m16}, nil, {.mod_rm}}, // need 66 prefx??
-	0x101042 = {{0x8C, 0, 0}, .Any, {.r16, .sreg}, nil, {.mod_rm}},
-	0x101044 = {{0x8C, 0, 0}, .Any, {.m16, .sreg}, nil, {.mod_rm}},
-	0x44101 = {{0x8E, 0, 0}, .Any, {.sreg, .m16}, nil, {.mod_rm}},
-	0x42101 = {{0x8E, 0, 0}, .Any, {.sreg, .r16}, nil, {.mod_rm}},
-	0x60042 = {{0xA1, 0, 0}, .Any, {.ax, .moffs16}, nil, nil}, // implicit AX dest
-	0x42060 = {{0xA3, 0, 0}, .Any, {.moffs16, .ax}, nil, nil}, // implicit AX src
-	0x50042 = {{0xB8, 0, 0}, .Any, {.r16, .imm16}, nil, {.rw, .iw}},
-	0x50044 = {{0xC7, 0, 0}, .Any, {.m16, .imm16}, nil, {.digit_0, .iw}},
+	0x42044 = {{0x89, 0, 0}, {.x86, .x64}, {.m16, .r16}, nil, {.mod_rm}}, // need 66 prefx??
+	0x42042 = {{0x89, 0, 0}, {.x86, .x64}, {.r16, .r16}, nil, {.mod_rm}}, // need 66 prefx??
+	0x44042 = {{0x8B, 0, 0}, {.x86, .x64}, {.r16, .m16}, nil, {.mod_rm}}, // need 66 prefx??
+	0x101042 = {{0x8C, 0, 0}, {.x86, .x64}, {.r16, .sreg}, nil, {.mod_rm}},
+	0x101044 = {{0x8C, 0, 0}, {.x86, .x64}, {.m16, .sreg}, nil, {.mod_rm}},
+	0x44101 = {{0x8E, 0, 0}, {.x86, .x64}, {.sreg, .m16}, nil, {.mod_rm}},
+	0x42101 = {{0x8E, 0, 0}, {.x86, .x64}, {.sreg, .r16}, nil, {.mod_rm}},
+	0x60042 = {{0xA1, 0, 0}, {.x86, .x64}, {.ax, .moffs16}, nil, nil}, // implicit AX dest
+	0x42060 = {{0xA3, 0, 0}, {.x86, .x64}, {.moffs16, .ax}, nil, nil}, // implicit AX src
+	0x50042 = {{0xB8, 0, 0}, {.x86, .x64}, {.r16, .imm16}, nil, {.rw, .iw}},
+	0x50044 = {{0xC7, 0, 0}, {.x86, .x64}, {.m16, .imm16}, nil, {.digit_0, .iw}},
 	//
-	0x82084 = {{0x89, 0, 0}, .Any, {.m32, .r32}, nil, {.mod_rm}},
-	0x82082 = {{0x89, 0, 0}, .Any, {.r32, .r32}, nil, {.mod_rm}},
-	0x84082 = {{0x8B, 0, 0}, .Any, {.r32, .m32}, nil, {.mod_rm}},
-	0x101082 = {{0x8C, 0, 0}, .Any, {.r32, .sreg}, nil, {.mod_rm}}, // r32 Dup from line above
-	0xA0082 = {{0xA1, 0, 0}, .Any, {.eax, .moffs32}, nil, nil}, // implicit EAX dest
-	0x820A0 = {{0xA3, 0, 0}, .Any, {.moffs32, .eax}, nil, nil}, // implicit EAX src
-	0x90082 = {{0xB8, 0, 0}, .Any, {.r32, .imm32}, nil, {.rd, .id}},
-	0x90084 = {{0xC7, 0, 0}, .Any, {.m32, .imm32}, nil, {.digit_0, .id}},
+	0x82084 = {{0x89, 0, 0}, {.x86, .x64}, {.m32, .r32}, nil, {.mod_rm}},
+	0x82082 = {{0x89, 0, 0}, {.x86, .x64}, {.r32, .r32}, nil, {.mod_rm}},
+	0x84082 = {{0x8B, 0, 0}, {.x86, .x64}, {.r32, .m32}, nil, {.mod_rm}},
+	0x101082 = {{0x8C, 0, 0}, {.x86, .x64}, {.r32, .sreg}, nil, {.mod_rm}}, // r32 Dup from line above
+	0xA0082 = {{0xA1, 0, 0}, {.x86, .x64}, {.eax, .moffs32}, nil, nil}, // implicit EAX dest
+	0x820A0 = {{0xA3, 0, 0}, {.x86, .x64}, {.moffs32, .eax}, nil, nil}, // implicit EAX src
+	0x90082 = {{0xB8, 0, 0}, {.x86, .x64}, {.r32, .imm32}, nil, {.rd, .id}},
+	0x90084 = {{0xC7, 0, 0}, {.x86, .x64}, {.m32, .imm32}, nil, {.digit_0, .id}},
 	//
-	0x102104 = {{0x89, 0, 0}, .x64, {.m64, .r64}, {.REX_Enable, .REX_W}, {.mod_rm}}, // Expand RM to M,R
-	0x102102 = {{0x89, 0, 0}, .x64, {.r64, .r64}, {.REX_Enable, .REX_W}, {.mod_rm}},
-	0x104102 = {{0x8B, 0, 0}, .x64, {.r64, .m64}, {.REX_Enable, .REX_W}, {.mod_rm}},
-	0x101102 = {{0x8C, 0, 0}, .Any, {.r64, .sreg}, {.REX_Enable, .REX_W}, {.mod_rm}},
-	0x104101 = {{0x8E, 0, 0}, .Any, {.sreg, .m64}, {.REX_Enable, .REX_W}, {.mod_rm}},
-	0x102101 = {{0x8E, 0, 0}, .Any, {.sreg, .r64}, {.REX_Enable, .REX_W}, {.mod_rm}},
-	0x120102 = {{0xA1, 0, 0}, .x64, {.rax, .moffs64}, {.REX_Enable, .REX_W}, nil}, // implicit RAX dest
-	0x102120 = {{0xA3, 0, 0}, .x64, {.moffs64, .rax}, {.REX_Enable, .REX_W}, nil}, // implicit RAX src
-	0x110102 = {{0xB8, 0, 0}, .x64, {.r64, .imm64}, {.REX_Enable, .REX_W}, {.rd, .io}},
-	0x90104 = {{0xC7, 0, 0}, .x64, {.m64, .imm32}, {.REX_Enable, .REX_W}, {.digit_0, .id}},
-	0x90102 = {{0xC7, 0, 0}, .x64, {.r64, .imm32}, {.REX_Enable, .REX_W}, {.digit_0, .id}},
+	0x102104 = {{0x89, 0, 0}, {.x64}, {.m64, .r64}, {.REX_Enable, .REX_W}, {.mod_rm}}, // Expand RM to M,R
+	0x102102 = {{0x89, 0, 0}, {.x64}, {.r64, .r64}, {.REX_Enable, .REX_W}, {.mod_rm}},
+	0x104102 = {{0x8B, 0, 0}, {.x64}, {.r64, .m64}, {.REX_Enable, .REX_W}, {.mod_rm}},
+	0x101102 = {{0x8C, 0, 0}, {.x86, .x64}, {.r64, .sreg}, {.REX_Enable, .REX_W}, {.mod_rm}},
+	0x104101 = {{0x8E, 0, 0}, {.x86, .x64}, {.sreg, .m64}, {.REX_Enable, .REX_W}, {.mod_rm}},
+	0x102101 = {{0x8E, 0, 0}, {.x86, .x64}, {.sreg, .r64}, {.REX_Enable, .REX_W}, {.mod_rm}},
+	0x120102 = {{0xA1, 0, 0}, {.x64}, {.rax, .moffs64}, {.REX_Enable, .REX_W}, nil}, // implicit RAX dest
+	0x102120 = {{0xA3, 0, 0}, {.x64}, {.moffs64, .rax}, {.REX_Enable, .REX_W}, nil}, // implicit RAX src
+	0x110102 = {{0xB8, 0, 0}, {.x64}, {.r64, .imm64}, {.REX_Enable, .REX_W}, {.rd, .io}},
+	0x90104 = {{0xC7, 0, 0}, {.x64}, {.m64, .imm32}, {.REX_Enable, .REX_W}, {.digit_0, .id}},
+	0x90102 = {{0xC7, 0, 0}, {.x64}, {.r64, .imm32}, {.REX_Enable, .REX_W}, {.digit_0, .id}},
 }
 
 Opcode :: struct {
@@ -281,11 +279,12 @@ OpcodeEncodingFlags :: enum {
 // TODO: Map to lookup the actual prefix value, and precedence maybe
 Prefixes :: bit_set[Prefix_Flag]
 Prefix_Flag :: enum {
+	None,
 	// Group 1:
-	Lock,
 	BND,
 	REPNZ, // Alias: REPNZ. Repeat Not Zero; Applies to String & IO, Mandatory for some
 	REP, // Alias: REPE/REPZ. Repeat
+	Lock,
 	// Group 2:
 	CS_Override,
 	SS_Override,
@@ -309,7 +308,7 @@ Prefix_Flag :: enum {
 	REX_B, // 1, Extends SIB Base
 }
 
-prefix_value := map[Prefix_Flag]u8 {
+PREFIX_VALUES := map[Prefix_Flag]u8 {
 	.Lock                = 0xF0,
 	.BND                 = 0xF2,
 	.REPNZ               = 0xF2,
@@ -431,4 +430,16 @@ TEMP_descriptors :: proc() {
 		row_num += 1
 	}
 	fmt.println("n_rows:", row_num)
+}
+
+// Table B1, Section B.1.4
+SpecialFields :: enum {
+	reg, // 3 | General-register specifier (see Table B-4 or B-5).
+	w, // 1 |  Specifies if data is byte or full-sized, where full-sized is 16 or 32 bits (see Table B-6).
+	s, // 1 | Specifies sign extension of an immediate field (see Table B-7).
+	sreg2, // 2| Segment register specifier for CS, SS, DS, ES (see Table B-8).
+	sreg3, // 3 |  Segment register specifier for CS, SS, DS, ES, FS, GS (see Table B-8).
+	eee, // 3 | Specifies a special-purpose (control or debug) register (see Table B-9).
+	tttn, // 4 |  For conditional instructions, specifies a condition asserted or negated (see Table B-12).
+	d, // 1 | Specifies direction of data operation (see Table B-11).
 }

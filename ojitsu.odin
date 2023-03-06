@@ -29,7 +29,6 @@ main :: proc() {
 	add(main, .EAX, .EAX)
 	ret(main)
 	fn_ptr := transmute(proc(x: i64) -> i64)assemble(&a)
-	MOV_ARR[0] = {{0xC7, 0, 0}, .x64, {.r64, .imm32}, {.REX_Enable, .REX_W}, {.digit_0, .id}}
 }
 add :: #force_inline proc(p: ^Procedure, dest: Operand, src: Operand) {push_op(p, .add, dest, src)}
 mov :: #force_inline proc(p: ^Procedure, dest: Operand, src: Operand) {push_op(p, .mov, dest, src)}
@@ -75,7 +74,7 @@ assemble :: proc(a: ^Asm) -> rawptr {
 				operand_flags[i] = get_operand_flag(args[i])
 			}
 			// fmt.println(m, operand_flags[:len(args)])
-			d := get_descriptor(.Any, ..operand_flags[:len(args)])
+			d := get_descriptor({.x86, .x64}, ..operand_flags[:len(args)])
 			// fmt.printf("0x%X\n", d)
 			op := lookup_wrap(d)
 			if d not_in movs {
@@ -103,23 +102,23 @@ encode_instruction :: proc(op: ^Opcode, buf: []u8, instr: ArgsInstruction) -> in
 	bytes_written := 0
 	if op.Prefixes != nil {
 		//Group 1 Prefixes
-		if .Lock in op.Prefixes {buf[bytes_written] = prefix_value[.Lock];bytes_written += 1}
-		if .REPNZ in op.Prefixes {buf[bytes_written] = prefix_value[.REPNZ];bytes_written += 1}
-		if .REP in op.Prefixes {buf[bytes_written] = prefix_value[.REP];bytes_written += 1}
-		if .BND in op.Prefixes {buf[bytes_written] = prefix_value[.BND];bytes_written += 1} 	// todo: test for rules (pdf pg-525) ?
+		if .Lock in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.Lock];bytes_written += 1}
+		if .REPNZ in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.REPNZ];bytes_written += 1}
+		if .REP in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.REP];bytes_written += 1}
+		if .BND in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.BND];bytes_written += 1} 	// todo: test for rules (pdf pg-525) ?
 		//Group 2 Prefixes
-		if .CS_Override in op.Prefixes {buf[bytes_written] = prefix_value[.CS_Override];bytes_written += 1}
-		if .SS_Override in op.Prefixes {buf[bytes_written] = prefix_value[.SS_Override];bytes_written += 1}
-		if .DS_Override in op.Prefixes {buf[bytes_written] = prefix_value[.DS_Override];bytes_written += 1}
-		if .ES_Override in op.Prefixes {buf[bytes_written] = prefix_value[.ES_Override];bytes_written += 1}
-		if .FS_Override in op.Prefixes {buf[bytes_written] = prefix_value[.FS_Override];bytes_written += 1}
-		if .GS_Override in op.Prefixes {buf[bytes_written] = prefix_value[.GS_Override];bytes_written += 1}
-		if .BranchNotTaken in op.Prefixes {buf[bytes_written] = prefix_value[.BranchNotTaken];bytes_written += 1}
-		if .BranchTaken in op.Prefixes {buf[bytes_written] = prefix_value[.BranchTaken];bytes_written += 1}
+		if .CS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.CS_Override];bytes_written += 1}
+		if .SS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.SS_Override];bytes_written += 1}
+		if .DS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.DS_Override];bytes_written += 1}
+		if .ES_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.ES_Override];bytes_written += 1}
+		if .FS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.FS_Override];bytes_written += 1}
+		if .GS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.GS_Override];bytes_written += 1}
+		if .BranchNotTaken in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.BranchNotTaken];bytes_written += 1}
+		if .BranchTaken in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.BranchTaken];bytes_written += 1}
 		//Group 3 Prefixes
-		if .OpSizeOverride in op.Prefixes {buf[bytes_written] = prefix_value[.OpSizeOverride];bytes_written += 1}
+		if .OpSizeOverride in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.OpSizeOverride];bytes_written += 1}
 		//Group 4 Prefixes
-		if .AddressSizeOverride in op.Prefixes {buf[bytes_written] = prefix_value[.AddressSizeOverride];bytes_written += 1}
+		if .AddressSizeOverride in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.AddressSizeOverride];bytes_written += 1}
 	}
 	if should_use_rex(..op.operands) && .REX_Enable in op.Prefixes {
 		rex: u8 = 0b0100_0000

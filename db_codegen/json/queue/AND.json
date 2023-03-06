@@ -1,0 +1,218 @@
+{
+  "mnemonic": "AND",
+  "summary": "Logical AND",
+  "index": 28,
+  "instructions": [
+    {
+      "opcode": "24 ib",
+      "instr": "AND AL, imm8",
+      "op_en": "I",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "AL AND imm8."
+    },
+    {
+      "opcode": "25 iw",
+      "instr": "AND AX, imm16",
+      "op_en": "I",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "AX AND imm16."
+    },
+    {
+      "opcode": "25 id",
+      "instr": "AND EAX, imm32",
+      "op_en": "I",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "EAX AND imm32."
+    },
+    {
+      "opcode": "REX.W + 25 id",
+      "instr": "AND RAX, imm32",
+      "op_en": "I",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "RAX AND imm32 sign-extended to 64-bits."
+    },
+    {
+      "opcode": "80 /4 ib",
+      "instr": "AND r/m8, imm8",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r/m8 AND imm8."
+    },
+    {
+      "opcode": "REX + 80 /4 ib",
+      "instr": "AND r/m8*, imm8",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "r/m8 AND imm8."
+    },
+    {
+      "opcode": "81 /4 iw",
+      "instr": "AND r/m16, imm16",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r/m16 AND imm16."
+    },
+    {
+      "opcode": "81 /4 id",
+      "instr": "AND r/m32, imm32",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r/m32 AND imm32."
+    },
+    {
+      "opcode": "REX.W + 81 /4 id",
+      "instr": "AND r/m64, imm32",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "r/m64 AND imm32 sign extended to 64-bits."
+    },
+    {
+      "opcode": "83 /4 ib",
+      "instr": "AND r/m16, imm8",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r/m16 AND imm8 (sign-extended)."
+    },
+    {
+      "opcode": "83 /4 ib",
+      "instr": "AND r/m32, imm8",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r/m32 AND imm8 (sign-extended)."
+    },
+    {
+      "opcode": "REX.W + 83 /4 ib",
+      "instr": "AND r/m64, imm8",
+      "op_en": "MI",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "r/m64 AND imm8 (sign-extended)."
+    },
+    {
+      "opcode": "20 /r",
+      "instr": "AND r/m8, r8",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r/m8 AND r8."
+    },
+    {
+      "opcode": "REX + 20 /r",
+      "instr": "AND r/m8*, r8*",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "r/m64 AND r8 (sign-extended)."
+    },
+    {
+      "opcode": "21 /r",
+      "instr": "AND r/m16, r16",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r/m16 AND r16."
+    },
+    {
+      "opcode": "21 /r",
+      "instr": "AND r/m32, r32",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r/m32 AND r32."
+    },
+    {
+      "opcode": "REX.W + 21 /r",
+      "instr": "AND r/m64, r64",
+      "op_en": "MR",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "r/m64 AND r32."
+    },
+    {
+      "opcode": "22 /r",
+      "instr": "AND r8, r/m8",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r8 AND r/m8."
+    },
+    {
+      "opcode": "REX + 22 /r",
+      "instr": "AND r8*, r/m8*",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "r/m64 AND r8 (sign-extended)."
+    },
+    {
+      "opcode": "23 /r",
+      "instr": "AND r16, r/m16",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r16 AND r/m16."
+    },
+    {
+      "opcode": "23 /r",
+      "instr": "AND r32, r/m32",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "r32 AND r/m32."
+    },
+    {
+      "opcode": "REX.W + 23 /r",
+      "instr": "AND r64, r/m64",
+      "op_en": "RM",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "r64 AND r/m64."
+    }
+  ],
+  "op_en": [
+    {
+      "op_en": "RM",
+      "tuple_type": "ModRM:reg (r, w)",
+      "operand_1": "ModRM:r/m (r)",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "MR",
+      "tuple_type": "ModRM:r/m (r, w)",
+      "operand_1": "ModRM:reg (r)",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "MI",
+      "tuple_type": "ModRM:r/m (r, w)",
+      "operand_1": "imm8/16/32",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "I",
+      "tuple_type": "AL/AX/EAX/RAX",
+      "operand_1": "imm8/16/32",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    }
+  ],
+  "page_desc": [
+    "Performs a bitwise AND operation on the destination (first) and source (second) operands and stores the result in the destination operand location. The source operand can be an immediate, a register, or a memory location; the destination operand can be a register or a memory location. (However, two memory operands cannot be used in one instruction.) Each bit of the result is set to 1 if both corresponding bits of the first and second operands are 1; otherwise, it is set to 0.",
+    "This instruction can be used with a LOCK prefix to allow the it to be executed atomically.",
+    "In 64-bit mode, the instruction\u2019s default operation size is 32 bits. Using a REX prefix in the form of REX.R permits access to additional registers (R8-R15). Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the summary chart at the beginning of this section for encoding data and limits."
+  ]
+}

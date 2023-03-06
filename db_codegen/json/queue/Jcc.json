@@ -1,0 +1,791 @@
+{
+  "mnemonic": "Jcc",
+  "summary": "Jump if Condition Is Met",
+  "index": 253,
+  "instructions": [
+    {
+      "opcode": "77 cb",
+      "instr": "JA rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if above (CF=0 and ZF=0)."
+    },
+    {
+      "opcode": "73 cb",
+      "instr": "JAE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if above or equal (CF=0)."
+    },
+    {
+      "opcode": "72 cb",
+      "instr": "JB rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if below (CF=1)."
+    },
+    {
+      "opcode": "76 cb",
+      "instr": "JBE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if below or equal (CF=1 or ZF=1)."
+    },
+    {
+      "opcode": "72 cb",
+      "instr": "JC rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if carry (CF=1)."
+    },
+    {
+      "opcode": "E3 cb",
+      "instr": "JCXZ rel8",
+      "op_en": "D",
+      "x64": "N.E.",
+      "x32": "Valid",
+      "desc": "Jump short if CX register is 0."
+    },
+    {
+      "opcode": "E3 cb",
+      "instr": "JECXZ rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if ECX register is 0."
+    },
+    {
+      "opcode": "E3 cb",
+      "instr": "JRCXZ rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Jump short if RCX register is 0."
+    },
+    {
+      "opcode": "74 cb",
+      "instr": "JE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if equal (ZF=1)."
+    },
+    {
+      "opcode": "7F cb",
+      "instr": "JG rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if greater (ZF=0 and SF=OF)."
+    },
+    {
+      "opcode": "7D cb",
+      "instr": "JGE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if greater or equal (SF=OF)."
+    },
+    {
+      "opcode": "7C cb",
+      "instr": "JL rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if less (SF=\u0338 OF)."
+    },
+    {
+      "opcode": "7E cb",
+      "instr": "JLE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if less or equal (ZF=1 or SF=\u0338 OF)."
+    },
+    {
+      "opcode": "76 cb",
+      "instr": "JNA rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not above (CF=1 or ZF=1)."
+    },
+    {
+      "opcode": "72 cb",
+      "instr": "JNAE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not above or equal (CF=1)."
+    },
+    {
+      "opcode": "73 cb",
+      "instr": "JNB rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not below (CF=0)."
+    },
+    {
+      "opcode": "77 cb",
+      "instr": "JNBE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not below or equal (CF=0 and ZF=0)."
+    },
+    {
+      "opcode": "73 cb",
+      "instr": "JNC rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not carry (CF=0)."
+    },
+    {
+      "opcode": "75 cb",
+      "instr": "JNE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not equal (ZF=0)."
+    },
+    {
+      "opcode": "7E cb",
+      "instr": "JNG rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not greater (ZF=1 or SF=\u0338 OF)."
+    },
+    {
+      "opcode": "7C cb",
+      "instr": "JNGE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not greater or equal (SF=\u0338 OF)."
+    },
+    {
+      "opcode": "7D cb",
+      "instr": "JNL rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not less (SF=OF)."
+    },
+    {
+      "opcode": "7F cb",
+      "instr": "JNLE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not less or equal (ZF=0 and SF=OF)."
+    },
+    {
+      "opcode": "71 cb",
+      "instr": "JNO rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not overflow (OF=0)."
+    },
+    {
+      "opcode": "7B cb",
+      "instr": "JNP rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not parity (PF=0)."
+    },
+    {
+      "opcode": "79 cb",
+      "instr": "JNS rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not sign (SF=0)."
+    },
+    {
+      "opcode": "75 cb",
+      "instr": "JNZ rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if not zero (ZF=0)."
+    },
+    {
+      "opcode": "70 cb",
+      "instr": "JO rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if overflow (OF=1)."
+    },
+    {
+      "opcode": "7A cb",
+      "instr": "JP rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if parity (PF=1)."
+    },
+    {
+      "opcode": "7A cb",
+      "instr": "JPE rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if parity even (PF=1)."
+    },
+    {
+      "opcode": "7B cb",
+      "instr": "JPO rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if parity odd (PF=0)."
+    },
+    {
+      "opcode": "78 cb",
+      "instr": "JS rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if sign (SF=1)."
+    },
+    {
+      "opcode": "74 cb",
+      "instr": "JZ rel8",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump short if zero (ZF = 1)."
+    },
+    {
+      "opcode": "0F 87 cw",
+      "instr": "JA rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if above (CF=0 and ZF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 87 cd",
+      "instr": "JA rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if above (CF=0 and ZF=0)."
+    },
+    {
+      "opcode": "0F 83 cw",
+      "instr": "JAE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if above or equal (CF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 83 cd",
+      "instr": "JAE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if above or equal (CF=0)."
+    },
+    {
+      "opcode": "0F 82 cw",
+      "instr": "JB rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if below (CF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 82 cd",
+      "instr": "JB rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if below (CF=1)."
+    },
+    {
+      "opcode": "0F 86 cw",
+      "instr": "JBE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if below or equal (CF=1 or ZF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 86 cd",
+      "instr": "JBE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if below or equal (CF=1 or ZF=1)."
+    },
+    {
+      "opcode": "0F 82 cw",
+      "instr": "JC rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if carry (CF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 82 cd",
+      "instr": "JC rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if carry (CF=1)."
+    },
+    {
+      "opcode": "0F 84 cw",
+      "instr": "JE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if equal (ZF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 84 cd",
+      "instr": "JE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if equal (ZF=1)."
+    },
+    {
+      "opcode": "0F 84 cw",
+      "instr": "JZ rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if 0 (ZF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 84 cd",
+      "instr": "JZ rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if 0 (ZF=1)."
+    },
+    {
+      "opcode": "0F 8F cw",
+      "instr": "JG rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if greater (ZF=0 and SF=OF). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8F cd",
+      "instr": "JG rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if greater (ZF=0 and SF=OF)."
+    },
+    {
+      "opcode": "0F 8D cw",
+      "instr": "JGE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if greater or equal (SF=OF). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8D cd",
+      "instr": "JGE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if greater or equal (SF=OF)."
+    },
+    {
+      "opcode": "0F 8C cw",
+      "instr": "JL rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if less (SF=\u0338 OF). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8C cd",
+      "instr": "JL rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if less (SF=\u0338 OF)."
+    },
+    {
+      "opcode": "0F 8E cw",
+      "instr": "JLE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if less or equal (ZF=1 or SF=\u0338 OF). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8E cd",
+      "instr": "JLE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if less or equal (ZF=1 or SF=\u0338 OF)."
+    },
+    {
+      "opcode": "0F 86 cw",
+      "instr": "JNA rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not above (CF=1 or ZF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 86 cd",
+      "instr": "JNA rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not above (CF=1 or ZF=1)."
+    },
+    {
+      "opcode": "0F 82 cw",
+      "instr": "JNAE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not above or equal (CF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 82 cd",
+      "instr": "JNAE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not above or equal (CF=1)."
+    },
+    {
+      "opcode": "0F 83 cw",
+      "instr": "JNB rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not below (CF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 83 cd",
+      "instr": "JNB rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not below (CF=0)."
+    },
+    {
+      "opcode": "0F 87 cw",
+      "instr": "JNBE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not below or equal (CF=0 and ZF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 87 cd",
+      "instr": "JNBE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not below or equal (CF=0 and ZF=0)."
+    },
+    {
+      "opcode": "0F 83 cw",
+      "instr": "JNC rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not carry (CF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 83 cd",
+      "instr": "JNC rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not carry (CF=0)."
+    },
+    {
+      "opcode": "0F 85 cw",
+      "instr": "JNE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not equal (ZF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 85 cd",
+      "instr": "JNE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not equal (ZF=0)."
+    },
+    {
+      "opcode": "0F 8E cw",
+      "instr": "JNG rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not greater (ZF=1 or SF=\u0338 OF). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8E cd",
+      "instr": "JNG rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not greater (ZF=1 or SF=\u0338 OF)."
+    },
+    {
+      "opcode": "0F 8C cw",
+      "instr": "JNGE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not greater or equal (SF=\u0338 OF). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8C cd",
+      "instr": "JNGE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not greater or equal (SF=\u0338 OF)."
+    },
+    {
+      "opcode": "0F 8D cw",
+      "instr": "JNL rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not less (SF=OF). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8D cd",
+      "instr": "JNL rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not less (SF=OF)."
+    },
+    {
+      "opcode": "0F 8F cw",
+      "instr": "JNLE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not less or equal (ZF=0 and SF=OF). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8F cd",
+      "instr": "JNLE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not less or equal (ZF=0 and SF=OF)."
+    },
+    {
+      "opcode": "0F 81 cw",
+      "instr": "JNO rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not overflow (OF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 81 cd",
+      "instr": "JNO rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not overflow (OF=0)."
+    },
+    {
+      "opcode": "0F 8B cw",
+      "instr": "JNP rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not parity (PF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8B cd",
+      "instr": "JNP rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not parity (PF=0)."
+    },
+    {
+      "opcode": "0F 89 cw",
+      "instr": "JNS rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not sign (SF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 89 cd",
+      "instr": "JNS rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not sign (SF=0)."
+    },
+    {
+      "opcode": "0F 85 cw",
+      "instr": "JNZ rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if not zero (ZF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 85 cd",
+      "instr": "JNZ rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if not zero (ZF=0)."
+    },
+    {
+      "opcode": "0F 80 cw",
+      "instr": "JO rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if overflow (OF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 80 cd",
+      "instr": "JO rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if overflow (OF=1)."
+    },
+    {
+      "opcode": "0F 8A cw",
+      "instr": "JP rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if parity (PF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8A cd",
+      "instr": "JP rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if parity (PF=1)."
+    },
+    {
+      "opcode": "0F 8A cw",
+      "instr": "JPE rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if parity even (PF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8A cd",
+      "instr": "JPE rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if parity even (PF=1)."
+    },
+    {
+      "opcode": "0F 8B cw",
+      "instr": "JPO rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if parity odd (PF=0). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 8B cd",
+      "instr": "JPO rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if parity odd (PF=0)."
+    },
+    {
+      "opcode": "0F 88 cw",
+      "instr": "JS rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if sign (SF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 88 cd",
+      "instr": "JS rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if sign (SF=1)."
+    },
+    {
+      "opcode": "0F 84 cw",
+      "instr": "JZ rel16",
+      "op_en": "D",
+      "x64": "N.S.",
+      "x32": "Valid",
+      "desc": "Jump near if 0 (ZF=1). Not supported in 64-bit mode."
+    },
+    {
+      "opcode": "0F 84 cd",
+      "instr": "JZ rel32",
+      "op_en": "D",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Jump near if 0 (ZF=1)."
+    }
+  ],
+  "op_en": [
+    {
+      "op_en": "D",
+      "tuple_type": "Offset",
+      "operand_1": "NA",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    }
+  ],
+  "page_desc": [
+    "Checks the state of one or more of the status flags in the EFLAGS register (CF, OF, PF, SF, and ZF) and, if the flags are in the specified state (condition), performs a jump to the target instruction specified by the destination operand. A condition code (cc) is associated with each instruction to indicate the condition being tested for. If the condition is not satisfied, the jump is not performed and execution continues with the instruction following the Jccinstruction.",
+    "The target instruction is specified with a relative offset (a signed offset relative to the current value of the instruction pointer in the EIP register). A relative offset (rel8,rel16,orrel32) is generally specified as a label in assembly code, but at the machine code level, it is encoded as a signed, 8-bit or 32-bit immediate value, which is added to the instruction pointer. Instruction coding is most efficient for offsets of \u2013128 to +127. If the operand-size attribute is 16, the upper two bytes of the EIP register are cleared, resulting in a maximum instruction pointer size of 16 bits.",
+    "The conditions for each Jccmnemonic are given in the \u201cDescription\u201d column of the table on the preceding page. The terms \u201cless\u201d and \u201cgreater\u201d are used for comparisons of signed integers and the terms \u201cabove\u201d and \u201cbelow\u201d are used for unsigned integers.",
+    "Because a particular state of the status flags can sometimes be interpreted in two ways, two mnemonics are defined for some opcodes. For example, the JA (jump if above) instruction and the JNBE (jump if not below or equal) instruction are alternate mnemonics for the opcode 77H.",
+    "The Jccinstruction does not support far jumps (jumps to other code segments). When the target for the conditional jump is in a different segment, use the opposite condition from the condition being tested for the Jccinstruction, and then access the target with an unconditional far jump (JMP instruction) to the other segment. For example, the following conditional far jump is illegal:",
+    "JZ FARLABEL;",
+    "To accomplish this far jump, use the following two instructions:",
+    "JNZ BEYOND;",
+    "JMP FARLABEL;",
+    "BEYOND:",
+    "The JRCXZ, JECXZ and JCXZ instructions differ from other Jccinstructions because they do not check status flags. Instead, they check RCX, ECX or CX for 0. The register checked is determined by the address-size attribute. These instructions are useful when used at the beginning of a loop that terminates with a conditional loop instruction (such as LOOPNE). They can be used to prevent an instruction sequence from entering a loop when RCX, ECX or CX is 0. This would cause the loop to execute 264, 232or 64K times (not zero times).",
+    "All conditional jumps are converted to code fetches of one or two cache lines, regardless of jump address or cache-ability.",
+    "In 64-bit mode, operand size is fixed at 64 bits. JMP Short is RIP = RIP + 8-bit offset sign extended to 64 bits. JMP Near is RIP = RIP + 32-bit offset sign extended to 64 bits."
+  ]
+}

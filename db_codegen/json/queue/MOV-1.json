@@ -1,0 +1,75 @@
+{
+  "mnemonic": "MOV",
+  "summary": "Move to/from Control Registers",
+  "index": 346,
+  "instructions": [
+    {
+      "opcode": "0F 20/r MOV r32, CR0\u2013CR7",
+      "op_en": "MR",
+      "x64_x32": "N.E.",
+      "feature_flag": "Valid",
+      "desc": "Move control register to r32."
+    },
+    {
+      "opcode": "0F 20/r MOV r64, CR0\u2013CR7",
+      "op_en": "MR",
+      "x64_x32": "Valid",
+      "feature_flag": "N.E.",
+      "desc": "Move extended control register to r64."
+    },
+    {
+      "opcode": "REX.R + 0F 20 /0 MOV r64, CR8",
+      "op_en": "MR",
+      "x64_x32": "Valid",
+      "feature_flag": "N.E.",
+      "desc": "Move extended CR8 to r64.1"
+    },
+    {
+      "opcode": "0F 22 /r MOV CR0\u2013CR7, r32",
+      "op_en": "RM",
+      "x64_x32": "N.E.",
+      "feature_flag": "Valid",
+      "desc": "Move r32 to control register."
+    },
+    {
+      "opcode": "0F 22 /r MOV CR0\u2013CR7, r64",
+      "op_en": "RM",
+      "x64_x32": "Valid",
+      "feature_flag": "N.E.",
+      "desc": "Move r64 to extended control register."
+    },
+    {
+      "opcode": "REX.R + 0F 22 /0 MOV CR8, r64",
+      "op_en": "RM",
+      "x64_x32": "Valid",
+      "feature_flag": "N.E.",
+      "desc": "Move r64 to extended CR8.1"
+    }
+  ],
+  "op_en": [
+    {
+      "op_en": "MR",
+      "tuple_type": "ModRM:r/m (w)",
+      "operand_1": "ModRM:reg (r)",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "RM",
+      "tuple_type": "ModRM:reg (w)",
+      "operand_1": "ModRM:r/m (r)",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    }
+  ],
+  "page_desc": [
+    "Moves the contents of a control register (CR0, CR2, CR3, CR4, or CR8) to a general-purpose register or the contents of a general-purpose register to a control register. The operand size for these instructions is always 32 bits in non-64-bit modes, regardless of the operand-size attribute. On a 64-bit capable processor, an execution of MOV to CR outside of 64-bit mode zeros the upper 32 bits of the control register. (See \u201cControl Registers\u201d in Chapter 2 of theIntel\u00ae 64 and IA-32 Architectures Software Developer\u2019s Manual, Volume 3A, for a detailed description of the flags and fields in the control registers.) This instruction can be executed only when the current privilege level is 0.",
+    "At the opcode level, theregfield within the ModR/M byte specifies which of the control registers is loaded or read. The 2 bits in themodfield are ignored. Ther/mfield specifies the general-purpose register loaded or read. Some of the bits in CR0, CR3 and CR4 are reserved and must be written with zeros. Attempting to set any reserved bits in CR0[31:0] is ignored. Attempting to set any reserved bits in CR0[63:32] results in a general-protection exception, #GP(0). When PCIDs are not enabled, bits 2:0 and bits 11:5 of CR3 are not used and attempts to set them are ignored. Attempting to set any reserved bits in CR3[63:MAXPHYADDR] results in #GP(0). Attempting to set any reserved bits in CR4 results in #GP(0). On Pentium 4, Intel Xeon and P6 family processors, CR0.ET remains set after any load of CR0; attempts to clear this bit have no impact.",
+    "In certain cases, these instructions have the side effect of invalidating entries in the TLBs and the paging-structure caches. See Section 4.10.4.1, \u201cOperations that Invalidate TLBs and Paging-Structure Caches,\u201d in theIntel\u00ae 64 and IA-32 Architectures Software Developer\u2019s Manual, Volume 3Afor details.",
+    "The following side effects are implementation-specific for the Pentium 4, Intel Xeon, and P6 processor family: when modifying PE or PG in register CR0, or PSE or PAE in register CR4, all TLB entries are flushed, including global entries. Software should not depend on this functionality in all Intel 64 or IA-32 processors.",
+    "In 64-bit mode, the instruction\u2019s default operation size is 64 bits. The REX.R prefix must be used to access CR8. Use of REX.B permits access to additional registers (R8-R15). Use of the REX.W prefix or 66H prefix is ignored. Use of",
+    "the REX.R prefix to specify a register other than CR8 causes an invalid-opcode exception. See the summary chart at the beginning of this section for encoding data and limits.",
+    "If CR4.PCIDE = 1, bit 63 of the source operand to MOV to CR3 determines whether the instruction invalidates entries in the TLBs and the paging-structure caches (see Section 4.10.4.1, \u201cOperations that Invalidate TLBs and Paging-Structure Caches,\u201d in theIntel\u00ae 64 and IA-32 Architectures Software Developer\u2019s Manual, Volume 3A). The instruction does not modify bit 63 of CR3, which is reserved and always 0.",
+    "See \u201cChanges to Instruction Behavior in VMX Non-Root Operation\u201d in Chapter 25 of theIntel\u00ae 64 and IA-32 Architectures Software Developer\u2019s Manual, Volume 3C, for more information about the behavior of this instruction in VMX non-root operation."
+  ]
+}

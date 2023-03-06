@@ -1,0 +1,84 @@
+{
+  "mnemonic": "INC",
+  "summary": "Increment by 1",
+  "index": 234,
+  "instructions": [
+    {
+      "opcode": "FE /0",
+      "instr": "INC r/m8",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Increment r/m byte by 1."
+    },
+    {
+      "opcode": "REX + FE /0",
+      "instr": "INC r/m8*",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Increment r/m byte by 1."
+    },
+    {
+      "opcode": "FF /0",
+      "instr": "INC r/m16",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Increment r/m word by 1."
+    },
+    {
+      "opcode": "FF /0",
+      "instr": "INC r/m32",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Increment r/m doubleword by 1."
+    },
+    {
+      "opcode": "REX.W + FF /0",
+      "instr": "INC r/m64",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Increment r/m quadword by 1."
+    },
+    {
+      "opcode": "40+ rw**",
+      "instr": "INC r16",
+      "op_en": "O",
+      "x64": "N.E.",
+      "x32": "Valid",
+      "desc": "Increment word register by 1."
+    },
+    {
+      "opcode": "40+ rd",
+      "instr": "INC r32",
+      "op_en": "O",
+      "x64": "N.E.",
+      "x32": "Valid",
+      "desc": "Increment doubleword register by 1."
+    }
+  ],
+  "op_en": [
+    {
+      "op_en": "M",
+      "tuple_type": "ModRM:r/m (r, w)",
+      "operand_1": "NA",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    },
+    {
+      "op_en": "O",
+      "tuple_type": "opcode + rd (r, w)",
+      "operand_1": "NA",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    }
+  ],
+  "page_desc": [
+    "Adds 1 to the destination operand, while preserving the state of the CF flag. The destination operand can be a register or a memory location. This instruction allows a loop counter to be updated without disturbing the CF flag. (Use a ADD instruction with an immediate operand of 1 to perform an increment operation that does updates the CF flag.)",
+    "This instruction can be used with a LOCK prefix to allow the instruction to be executed atomically.",
+    "In 64-bit mode, INC r16 and INC r32 are not encodable (because opcodes 40H through 47H are REX prefixes). Otherwise, the instruction\u2019s 64-bit mode default operation size is 32 bits. Use of the REX.R prefix permits access to additional registers (R8-R15). Use of the REX.W prefix promotes operation to 64 bits."
+  ]
+}

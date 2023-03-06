@@ -1,0 +1,61 @@
+{
+  "mnemonic": "NEG",
+  "summary": "Two's Complement Negation",
+  "index": 397,
+  "instructions": [
+    {
+      "opcode": "F6 /3",
+      "instr": "NEG r/m8",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Two's complement negate r/m8."
+    },
+    {
+      "opcode": "REX + F6 /3",
+      "instr": "NEG r/m8*",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Two's complement negate r/m8."
+    },
+    {
+      "opcode": "F7 /3",
+      "instr": "NEG r/m16",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Two's complement negate r/m16."
+    },
+    {
+      "opcode": "F7 /3",
+      "instr": "NEG r/m32",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "Valid",
+      "desc": "Two's complement negate r/m32."
+    },
+    {
+      "opcode": "REX.W + F7 /3",
+      "instr": "NEG r/m64",
+      "op_en": "M",
+      "x64": "Valid",
+      "x32": "N.E.",
+      "desc": "Two's complement negate r/m64."
+    }
+  ],
+  "op_en": [
+    {
+      "op_en": "M",
+      "tuple_type": "ModRM:r/m (r, w)",
+      "operand_1": "NA",
+      "operand_2": "NA",
+      "operand_3": "NA"
+    }
+  ],
+  "page_desc": [
+    "Replaces the value of operand (the destination operand) with its two's complement. (This operation is equivalent to subtracting the operand from 0.) The destination operand is located in a general-purpose register or a memory location.",
+    "This instruction can be used with a LOCK prefix to allow the instruction to be executed atomically.",
+    "In 64-bit mode, the instruction\u2019s default operation size is 32 bits. Using a REX prefix in the form of REX.R permits access to additional registers (R8-R15). Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the summary chart at the beginning of this section for encoding data and limits."
+  ]
+}
