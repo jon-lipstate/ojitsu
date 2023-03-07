@@ -494,10 +494,10 @@
     },
     {
       "op_en": "MC",
-      "tuple_type": "ModRM:r/m (w)",
-      "operand_1": "CL",
-      "operand_2": "NA",
-      "operand_3": "NA"
+      "operand_1": "ModRM:r/m (w)",
+      "operand_2": "CL",
+      "operand_3": "NA",
+      "operand_4": "NA"
     },
     {
       "op_en": "MI",

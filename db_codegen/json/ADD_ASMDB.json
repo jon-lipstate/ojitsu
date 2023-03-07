@@ -1,0 +1,135 @@
+[
+  [
+    "add",
+    "x:al, ib/ub",
+    "I",
+    "04 ib",
+    "ANY AltForm      OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "x:ax, iw/uw",
+    "I",
+    "66 05 iw",
+    "ANY AltForm      OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:eax, id/ud",
+    "I",
+    "05 id",
+    "ANY AltForm      OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:rax, id",
+    "I",
+    "REX.W 05 id",
+    "X64 AltForm      OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "x:r8/m8, ib/ub",
+    "MI",
+    "80 /0 ib",
+    "ANY _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "x:r16/m16, iw/uw",
+    "MI",
+    "66 81 /0 iw",
+    "ANY _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:r32/m32, id/ud",
+    "MI",
+    "81 /0 id",
+    "ANY _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:r64/m64, id",
+    "MI",
+    "REX.W 81 /0 id",
+    "X64 _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "x:r16/m16, ib",
+    "MI",
+    "66 83 /0 ib",
+    "ANY _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:r32/m32, ib",
+    "MI",
+    "83 /0 ib",
+    "ANY _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:r64/m64, ib",
+    "MI",
+    "REX.W 83 /0 ib",
+    "X64 _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "x:~r8/m8,~r8",
+    "MR",
+    "00 /r",
+    "ANY _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "x:~r16/m16,~r16",
+    "MR",
+    "66 01 /r",
+    "ANY _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:~r32/m32,~r32",
+    "MR",
+    "01 /r",
+    "ANY _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:~r64/m64,~r64",
+    "MR",
+    "REX.W 01 /r",
+    "X64 _XLock       OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "x:~r8,~r8/m8",
+    "RM",
+    "02 /r",
+    "ANY              OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "x:~r16,~r16/m16",
+    "RM",
+    "66 03 /r",
+    "ANY              OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:~r32,~r32/m32",
+    "RM",
+    "03 /r",
+    "ANY              OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ],
+  [
+    "add",
+    "X:~r64,~r64/m64",
+    "RM",
+    "REX.W 03 /r",
+    "X64              OF=W SF=W ZF=W AF=W PF=W CF=W"
+  ]
+]

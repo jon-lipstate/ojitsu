@@ -1,3 +1,3 @@
 @echo off
 cd %~dp0
-odin run . -collection:profiling=profiling -out:jit.exe -debug
+odin build . -collection:profiling=profiling -out:jit.exe -debug

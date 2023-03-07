@@ -30,6 +30,7 @@ main :: proc() {
 	ret(main)
 	fn_ptr := transmute(proc(x: i64) -> i64)assemble(&a)
 }
+// jcc :: #force_inline proc(p: ^Procedure, cc: ConditionCode) {/*coded_jump := `map[ConditionCode]Mnemonic` into correct code*/push_op(p, coded_jump)}
 add :: #force_inline proc(p: ^Procedure, dest: Operand, src: Operand) {push_op(p, .add, dest, src)}
 mov :: #force_inline proc(p: ^Procedure, dest: Operand, src: Operand) {push_op(p, .mov, dest, src)}
 ret :: #force_inline proc(p: ^Procedure) {push_op(p, .ret)}
@@ -55,7 +56,7 @@ assemble :: proc(a: ^Asm) -> rawptr {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	m := get_main_proc(a) // TODO: TEMP ONLY DO MAIN PROC FOR NOW
 	tmp := make([]u8, 4096) // TODO: estimate mem size directly from len instructions, direct VAlloc by est / page sizes
-	operand_flags := [4]OperandFlag{}
+	sized_ops := [4]SizedKind{}
 	tmpbuf := [4]u8{}
 	current_offset := 0
 	label_offsets := map[rawptr]int{}
@@ -71,12 +72,12 @@ assemble :: proc(a: ^Asm) -> rawptr {
 			pfx := i.prefixes
 			if m != .mov do continue
 			for arg, i in args {
-				operand_flags[i] = get_operand_flag(args[i])
+				sized_ops[i] = get_sized_kind(args[i])
 			}
 			// fmt.println(m, operand_flags[:len(args)])
-			d := get_descriptor({.x86, .x64}, ..operand_flags[:len(args)])
+			d := get_descriptor({.x86, .x64}, ..sized_ops[:len(args)])
 			// fmt.printf("0x%X\n", d)
-			op := lookup_wrap(d)
+			op := &movs[d]
 			if d not_in movs {
 				panic(fmt.tprintf("No matching instruction for `%v %v %v`\n", m, args[0], args[1]))
 			}
@@ -88,74 +89,69 @@ assemble :: proc(a: ^Asm) -> rawptr {
 			bytes_written := encode_instruction(op, tmpbuf[:], i)
 		// fmt.printf("Written: %X, [%X,%X,%X,%X]\n", bytes_written, tmpbuf[0], tmpbuf[1], tmpbuf[2], tmpbuf[3])
 		}
-		mem.zero_slice(operand_flags[:])
+		mem.zero_slice(sized_ops[:])
 	}
 	return nil
 }
 
-lookup_wrap :: proc(d: InstrDesc) -> ^Opcode {
-	spall.event_scope(&ctx, &buffer, #procedure)
-	return &movs[d]
-}
-encode_instruction :: proc(op: ^Opcode, buf: []u8, instr: ArgsInstruction) -> int {
+encode_instruction :: proc(op: ^Instruction_ISR, buf: []u8, instr: ArgsInstruction) -> int {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	bytes_written := 0
-	if op.Prefixes != nil {
-		//Group 1 Prefixes
-		if .Lock in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.Lock];bytes_written += 1}
-		if .REPNZ in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.REPNZ];bytes_written += 1}
-		if .REP in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.REP];bytes_written += 1}
-		if .BND in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.BND];bytes_written += 1} 	// todo: test for rules (pdf pg-525) ?
-		//Group 2 Prefixes
-		if .CS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.CS_Override];bytes_written += 1}
-		if .SS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.SS_Override];bytes_written += 1}
-		if .DS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.DS_Override];bytes_written += 1}
-		if .ES_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.ES_Override];bytes_written += 1}
-		if .FS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.FS_Override];bytes_written += 1}
-		if .GS_Override in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.GS_Override];bytes_written += 1}
-		if .BranchNotTaken in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.BranchNotTaken];bytes_written += 1}
-		if .BranchTaken in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.BranchTaken];bytes_written += 1}
-		//Group 3 Prefixes
-		if .OpSizeOverride in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.OpSizeOverride];bytes_written += 1}
-		//Group 4 Prefixes
-		if .AddressSizeOverride in op.Prefixes {buf[bytes_written] = PREFIX_VALUES[.AddressSizeOverride];bytes_written += 1}
+	if op.legacy != nil {
+		//Group 1 legacy
+		if .Lock in op.legacy {buf[bytes_written] = PREFIX_VALUES[.Lock];bytes_written += 1}
+		if .REPNZ in op.legacy {buf[bytes_written] = PREFIX_VALUES[.REPNZ];bytes_written += 1}
+		if .REP in op.legacy {buf[bytes_written] = PREFIX_VALUES[.REP];bytes_written += 1}
+		if .BND in op.legacy {buf[bytes_written] = PREFIX_VALUES[.BND];bytes_written += 1} 	// todo: test for rules (pdf pg-525) ?
+		//Group 2 legacy
+		if .CS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.CS_Override];bytes_written += 1}
+		if .SS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.SS_Override];bytes_written += 1}
+		if .DS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.DS_Override];bytes_written += 1}
+		if .ES_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.ES_Override];bytes_written += 1}
+		if .FS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.FS_Override];bytes_written += 1}
+		if .GS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.GS_Override];bytes_written += 1}
+		if .BranchNotTaken in op.legacy {buf[bytes_written] = PREFIX_VALUES[.BranchNotTaken];bytes_written += 1}
+		if .BranchTaken in op.legacy {buf[bytes_written] = PREFIX_VALUES[.BranchTaken];bytes_written += 1}
+		//Group 3 legacy
+		if .OpSizeOverride in op.legacy {buf[bytes_written] = PREFIX_VALUES[.OpSizeOverride];bytes_written += 1}
+		//Group 4 legacy
+		if .AddressSizeOverride in op.legacy {buf[bytes_written] = PREFIX_VALUES[.AddressSizeOverride];bytes_written += 1}
 	}
-	if should_use_rex(..op.operands) && .REX_Enable in op.Prefixes {
+	if should_use_rex(..op.operands) && .REX_Enable in op.rex {
 		rex: u8 = 0b0100_0000
-		if .REX_W in op.Prefixes {rex |= 0b1000}
-		if .REX_R in op.Prefixes {rex |= 0b0100}
-		if .REX_X in op.Prefixes {rex |= 0b0010}
-		if .REX_B in op.Prefixes {rex |= 0b0001}
+		if .REX_W in op.rex {rex |= 0b1000}
+		if .REX_R in op.rex {rex |= 0b0100}
+		if .REX_X in op.rex {rex |= 0b0010}
+		if .REX_B in op.rex {rex |= 0b0001}
 		buf[bytes_written] = rex;bytes_written += 1
 	}
-	for b in op.code {
-		// TODO: LE Encoding |?| do it in the maps...
-		if b > 0x0 {buf[bytes_written] = b;bytes_written += 1}
-	}
-	if .mod_rm in op.opcode_encoding {
-		// TODO: do for real
-		buf[bytes_written] = encode_mod_rm(0b11, instr.args[0].(GeneralPurpose), instr.args[1].(GeneralPurpose))
-		bytes_written += 1
-	} else {
-		for arg in instr.args {
-			//
-		}
-	}
+	// Write Actual Opcode:
+	oc_val := op.opcode | op.opcode_append
+	buf[bytes_written] = oc_val;bytes_written += 1
+
+	// TODO: re-enable ModRM
+	// if .mod_rm in op.opcode_encoding {
+	// 	// TODO: do for real
+	// 	buf[bytes_written] = encode_mod_rm(0b11, instr.args[0].(GeneralPurpose), instr.args[1].(GeneralPurpose))
+	// 	bytes_written += 1
+	// } else {
+	// 	for arg in instr.args {
+	// 		//
+	// 	}
+	// }
 
 	return bytes_written
 }
 encode_mod_rm :: proc(mod: u8, src: GeneralPurpose, dst: GeneralPurpose) -> u8 {
 	spall.event_scope(&ctx, &buffer, #procedure)
-	src_byte := mod_rm_value[src]
-	dest_byte := mod_rm_value[dst]
+	src_byte := MOD_RM_LUT[src]
+	dest_byte := MOD_RM_LUT[dst]
 	//	      mod	         reg                  rm
 	return u8(mod) << 6 | u8(dest_byte) << 3 | u8(src_byte)
 }
-should_use_rex :: proc(operands: ..OperandFlag) -> bool {
+should_use_rex :: proc(operands: ..Operand_ISR) -> bool {
 	spall.event_scope(&ctx, &buffer, #procedure)
-	for o in operands {
-		if get_operand_size(o) == .qword {return true}
-	}
+	for o in operands {if o.size == .Bits_64 {return true}}
 	return false
 }
 Mneumnoic :: enum {
@@ -186,7 +182,7 @@ Instruction :: union {
 }
 ArgsInstruction :: struct {
 	mneumnoic: Mneumnoic,
-	prefixes:  Prefixes,
+	prefixes:  LegacyPrefixes,
 	args:      []Operand,
 }
 
@@ -196,18 +192,4 @@ ArgsInstruction :: struct {
 address_of :: proc(rm: RegMem) -> Operand {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	return nil
-}
-
-ty :: enum {
-	fpu,
-	mmx,
-	xmm,
-	sse,
-	ymm,
-	zmm,
-	//
-	mib,
-	vsib,
-	vex,
-	evex,
 }

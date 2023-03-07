@@ -1,6 +1,7 @@
 package ojitsu
-// Label is empty struct, becomes an address during assembly.
-Label :: struct {} // TODO: Address Forward usage for labels, jump ahead in the bitstream before label has been placed & addr known, handle with temp map to patch up after??
+// TODO: Address Forward usage for labels, jump ahead in the bitstream before label has been placed & addr known, handle with temp map to patch up after??
+// Use a symbol / relocation table
+Label :: struct {}
 Procedure :: struct {
 	buf: [dynamic]Instruction,
 }
@@ -46,13 +47,8 @@ Rel :: struct {}
 Ptr :: struct {} // jmp far [bx+si+0x7401]   jnz near 0x4856
 MOff :: struct {}
 
-// `zax` - mapped to either `eax` or `rax` Z prefix for native size
-
-// ["mov, "W:r64/m64, r64", "MR", "REX.W 89 /r"   , "X64 XRelease"],
-// ["mov, "W:r64/m64, id" , "MI", "REX.W C7 /0 id", "X64 XRelease"],
-// ["mov, "W:r64, r64/m64", "RM", "REX.W 8B /r"   , "X64"],
-
 GeneralPurpose :: enum {
+	Invalid,
 	RAX,
 	R0,
 	EAX,
@@ -170,7 +166,7 @@ GeneralPurpose :: enum {
 	R15B,
 }
 // TODO: Union with XMM?
-mod_rm_value := map[GeneralPurpose]u8 {
+MOD_RM_LUT := map[GeneralPurpose]u8 {
 	.RAX  = 0b000,
 	.R0   = 0b000,
 	.EAX  = 0b000,
