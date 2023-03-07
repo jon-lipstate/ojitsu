@@ -1,8 +1,8 @@
 package ojitsu
 
 //odinfmt: disnable
-adds: []Instruction_ISR = {
-	Instruction_ISR{
+adds: map[InstrDesc]Instruction_ISR = {
+	0x0 = Instruction_ISR{
 		instr_str = "ADD AL, imm8",
 		opcode_str = "04 ib",
 		arch = {.x64, .x86},
@@ -12,7 +12,7 @@ adds: []Instruction_ISR = {
 		opcode = 0x04,
 		operands = {{kind = .Reg, size = .Bits_8, fixed_register = .AL}, {kind = .Imm, size = .Bits_8}},
 	},
-	Instruction_ISR{
+	0x0 = Instruction_ISR{
 		instr_str = "ADD AX, imm16",
 		opcode_str = "05 iw",
 		arch = {.x64, .x86},
@@ -22,7 +22,7 @@ adds: []Instruction_ISR = {
 		opcode = 0x05,
 		operands = {{kind = .Reg, size = .Bits_16, fixed_register = .AX}, {kind = .Imm, size = .Bits_16}},
 	},
-	Instruction_ISR{
+	0x0 = Instruction_ISR{
 		instr_str = "ADD EAX, imm32",
 		opcode_str = "05 id",
 		arch = {.x64, .x86},
@@ -32,7 +32,7 @@ adds: []Instruction_ISR = {
 		opcode = 0x05,
 		operands = {{kind = .Reg, size = .Bits_32, fixed_register = .EAX}, {kind = .Imm, size = .Bits_32}},
 	},
-	Instruction_ISR{
+	0x0 = Instruction_ISR{
 		instr_str = "ADD RAX, imm32",
 		opcode_str = "05 id",
 		arch = {.x64},
@@ -42,7 +42,7 @@ adds: []Instruction_ISR = {
 		opcode = 0x05,
 		operands = {{kind = .RegMem, size = .Bits_64, fixed_register = .RAX}, {kind = .Imm, size = .Bits_32}},
 	}, // Add sign-extended imm32 to RAX
-	Instruction_ISR{
+	0x0 = Instruction_ISR{
 		instr_str = "ADD reg/mem8, imm8 ",
 		opcode_str = "80 /0 ib",
 		arch = {.x64, .x86},
@@ -52,7 +52,7 @@ adds: []Instruction_ISR = {
 		opcode = 0x80,
 		operands = {{kind = .RegMem, size = .Bits_8}, {kind = .Imm, size = .Bits_8, mod_rm = .Reg_0}},
 	},
-	Instruction_ISR{
+	0x0 = Instruction_ISR{
 		instr_str = "ADD reg/mem16, imm16 ",
 		opcode_str = "81 /0 iw",
 		arch = {.x64, .x86},
@@ -62,7 +62,7 @@ adds: []Instruction_ISR = {
 		opcode = 0x81,
 		operands = {{kind = .RegMem, size = .Bits_16}, {kind = .Imm, size = .Bits_16, mod_rm = .Reg_0}},
 	},
-	Instruction_ISR{
+	0x0 = Instruction_ISR{
 		instr_str = "ADD reg/mem32, imm32",
 		opcode_str = "81 /0 id",
 		arch = {.x64, .x86},
@@ -72,7 +72,7 @@ adds: []Instruction_ISR = {
 		opcode = 0x81,
 		operands = {{kind = .RegMem, size = .Bits_32}, {kind = .Imm, size = .Bits_32, mod_rm = .Reg_0}},
 	},
-	Instruction_ISR{
+	0x0 = Instruction_ISR{
 		instr_str = "ADD reg/mem64, imm32",
 		opcode_str = "81 /0 id",
 		arch = {.x64},
@@ -82,7 +82,7 @@ adds: []Instruction_ISR = {
 		opcode = 0x81,
 		operands = {{kind = .RegMem, size = .Bits_64, mod_rm = .RM}, {kind = .Imm, size = .Bits_32, mod_rm = .Reg_0}},
 	},
-	Instruction_ISR{
+	0x0 = Instruction_ISR{
 		instr_str = "ADD reg/mem64, imm32",
 		opcode_str = "81 /0 id",
 		arch = {.x64},

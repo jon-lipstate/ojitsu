@@ -2,7 +2,7 @@ package ojitsu
 import "core:fmt"
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 InstrDesc :: distinct u64
-//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+
 get_descriptor :: proc(arch: Arch, operands: ..SizedKind) -> InstrDesc {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	desc: InstrDesc = 0

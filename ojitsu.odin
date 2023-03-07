@@ -67,7 +67,7 @@ assemble :: proc(a: ^Asm) -> rawptr {
 		case (Label):
 			label_offsets[&instr] = current_offset // TODO: Verify `&instr` is dangling or not
 		case (ArgsInstruction):
-			m := i.mneumnoic
+			m := i.mnemonic
 			args := i.args
 			pfx := i.prefixes
 			if m != .mov do continue
@@ -154,7 +154,7 @@ should_use_rex :: proc(operands: ..Operand_ISR) -> bool {
 	for o in operands {if o.size == .Bits_64 {return true}}
 	return false
 }
-Mneumnoic :: enum {
+Mnemonic :: enum {
 	mov,
 	add,
 	call,
@@ -164,7 +164,7 @@ Mneumnoic :: enum {
 }
 // TODO: Prefixes confuses final varag - find resolution
 import "core:mem"
-push_op :: proc(p: ^Procedure, m: Mneumnoic, args: ..Operand) { 	//, prefixes := Prefixes{}) {
+push_op :: proc(p: ^Procedure, m: Mnemonic, args: ..Operand) { 	//, prefixes := Prefixes{}) {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	append(&p.buf, ArgsInstruction{m, {}, mem.clone_slice(args)}) // TODO: Hunt for other VARARGS NOT getting cloned
 	// fmt.println(len(args), args)
@@ -181,9 +181,9 @@ Instruction :: union {
 	ArgsInstruction,
 }
 ArgsInstruction :: struct {
-	mneumnoic: Mneumnoic,
-	prefixes:  LegacyPrefixes,
-	args:      []Operand,
+	mnemonic: Mnemonic,
+	prefixes: LegacyPrefixes,
+	args:     []Operand,
 }
 
 //[bx+si+0x188] [bx+si-0x7d] [cs:si+0x0]
