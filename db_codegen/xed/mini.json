@@ -1,0 +1,23 @@
+[
+  {
+    "ICLASS": "ADD",
+    "CPL": "3",
+    "CATEGORY": "BINARY",
+    "EXTENSION": "BASE",
+    "ISA_SET": "I86",
+    "FLAGS": "MUST [ of-mod sf-mod zf-mod af-mod pf-mod cf-mod ]",
+    "PATTERN": "0x03 MOD[mm] MOD!=3 REG[rrr] RM[nnn] MODRM()",
+    "OPERANDS": "REG0=GPRv_R():rw MEM0:r:v"
+  },
+  {
+    "ICLASS": "ADD",
+    "CPL": "3",
+    "CATEGORY": "BINARY",
+    "EXTENSION": "BASE",
+    "ISA_SET": "I86",
+    "FLAGS": "MUST [ of-mod sf-mod zf-mod af-mod pf-mod cf-mod ]",
+    "PATTERN": "0x03 MOD[0b11] MOD=3 REG[rrr] RM[nnn]",
+    "OPERANDS": "REG0=GPRv_R():rw REG1=GPRv_B():r",
+    "IFORM": "ADD_GPRv_GPRv_03"
+  }
+]

@@ -1,0 +1,3 @@
+[
+{'ICLASS': 'PAUSE', 'ATTRIBUTES': 'NOTSX', 'CPL': '3', 'CATEGORY': 'MISC', 'EXTENSION': 'PAUSE', 'ISA_SET': 'PAUSE', 'PATTERN': '0b1001_0 SRM[0b000] SRM=0  refining_f3 P4=1', 'OPERANDS': '', 'COMMENT': '2008-06-11 Ignores REX completely. Introduced on PENTIUM4'},
+]

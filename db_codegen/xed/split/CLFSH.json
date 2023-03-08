@@ -1,0 +1,3 @@
+[
+{'ICLASS': 'CLFLUSH', 'ATTRIBUTES': 'NOTSX', 'CPL': '3', 'CATEGORY': 'MISC', 'EXTENSION': 'CLFSH', 'ISA_SET': 'CLFSH', 'PATTERN': '0x0F 0xAE  MOD[mm] MOD!=3 REG[0b111] RM[nnn]  no_refining_prefix MODRM()', 'OPERANDS': 'MEM0:r:mprefetch'},
+]

@@ -1,0 +1,3 @@
+[
+{'ICLASS': 'MOVBE', 'CPL': '3', 'CATEGORY': 'DATAXFER', 'EXTENSION': 'MOVBE', 'COMMENT': 'Intro on Atom Silverthorne. Intercepted by Haswell.', 'PATTERN': '0x0F 0x38 0xF1   not_refining MOD[mm] MOD!=3 REG[rrr] RM[nnn]  MODRM()', 'OPERANDS': 'MEM0:w:v  REG0=GPRv_R():r'},
+]

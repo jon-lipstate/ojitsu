@@ -35,6 +35,9 @@ parser_peek :: proc(p: ^Parser) -> Token {
 	return p.tokens[p.current]
 }
 parser_peek2 :: proc(p: ^Parser) -> Token {
+	if len(p.tokens) <= p.current + 1 {
+		return p.tokens[len(p.tokens) - 1]
+	}
 	return p.tokens[p.current + 1]
 }
 Parser :: struct {
@@ -100,6 +103,8 @@ scan_token :: proc(t: ^Tokenizer) {
 		append(&t.tokens, Token{t.offset, .Colon, ":"})
 	case '+':
 		append(&t.tokens, Token{t.offset, .Plus, "+"})
+	case '!':
+		append(&t.tokens, Token{t.offset, .Bang, "!"})
 	case '-':
 		append(&t.tokens, Token{t.offset, .Minus, "-"})
 	case '=':
@@ -114,24 +119,45 @@ scan_token :: proc(t: ^Tokenizer) {
 		append(&t.tokens, Token{t.offset, .Period, "."})
 	case ' ': // nop
 	case:
-		next_is_alpha := is_alpha(peek(t)) // test for: {1tox} 
-		c_is_digit := is_digit(c)
-		if c_is_digit && next_is_alpha {
-			ident(t)
-		} else if is_digit(c) {
-			number(t)
-		} else if is_alpha(c) {
-			ident(t)
+		next_c := peek(t)
+		if c == '0' && next_c == 'x' {
+			hex(t)
+		} else if c == '0' && next_c == 'b' {
+			binary(t)
 		} else {
-			fmt.printf("INVALID: '%v' (0x%X)\n", rune(c), c)
-			panic("Invalid Token")
+			next_is_alpha := is_alpha(peek(t)) // test for: {1tox} 
+			c_is_digit := is_digit(c)
+			if c_is_digit && next_is_alpha {
+				ident(t)
+			} else if is_digit(c) {
+				number(t)
+			} else if is_alpha(c) {
+				ident(t)
+			} else {
+				fmt.printf("INVALID: '%v' (0x%X)\n", rune(c), c)
+				panic("Invalid Token")
+			}
 		}
+
 	}
 }
 is_at_end :: proc(t: ^Tokenizer) -> bool {
 	return t.offset >= len(t.data)
 }
-
+hex :: proc(t: ^Tokenizer) {
+	start := t.offset - 1
+	if peek(t) == '0' do next(t)
+	if peek(t) == 'x' do next(t)
+	for is_hex_digit(peek(t)) do next(t)
+	append(&t.tokens, Token{start, .Number, string(t.data[start:t.offset])})
+}
+binary :: proc(t: ^Tokenizer) {
+	start := t.offset - 1
+	if peek(t) == '0' do next(t)
+	if peek(t) == 'b' do next(t)
+	for is_binary_digit(peek(t)) do next(t)
+	append(&t.tokens, Token{start, .Number, string(t.data[start:t.offset])})
+}
 number :: proc(t: ^Tokenizer) {
 	start := t.offset - 1
 	for is_digit(peek(t)) do next(t)
@@ -143,6 +169,15 @@ ident :: proc(t: ^Tokenizer) {
 	append(&t.tokens, Token{start, .Ident, string(t.data[start:t.offset])})
 }
 
+is_binary_digit :: proc(c: u8) -> bool {
+	return c == '0' || c == '1' || c == '_'
+}
+is_hex_digit :: proc(c: u8) -> bool {
+	is_digit := c >= '0' && c <= '9'
+	is_hex_lower := (c >= 'a' && c <= 'f')
+	is_hex_upper := (c >= 'A' && c <= 'F')
+	return is_digit || is_hex_lower || is_hex_upper || c == '_'
+}
 is_digit :: proc(c: u8) -> bool {
 	return c >= '0' && c <= '9'
 }
@@ -170,6 +205,7 @@ Token_Kind :: enum {
 	Slash,
 	Tilde,
 	Plus,
+	Bang,
 	Minus,
 	Equals,
 	Period,
