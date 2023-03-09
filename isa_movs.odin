@@ -37,7 +37,7 @@ movs: map[InstrDesc]ISA_Instruction = {
 		opcodes = {0x89},
 		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_16}, {kind = .Gpr, mod_rm = .Reg, size = .Bits_16}},
 	},
-	0x0 = ISA_Instruction{
+	0x82082 = ISA_Instruction{
 		instr_str = "89 /r",
 		opcode_str = "MOV r/m32,r32",
 		arch = {.x64, .x86},

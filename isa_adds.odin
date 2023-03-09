@@ -48,7 +48,7 @@ adds: map[InstrDesc]ISA_Instruction = {
 		opcodes = {0x01},
 		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_16}, {kind = .Gpr, mod_rm = .Reg, size = .Bits_16}},
 	},
-	0x0 = ISA_Instruction{
+	0x82082 = ISA_Instruction{
 		instr_str = "01 /r",
 		opcode_str = "ADD r/m32, r32",
 		arch = {.x64, .x86},

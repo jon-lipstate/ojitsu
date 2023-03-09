@@ -27,9 +27,268 @@ main :: proc() {
 	main := get_main_proc(&a)
 	mov(main, EAX, ECX) // 89C8   mov ax,cx
 	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
+	add(main, EAX, EAX)
 	ret(main)
 	fn_ptr := transmute(proc(x: i64) -> i64)assemble(&a)
-	fmt.println("Call Asm: ", fn_ptr(21))
+	// fmt.println("Call Asm: ", fn_ptr(21))
+	// fmt.println("eof")
 }
 // jcc :: #force_inline proc(p: ^Procedure, cc: ConditionCode) {/*coded_jump := `map[ConditionCode]Mnemonic` into correct code*/push_op(p, coded_jump)}
 add :: #force_inline proc(p: ^Procedure, dest: Operand, src: Operand) {push_op(p, .add, dest, src)}
@@ -40,6 +299,7 @@ make_assembler :: proc(n_procs: int = 1, allocator := context.allocator) -> Asm 
 	spall.event_scope(&ctx, &buffer, #procedure)
 	a := Asm{}
 	a.procs = make([]Procedure, n_procs) // TODO: How to pass for c-allocators..?
+	// a.procs[0].buf = make_dynamic_array_len_cap([dynamic]Instruction, 0, 275)
 	return a
 }
 get_main_proc :: proc(a: ^Asm) -> ^Procedure {
@@ -57,7 +317,6 @@ assemble :: proc(a: ^Asm) -> rawptr {
 	label_offsets := map[rawptr]int{}
 	instructions := m.buf
 	for instr in &instructions {
-		// fmt.println(instr)
 		switch i in instr {
 		case (Label):
 			label_offsets[&instr] = current_offset // TODO: Verify `&instr` is dangling or not
@@ -65,15 +324,15 @@ assemble :: proc(a: ^Asm) -> rawptr {
 			m := i.mnemonic
 			args := i.args
 			pfx := i.prefixes
-			if m != .mov do continue
 			for arg, i in args {
 				sized_ops[i] = get_sized_kind(args[i])
 			}
-			// fmt.println(m, operand_flags[:len(args)])
 			d := get_descriptor({.x86, .x64}, ..sized_ops[:len(args)])
-			// fmt.printf("0x%X\n", d)
-			op := &movs[d]
-			if d not_in movs {
+			// fmt.printf("0x%X, %v\n", d, m)
+			lut := ISA_LUT[m]
+			assert(lut != nil)
+			op := &lut[d]
+			if d not_in lut {
 				panic(fmt.tprintf("No matching instruction for `%v %v %v`\n", m, args[0], args[1]))
 			}
 			// fmt.println(op)
@@ -89,54 +348,56 @@ assemble :: proc(a: ^Asm) -> rawptr {
 	return nil
 }
 
-encode_instruction :: proc(op: ^ISA_Instruction, buf: []u8, instr: ArgsInstruction) -> int {
+encode_instruction :: proc(isa: ^ISA_Instruction, buf: []u8, instr: ArgsInstruction) -> int {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	bytes_written := 0
-	if op.legacy != nil {
+	if isa.legacy != nil {
 		//Group 1 legacy
-		if .Lock in op.legacy {buf[bytes_written] = PREFIX_VALUES[.Lock];bytes_written += 1}
-		if .REPNZ in op.legacy {buf[bytes_written] = PREFIX_VALUES[.REPNZ];bytes_written += 1}
-		if .REP in op.legacy {buf[bytes_written] = PREFIX_VALUES[.REP];bytes_written += 1}
-		if .BND in op.legacy {buf[bytes_written] = PREFIX_VALUES[.BND];bytes_written += 1} 	// todo: test for rules (pdf pg-525) ?
+		if .Lock in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.Lock];bytes_written += 1}
+		if .REPNZ in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.REPNZ];bytes_written += 1}
+		if .REP in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.REP];bytes_written += 1}
+		if .BND in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.BND];bytes_written += 1} 	// todo: test for rules (pdf pg-525) ?
 		//Group 2 legacy
-		if .CS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.CS_Override];bytes_written += 1}
-		if .SS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.SS_Override];bytes_written += 1}
-		if .DS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.DS_Override];bytes_written += 1}
-		if .ES_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.ES_Override];bytes_written += 1}
-		if .FS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.FS_Override];bytes_written += 1}
-		if .GS_Override in op.legacy {buf[bytes_written] = PREFIX_VALUES[.GS_Override];bytes_written += 1}
-		if .BranchNotTaken in op.legacy {buf[bytes_written] = PREFIX_VALUES[.BranchNotTaken];bytes_written += 1}
-		if .BranchTaken in op.legacy {buf[bytes_written] = PREFIX_VALUES[.BranchTaken];bytes_written += 1}
+		if .CS_Override in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.CS_Override];bytes_written += 1}
+		if .SS_Override in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.SS_Override];bytes_written += 1}
+		if .DS_Override in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.DS_Override];bytes_written += 1}
+		if .ES_Override in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.ES_Override];bytes_written += 1}
+		if .FS_Override in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.FS_Override];bytes_written += 1}
+		if .GS_Override in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.GS_Override];bytes_written += 1}
+		if .BranchNotTaken in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.BranchNotTaken];bytes_written += 1}
+		if .BranchTaken in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.BranchTaken];bytes_written += 1}
 		//Group 3 legacy
-		if .OpSizeOverride in op.legacy {buf[bytes_written] = PREFIX_VALUES[.OpSizeOverride];bytes_written += 1}
+		if .OpSizeOverride in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.OpSizeOverride];bytes_written += 1}
 		//Group 4 legacy
-		if .AddressSizeOverride in op.legacy {buf[bytes_written] = PREFIX_VALUES[.AddressSizeOverride];bytes_written += 1}
+		if .AddressSizeOverride in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.AddressSizeOverride];bytes_written += 1}
 	}
-	if should_use_rex(..op.operands) && .REX_Enable in op.rex {
+	if should_use_rex(..isa.operands) && .REX_Enable in isa.rex {
 		rex: u8 = 0b0100_0000
-		if .REX_W in op.rex {rex |= 0b1000}
-		if .REX_R in op.rex {rex |= 0b0100}
-		if .REX_X in op.rex {rex |= 0b0010}
-		if .REX_B in op.rex {rex |= 0b0001}
+		if .REX_W in isa.rex {rex |= 0b1000}
+		if .REX_R in isa.rex {rex |= 0b0100}
+		if .REX_X in isa.rex {rex |= 0b0010}
+		if .REX_B in isa.rex {rex |= 0b0001}
 		buf[bytes_written] = rex;bytes_written += 1
 	}
 	// Write Actual Opcode:
-	for b in op.opcodes {
+	for b in isa.opcodes {
 		buf[bytes_written] = b;bytes_written += 1
 	}
-	buf[bytes_written - 1] |= op.opcode_append
-
+	buf[bytes_written - 1] |= isa.opcode_append
+	if ok, mod_rm := encode_mod_rm(isa, instr); ok {
+		buf[bytes_written] = mod_rm;bytes_written += 1
+	}
 	return bytes_written
 }
-encode_mod_rm :: proc(isa: ^ISA_Instruction, ins: ^ArgsInstruction) -> (bool, u8) {
-	// TODO: Refactor for non MOD=3 intsructions
+encode_mod_rm :: proc(isa: ^ISA_Instruction, ins: ArgsInstruction) -> (bool, u8) {
+	// TODO: Refactor for non-MOD=3 intsructions
 	spall.event_scope(&ctx, &buffer, #procedure)
 	mod_rm: u8 = 0x0
 	if len(isa.operands) == 0 {return false, 0x0}
 	// technically this is wasteful for ops > 2...
-	for isa_op, idx in &isa.operands {
-		op := &ins.args[idx]
-		modify_mod_rm(&mod_rm, &isa_op, op)
+	for isa_op, idx in isa.operands {
+		op := ins.args[idx]
+		modify_mod_rm(&mod_rm, isa_op, op)
 	}
 	// TODO: hard coded reg-reg for now, need full gamut
 	mod_rm |= u8(0b11) << 6
@@ -146,7 +407,8 @@ encode_mod_rm :: proc(isa: ^ISA_Instruction, ins: ^ArgsInstruction) -> (bool, u8
 	//	      mod	         reg                  rm
 	// return u8(mod) << 6 | u8(dest_byte) << 3 | u8(src_byte)
 }
-modify_mod_rm :: proc(mod_rm: ^u8, isa_op: ^ISA_Operand, op: ^Operand) {
+modify_mod_rm :: proc(mod_rm: ^u8, isa_op: ISA_Operand, op: Operand) {
+	spall.event_scope(&ctx, &buffer, #procedure)
 	reg, is_reg := op.(Reg)
 	#partial switch isa_op.mod_rm {
 	case .Reg:
