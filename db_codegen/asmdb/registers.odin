@@ -3,7 +3,7 @@ package asmdb_parser
 RegisterFamily :: enum {
 	Invalid,
 	InstructionPointer,
-	GeneralPurpose,
+	Gpr,
 	Segment,
 	Control,
 	Debug,
@@ -35,10 +35,10 @@ RegInfo :: struct {
 //https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture#Multi-Segmented_Memory_Model
 
 Reg :: union {
-	GeneralPurpose,
+	Gpr,
 	Masks,
 }
-GeneralPurpose :: enum {
+Gpr :: enum {
 	RAX,
 	R0,
 	EAX,

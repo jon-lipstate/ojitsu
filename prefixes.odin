@@ -5,6 +5,7 @@ LegacyPrefixFlag :: enum {
 	None,
 	Escape,
 	EscapeTwice, // 0F 0F (3dNow!)
+	//0F38 - TODO: MISSING 38 PREFIX
 	// Group 1:
 	BND,
 	REPNZ, // Alias: REPNZ. Repeat Not Zero; Applies to String & IO, Mandatory for some

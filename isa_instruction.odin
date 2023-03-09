@@ -7,8 +7,10 @@ ArchFlag :: enum {
 }
 // TODO: keep values or convert to u8? can make sizedkind u16 if so
 Size :: enum u16 {
-	Invalid  = 0,
+	Invalid  = 0xFFFF,
+	Unsized  = 0,
 	Bits_8   = 8,
+	Bits_8H  = 8,
 	Bits_16  = 16,
 	Bits_32  = 32,
 	Bits_64  = 64,
@@ -19,9 +21,9 @@ Size :: enum u16 {
 OperandKind :: enum u8 {
 	Invalid,
 	SegmentReg,
-	Reg,
+	Gpr,
 	Mem,
-	RegMem,
+	Gpr_or_Mem,
 	Imm,
 	Offset,
 }
@@ -30,25 +32,25 @@ SizedKind :: struct {
 	size: Size,
 }
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
-Instruction_ISR :: struct {
+ISA_Instruction :: struct {
 	arch:          Arch, // x86 | x64
 	legacy:        LegacyPrefixes, // Legacy Group 1-4
 	rex:           REX, //  REX
 	vector:        VectorPrefix, // eg: EVEX,XOP,VEX.LZ.66.0F38.W1
-	opcode:        u8,
+	opcodes:       []u8,
 	opcode_append: u8, // +i, +rx
 	//
-	operands:      []Operand_ISR,
+	operands:      []ISA_Operand,
 	extensions:    []Extensions, // AVX SSE etc
 	// TODO: TEMP - Delete:
 	instr_str:     string, // raw str for cross checking
 	opcode_str:    string,
 }
-Operand_ISR :: struct {
+ISA_Operand :: struct {
 	kind:           OperandKind,
 	size:           Size,
 	mod_rm:         ModRM_Flag,
-	fixed_register: GeneralPurpose, // E.g. Targets RAX Only // TODO: Register:: union {} for XMMs
+	fixed_register: Gpr, // E.g. Targets RAX Only // TODO: .ANY_A or bit_set[allowed]
 }
 ModRM_Flag :: enum {
 	None,

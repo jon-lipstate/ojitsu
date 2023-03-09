@@ -1,6 +1,7 @@
 out/
 other/
 ref_data/
+**/json/**
 db_codegen/*.json
 db_codegen/json/old/
 db_codegen/json/unimplemented/

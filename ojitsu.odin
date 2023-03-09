@@ -2,7 +2,7 @@ package ojitsu
 import "core:fmt"
 
 // TODO: Custom Allocator; OS ops can be containerized
-
+// 
 // .data - alloc var spaces
 
 // Profiling
@@ -25,10 +25,11 @@ main :: proc() {
 	// TEMP_descriptors()
 	a := make_assembler()
 	main := get_main_proc(&a)
-	mov(main, .EAX, .ECX) // 89C8   mov ax,cx
-	add(main, .EAX, .EAX)
+	mov(main, EAX, ECX) // 89C8   mov ax,cx
+	add(main, EAX, EAX)
 	ret(main)
 	fn_ptr := transmute(proc(x: i64) -> i64)assemble(&a)
+	fmt.println("Call Asm: ", fn_ptr(21))
 }
 // jcc :: #force_inline proc(p: ^Procedure, cc: ConditionCode) {/*coded_jump := `map[ConditionCode]Mnemonic` into correct code*/push_op(p, coded_jump)}
 add :: #force_inline proc(p: ^Procedure, dest: Operand, src: Operand) {push_op(p, .add, dest, src)}
@@ -45,13 +46,7 @@ get_main_proc :: proc(a: ^Asm) -> ^Procedure {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	return &a.procs[0]
 }
-// If `nil` is passed for the label, one is made; inserts at the current address.
-//
-// Unbound labels (for use with forward calls) may be produced with `l:=Label{}`
-insert_label :: proc(a: ^Asm, l: ^Label) -> ^Label {
-	// spall.event_scope(&ctx, &buffer, #procedure)
-	panic("no-impl")
-}
+
 assemble :: proc(a: ^Asm) -> rawptr {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	m := get_main_proc(a) // TODO: TEMP ONLY DO MAIN PROC FOR NOW
@@ -94,7 +89,7 @@ assemble :: proc(a: ^Asm) -> rawptr {
 	return nil
 }
 
-encode_instruction :: proc(op: ^Instruction_ISR, buf: []u8, instr: ArgsInstruction) -> int {
+encode_instruction :: proc(op: ^ISA_Instruction, buf: []u8, instr: ArgsInstruction) -> int {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	bytes_written := 0
 	if op.legacy != nil {
@@ -126,30 +121,58 @@ encode_instruction :: proc(op: ^Instruction_ISR, buf: []u8, instr: ArgsInstructi
 		buf[bytes_written] = rex;bytes_written += 1
 	}
 	// Write Actual Opcode:
-	oc_val := op.opcode | op.opcode_append
-	buf[bytes_written] = oc_val;bytes_written += 1
-
-	// TODO: re-enable ModRM
-	// if .mod_rm in op.opcode_encoding {
-	// 	// TODO: do for real
-	// 	buf[bytes_written] = encode_mod_rm(0b11, instr.args[0].(GeneralPurpose), instr.args[1].(GeneralPurpose))
-	// 	bytes_written += 1
-	// } else {
-	// 	for arg in instr.args {
-	// 		//
-	// 	}
-	// }
+	for b in op.opcodes {
+		buf[bytes_written] = b;bytes_written += 1
+	}
+	buf[bytes_written - 1] |= op.opcode_append
 
 	return bytes_written
 }
-encode_mod_rm :: proc(mod: u8, src: GeneralPurpose, dst: GeneralPurpose) -> u8 {
+encode_mod_rm :: proc(isa: ^ISA_Instruction, ins: ^ArgsInstruction) -> (bool, u8) {
+	// TODO: Refactor for non MOD=3 intsructions
 	spall.event_scope(&ctx, &buffer, #procedure)
-	src_byte := MOD_RM_LUT[src]
-	dest_byte := MOD_RM_LUT[dst]
+	mod_rm: u8 = 0x0
+	if len(isa.operands) == 0 {return false, 0x0}
+	// technically this is wasteful for ops > 2...
+	for isa_op, idx in &isa.operands {
+		op := &ins.args[idx]
+		modify_mod_rm(&mod_rm, &isa_op, op)
+	}
+	// TODO: hard coded reg-reg for now, need full gamut
+	mod_rm |= u8(0b11) << 6
+
+	return true, mod_rm
+
 	//	      mod	         reg                  rm
-	return u8(mod) << 6 | u8(dest_byte) << 3 | u8(src_byte)
+	// return u8(mod) << 6 | u8(dest_byte) << 3 | u8(src_byte)
 }
-should_use_rex :: proc(operands: ..Operand_ISR) -> bool {
+modify_mod_rm :: proc(mod_rm: ^u8, isa_op: ^ISA_Operand, op: ^Operand) {
+	reg, is_reg := op.(Reg)
+	#partial switch isa_op.mod_rm {
+	case .Reg:
+		v := MOD_RM_LUT[reg.reg]
+		mod_rm^ |= u8(v) << 3
+	case .RM:
+		if is_reg {mod_rm^ |= u8(MOD_RM_LUT[reg.reg]) << 0} else {panic("not impl")}
+	case .Reg_0:
+		mod_rm^ |= u8(0x0) << 3
+	case .Reg_1:
+		mod_rm^ |= u8(0x1) << 3
+	case .Reg_2:
+		mod_rm^ |= u8(0x2) << 3
+	case .Reg_3:
+		mod_rm^ |= u8(0x3) << 3
+	case .Reg_4:
+		mod_rm^ |= u8(0x4) << 3
+	case .Reg_5:
+		mod_rm^ |= u8(0x5) << 3
+	case .Reg_6:
+		mod_rm^ |= u8(0x6) << 3
+	case .Reg_7:
+		mod_rm^ |= u8(0x7) << 3
+	}
+}
+should_use_rex :: proc(operands: ..ISA_Operand) -> bool {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	for o in operands {if o.size == .Bits_64 {return true}}
 	return false
@@ -157,23 +180,16 @@ should_use_rex :: proc(operands: ..Operand_ISR) -> bool {
 Mnemonic :: enum {
 	mov,
 	add,
-	call,
-	cmp,
-	jne,
 	ret,
+	// call,
+	// cmp,
+	// jne,
 }
 // TODO: Prefixes confuses final varag - find resolution
 import "core:mem"
 push_op :: proc(p: ^Procedure, m: Mnemonic, args: ..Operand) { 	//, prefixes := Prefixes{}) {
 	spall.event_scope(&ctx, &buffer, #procedure)
-	append(&p.buf, ArgsInstruction{m, {}, mem.clone_slice(args)}) // TODO: Hunt for other VARARGS NOT getting cloned
-	// fmt.println(len(args), args)
-}
-push_local :: proc(p: ^Procedure, size: Size) -> Ptr {
-	// spall.event_scope(&ctx, &buffer, #procedure)
-	// TODO: must be first - idk return type exactly
-	// Stack allocated in shadow storage...?
-	panic("NOT-IMPL")
+	append(&p.buf, ArgsInstruction{m, {}, mem.clone_slice(args)})
 }
 
 Instruction :: union {
@@ -184,12 +200,4 @@ ArgsInstruction :: struct {
 	mnemonic: Mnemonic,
 	prefixes: LegacyPrefixes,
 	args:     []Operand,
-}
-
-//[bx+si+0x188] [bx+si-0x7d] [cs:si+0x0]
-// Emit as Operand to feed into push_op
-// TODO: multiple registers should be supported
-address_of :: proc(rm: RegMem) -> Operand {
-	spall.event_scope(&ctx, &buffer, #procedure)
-	return nil
 }

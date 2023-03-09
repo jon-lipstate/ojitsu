@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import time
+import os
 
 # TODO: should add x87_instr:true for FPU?? how about vector-kinds
 # special handling: jcc, fcmovcc, mov (file-names)
@@ -23,9 +24,14 @@ def extract_tables(html):
         for row in tag.find_all('tr')[1:]:
             values = [cell.text.strip().replace('*', '')
                       for cell in row.find_all('td')]
-            table.append(dict(zip(headers, values)))
+            d = dict(zip(headers, values))
+            for k, v in d.items():
+                if not k:
+                    d.pop(k)
+            table.append(d)
         # nix empty keys, TODO: allow empty values?
-        table = {k: v for k, v in table.items() if k != ""}
+        # for dict in table:
+        #     dict = {k: v for k, v in dict.items() if k != ""}
         tables.append(table)
         next_h2 = tag.find_all_next('h2')
         if len(next_h2) > 0 and next_h2[0].get('id') == 'description':
@@ -42,8 +48,8 @@ def extract_page(index, link, op, summary):
                 'index': index, 'tables': tables}
     if op == "MOV":
         op = link
-    with open('./db_codegen/json/'+op+'.json', 'w') as outfile:
-        # with open(op+'.json', 'w') as outfile:
+    path = os.path.dirname(os.path.realpath(__file__)) + '/json/'+op+'.json'
+    with open(path, 'w+') as outfile:
         json.dump(contents, outfile)
 
 
@@ -55,21 +61,28 @@ def read_index():
     rows = table.find_all('tr')[1:]  # Skip header row
     skip = ["MONITOR", "MOVDQ2Q", "XACQUIRE", "XRELEASE"]
     results = []
+    index = 0
     for row in rows:
         link = row.find('a')['href'].replace('./', '').replace('.html', '')
         code = row.find('a').text
         desc = row.find_all('td')[1].text
-        results.append((link, code, desc))
-    i = 187
-    for row in results[i:193]:
+        results.append((link, code, desc, index))
+        index += 1
+    i = 602
+    for row in results[i:i+1]:
         if row[1] in skip:
             print(row[0], i, "<!> Known Bad Page, ---> Skipping")
             i += 1
             continue
-        print(row[0], i)
+        print(i, row[0])
         extract_page(i, row[0], row[1], row[2])
-        time.sleep(0.3)
+        path = os.path.dirname(os.path.realpath(__file__)) + '/index.json'
+        # time.sleep(0.3)
         i += 1
+    # Write out index file:
+    # path = os.path.dirname(os.path.realpath(__file__)) + '/index.json'
+    # with open(path, 'w+') as outfile:
+    #     json.dump(results, outfile)
 
 
 read_index()

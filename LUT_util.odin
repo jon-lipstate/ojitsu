@@ -13,7 +13,7 @@ get_descriptor :: proc(arch: Arch, operands: ..SizedKind) -> InstrDesc {
 		switch op.kind {
 		case .SegmentReg:
 			class_val = 0
-		case .Reg:
+		case .Gpr:
 			class_val = 1
 		case .Mem:
 			class_val = 2
@@ -21,7 +21,7 @@ get_descriptor :: proc(arch: Arch, operands: ..SizedKind) -> InstrDesc {
 			class_val = 3
 		case .Offset:
 			class_val = 4
-		case .Invalid, .RegMem:
+		case .Invalid, .Gpr_or_Mem:
 			panic("Invalid, RegMem not supported")
 		}
 		desc |= 1 << (u8(i) * 12 + class_val)
@@ -46,10 +46,10 @@ get_descriptor :: proc(arch: Arch, operands: ..SizedKind) -> InstrDesc {
 get_sized_kind :: proc(arg: Operand) -> SizedKind {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	switch a in arg {
-	case (GeneralPurpose):
-		return SizedKind{.Reg, reg_to_size(a)}
+	// case (Gpr):
+	// 	return SizedKind{.Gpr, reg_to_size(a)}
 	case (Reg):
-		return SizedKind{.Reg, reg_to_size(a.reg)}
+		return SizedKind{.Gpr, reg_to_size(a.reg)}
 	case (Mem):
 		panic("not impl")
 	case (Imm):
@@ -60,7 +60,7 @@ get_sized_kind :: proc(arg: Operand) -> SizedKind {
 	return SizedKind{.Invalid, .Invalid}
 }
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
-reg_to_size :: proc(gp: GeneralPurpose) -> Size {
+reg_to_size :: proc(gp: Gpr) -> Size {
 	spall.event_scope(&ctx, &buffer, #procedure)
 	#partial switch gp {
 	case .AL, .AH, .BL, .BH, .CL, .CH, .DH, .DIL, .SIL, .SPL:

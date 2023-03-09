@@ -1,0 +1,3311 @@
+[
+  ["AAA", "AAA", "ASCII Adjust After Addition", 0],
+  ["AAD", "AAD", "ASCII Adjust AX Before Division", 1],
+  ["AAM", "AAM", "ASCII Adjust AX After Multiply", 2],
+  ["AAS", "AAS", "ASCII Adjust AL After Subtraction", 3],
+  ["ADC", "ADC", "Add with Carry", 4],
+  [
+    "ADCX",
+    "ADCX",
+    "Unsigned Integer Addition of Two Operands with Carry Flag",
+    5
+  ],
+  ["ADD", "ADD", "Add", 6],
+  ["ADDPD", "ADDPD", "Add Packed Double-Precision Floating-Point Values", 7],
+  ["ADDPS", "ADDPS", "Add Packed Single-Precision Floating-Point Values", 8],
+  ["ADDSD", "ADDSD", "Add Scalar Double-Precision Floating-Point Values", 9],
+  ["ADDSS", "ADDSS", "Add Scalar Single-Precision Floating-Point Values", 10],
+  ["ADDSUBPD", "ADDSUBPD", "Packed Double-FP Add/Subtract", 11],
+  ["ADDSUBPS", "ADDSUBPS", "Packed Single-FP Add/Subtract", 12],
+  [
+    "ADOX",
+    "ADOX",
+    "Unsigned Integer Addition of Two Operands with Overflow Flag",
+    13
+  ],
+  ["AESDEC", "AESDEC", "Perform One Round of an AES Decryption Flow", 14],
+  [
+    "AESDEC128KL",
+    "AESDEC128KL",
+    "Perform Ten Rounds of AES Decryption Flow with Key Locker Using 128-Bit Key",
+    15
+  ],
+  [
+    "AESDEC256KL",
+    "AESDEC256KL",
+    "Perform 14 Rounds of AES Decryption Flow with Key Locker Using 256-Bit Key",
+    16
+  ],
+  [
+    "AESDECLAST",
+    "AESDECLAST",
+    "Perform Last Round of an AES Decryption Flow",
+    17
+  ],
+  [
+    "AESDECWIDE128KL",
+    "AESDECWIDE128KL",
+    "Perform Ten Rounds of AES Decryption Flow with Key Locker on 8 Blocks Using 128-Bit Key",
+    18
+  ],
+  [
+    "AESDECWIDE256KL",
+    "AESDECWIDE256KL",
+    "Perform 14 Rounds of AES Decryption Flow with Key Locker on 8 Blocks Using 256-Bit Key",
+    19
+  ],
+  ["AESENC", "AESENC", "Perform One Round of an AES Encryption Flow", 20],
+  [
+    "AESENC128KL",
+    "AESENC128KL",
+    "Perform Ten Rounds of AES Encryption Flow with Key Locker Using 128-Bit Key",
+    21
+  ],
+  [
+    "AESENC256KL",
+    "AESENC256KL",
+    "Perform 14 Rounds of AES Encryption Flow with Key Locker Using 256-Bit Key",
+    22
+  ],
+  [
+    "AESENCLAST",
+    "AESENCLAST",
+    "Perform Last Round of an AES Encryption Flow",
+    23
+  ],
+  [
+    "AESENCWIDE128KL",
+    "AESENCWIDE128KL",
+    "Perform Ten Rounds of AES Encryption Flow with Key Locker on 8 Blocks Using 128-Bit Key",
+    24
+  ],
+  [
+    "AESENCWIDE256KL",
+    "AESENCWIDE256KL",
+    "Perform 14 Rounds of AES Encryption Flow with Key Locker on 8 Blocks Using 256-Bit Key",
+    25
+  ],
+  ["AESIMC", "AESIMC", "Perform the AES InvMixColumn Transformation", 26],
+  ["AESKEYGENASSIST", "AESKEYGENASSIST", "AES Round Key Generation Assist", 27],
+  ["AND", "AND", "Logical AND", 28],
+  ["ANDN", "ANDN", "Logical AND NOT", 29],
+  [
+    "ANDNPD",
+    "ANDNPD",
+    "Bitwise Logical AND NOT of Packed Double Precision Floating-Point Values",
+    30
+  ],
+  [
+    "ANDNPS",
+    "ANDNPS",
+    "Bitwise Logical AND NOT of Packed Single Precision Floating-Point Values",
+    31
+  ],
+  [
+    "ANDPD",
+    "ANDPD",
+    "Bitwise Logical AND of Packed Double Precision Floating-Point Values",
+    32
+  ],
+  [
+    "ANDPS",
+    "ANDPS",
+    "Bitwise Logical AND of Packed Single Precision Floating-Point Values",
+    33
+  ],
+  ["ARPL", "ARPL", "Adjust RPL Field of Segment Selector", 34],
+  ["BEXTR", "BEXTR", "Bit Field Extract", 35],
+  [
+    "BLENDPD",
+    "BLENDPD",
+    "Blend Packed Double Precision Floating-Point Values",
+    36
+  ],
+  [
+    "BLENDPS",
+    "BLENDPS",
+    "Blend Packed Single Precision Floating-Point Values",
+    37
+  ],
+  [
+    "BLENDVPD",
+    "BLENDVPD",
+    "Variable Blend Packed Double Precision Floating-Point Values",
+    38
+  ],
+  [
+    "BLENDVPS",
+    "BLENDVPS",
+    "Variable Blend Packed Single Precision Floating-Point Values",
+    39
+  ],
+  ["BLSI", "BLSI", "Extract Lowest Set Isolated Bit", 40],
+  ["BLSMSK", "BLSMSK", "Get Mask Up to Lowest Set Bit", 41],
+  ["BLSR", "BLSR", "Reset Lowest Set Bit", 42],
+  ["BNDCL", "BNDCL", "Check Lower Bound", 43],
+  ["BNDCU:BNDCN", "BNDCN", "Check Upper Bound", 44],
+  ["BNDCU:BNDCN", "BNDCU", "Check Upper Bound", 45],
+  ["BNDLDX", "BNDLDX", "Load Extended Bounds Using Address Translation", 46],
+  ["BNDMK", "BNDMK", "Make Bounds", 47],
+  ["BNDMOV", "BNDMOV", "Move Bounds", 48],
+  ["BNDSTX", "BNDSTX", "Store Extended Bounds Using Address Translation", 49],
+  ["BOUND", "BOUND", "Check Array Index Against Bounds", 50],
+  ["BSF", "BSF", "Bit Scan Forward", 51],
+  ["BSR", "BSR", "Bit Scan Reverse", 52],
+  ["BSWAP", "BSWAP", "Byte Swap", 53],
+  ["BT", "BT", "Bit Test", 54],
+  ["BTC", "BTC", "Bit Test and Complement", 55],
+  ["BTR", "BTR", "Bit Test and Reset", 56],
+  ["BTS", "BTS", "Bit Test and Set", 57],
+  ["BZHI", "BZHI", "Zero High Bits Starting with Specified Bit Position", 58],
+  ["CALL", "CALL", "Call Procedure", 59],
+  [
+    "CBW:CWDE:CDQE",
+    "CBW",
+    "Convert Byte to Word/Convert Word to Doubleword/Convert Doubleword to Quadword",
+    60
+  ],
+  [
+    "CWD:CDQ:CQO",
+    "CDQ",
+    "Convert Word to Doubleword/Convert Doubleword to Quadword",
+    61
+  ],
+  [
+    "CBW:CWDE:CDQE",
+    "CDQE",
+    "Convert Byte to Word/Convert Word to Doubleword/Convert Doubleword to Quadword",
+    62
+  ],
+  ["CLAC", "CLAC", "Clear AC Flag in EFLAGS Register", 63],
+  ["CLC", "CLC", "Clear Carry Flag", 64],
+  ["CLD", "CLD", "Clear Direction Flag", 65],
+  ["CLDEMOTE", "CLDEMOTE", "Cache Line Demote", 66],
+  ["CLFLUSH", "CLFLUSH", "Flush Cache Line", 67],
+  ["CLFLUSHOPT", "CLFLUSHOPT", "Flush Cache Line Optimized", 68],
+  ["CLI", "CLI", "Clear Interrupt Flag", 69],
+  [
+    "CLRSSBSY",
+    "CLRSSBSY",
+    "Clear Busy Flag in a Supervisor Shadow Stack Token",
+    70
+  ],
+  ["CLTS", "CLTS", "Clear Task-Switched Flag in CR0", 71],
+  ["CLWB", "CLWB", "Cache Line Write Back", 72],
+  ["CMC", "CMC", "Complement Carry Flag", 73],
+  ["CMOVcc", "CMOVcc", "Conditional Move", 74],
+  ["CMP", "CMP", "Compare Two Operands", 75],
+  [
+    "CMPPD",
+    "CMPPD",
+    "Compare Packed Double-Precision Floating-Point Values",
+    76
+  ],
+  [
+    "CMPPS",
+    "CMPPS",
+    "Compare Packed Single-Precision Floating-Point Values",
+    77
+  ],
+  ["CMPS:CMPSB:CMPSW:CMPSD:CMPSQ", "CMPS", "Compare String Operands", 78],
+  ["CMPS:CMPSB:CMPSW:CMPSD:CMPSQ", "CMPSB", "Compare String Operands", 79],
+  ["CMPS:CMPSB:CMPSW:CMPSD:CMPSQ", "CMPSD", "Compare String Operands", 80],
+  [
+    "CMPSD",
+    "CMPSD",
+    "Compare Scalar Double-Precision Floating-Point Value",
+    81
+  ],
+  ["CMPS:CMPSB:CMPSW:CMPSD:CMPSQ", "CMPSQ", "Compare String Operands", 82],
+  [
+    "CMPSS",
+    "CMPSS",
+    "Compare Scalar Single-Precision Floating-Point Value",
+    83
+  ],
+  ["CMPS:CMPSB:CMPSW:CMPSD:CMPSQ", "CMPSW", "Compare String Operands", 84],
+  ["CMPXCHG", "CMPXCHG", "Compare and Exchange", 85],
+  ["CMPXCHG8B:CMPXCHG16B", "CMPXCHG16B", "Compare and Exchange Bytes", 86],
+  ["CMPXCHG8B:CMPXCHG16B", "CMPXCHG8B", "Compare and Exchange Bytes", 87],
+  [
+    "COMISD",
+    "COMISD",
+    "Compare Scalar Ordered Double-Precision Floating-Point Values and Set EFLAGS",
+    88
+  ],
+  [
+    "COMISS",
+    "COMISS",
+    "Compare Scalar Ordered Single-Precision Floating-Point Values and Set EFLAGS",
+    89
+  ],
+  ["CPUID", "CPUID", "CPU Identification", 90],
+  [
+    "CWD:CDQ:CQO",
+    "CQO",
+    "Convert Word to Doubleword/Convert Doubleword to Quadword",
+    91
+  ],
+  ["CRC32", "CRC32", "Accumulate CRC32 Value", 92],
+  [
+    "CVTDQ2PD",
+    "CVTDQ2PD",
+    "Convert Packed Doubleword Integers to Packed Double-Precision Floating-Point Values",
+    93
+  ],
+  [
+    "CVTDQ2PS",
+    "CVTDQ2PS",
+    "Convert Packed Doubleword Integers to Packed Single-Precision Floating-Point Values",
+    94
+  ],
+  [
+    "CVTPD2DQ",
+    "CVTPD2DQ",
+    "Convert Packed Double-Precision Floating-Point Values to Packed Doubleword Integers",
+    95
+  ],
+  [
+    "CVTPD2PI",
+    "CVTPD2PI",
+    "Convert Packed Double-Precision FP Values to Packed Dword Integers",
+    96
+  ],
+  [
+    "CVTPD2PS",
+    "CVTPD2PS",
+    "Convert Packed Double-Precision Floating-Point Values to Packed Single-Precision Floating-Point Values",
+    97
+  ],
+  [
+    "CVTPI2PD",
+    "CVTPI2PD",
+    "Convert Packed Dword Integers to Packed Double-Precision FP Values",
+    98
+  ],
+  [
+    "CVTPI2PS",
+    "CVTPI2PS",
+    "Convert Packed Dword Integers to Packed Single-Precision FP Values",
+    99
+  ],
+  [
+    "CVTPS2DQ",
+    "CVTPS2DQ",
+    "Convert Packed Single-Precision Floating-Point Values to Packed Signed Doubleword Integer Values",
+    100
+  ],
+  [
+    "CVTPS2PD",
+    "CVTPS2PD",
+    "Convert Packed Single-Precision Floating-Point Values to Packed Double-Precision Floating-Point Values",
+    101
+  ],
+  [
+    "CVTPS2PI",
+    "CVTPS2PI",
+    "Convert Packed Single-Precision FP Values to Packed Dword Integers",
+    102
+  ],
+  [
+    "CVTSD2SI",
+    "CVTSD2SI",
+    "Convert Scalar Double-Precision Floating-Point Value to Doubleword Integer",
+    103
+  ],
+  [
+    "CVTSD2SS",
+    "CVTSD2SS",
+    "Convert Scalar Double-Precision Floating-Point Value to Scalar Single-Precision Floating-Point Value",
+    104
+  ],
+  [
+    "CVTSI2SD",
+    "CVTSI2SD",
+    "Convert Doubleword Integer to Scalar Double-Precision Floating-Point Value",
+    105
+  ],
+  [
+    "CVTSI2SS",
+    "CVTSI2SS",
+    "Convert Doubleword Integer to Scalar Single-Precision Floating-Point Value",
+    106
+  ],
+  [
+    "CVTSS2SD",
+    "CVTSS2SD",
+    "Convert Scalar Single-Precision Floating-Point Value to Scalar Double-Precision Floating-Point Value",
+    107
+  ],
+  [
+    "CVTSS2SI",
+    "CVTSS2SI",
+    "Convert Scalar Single-Precision Floating-Point Value to Doubleword Integer",
+    108
+  ],
+  [
+    "CVTTPD2DQ",
+    "CVTTPD2DQ",
+    "Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Doubleword Integers",
+    109
+  ],
+  [
+    "CVTTPD2PI",
+    "CVTTPD2PI",
+    "Convert with Truncation Packed Double-Precision FP Values to Packed Dword Integers",
+    110
+  ],
+  [
+    "CVTTPS2DQ",
+    "CVTTPS2DQ",
+    "Convert with Truncation Packed Single-Precision Floating-Point Values to Packed Signed Doubleword Integer Values",
+    111
+  ],
+  [
+    "CVTTPS2PI",
+    "CVTTPS2PI",
+    "Convert with Truncation Packed Single-Precision FP Values to Packed Dword Integers",
+    112
+  ],
+  [
+    "CVTTSD2SI",
+    "CVTTSD2SI",
+    "Convert with Truncation Scalar Double-Precision Floating-Point Value to Signed Integer",
+    113
+  ],
+  [
+    "CVTTSS2SI",
+    "CVTTSS2SI",
+    "Convert with Truncation Scalar Single-Precision Floating-Point Value to Integer",
+    114
+  ],
+  [
+    "CWD:CDQ:CQO",
+    "CWD",
+    "Convert Word to Doubleword/Convert Doubleword to Quadword",
+    115
+  ],
+  [
+    "CBW:CWDE:CDQE",
+    "CWDE",
+    "Convert Byte to Word/Convert Word to Doubleword/Convert Doubleword to Quadword",
+    116
+  ],
+  ["DAA", "DAA", "Decimal Adjust AL after Addition", 117],
+  ["DAS", "DAS", "Decimal Adjust AL after Subtraction", 118],
+  ["DEC", "DEC", "Decrement by 1", 119],
+  ["DIV", "DIV", "Unsigned Divide", 120],
+  [
+    "DIVPD",
+    "DIVPD",
+    "Divide Packed Double-Precision Floating-Point Values",
+    121
+  ],
+  [
+    "DIVPS",
+    "DIVPS",
+    "Divide Packed Single-Precision Floating-Point Values",
+    122
+  ],
+  [
+    "DIVSD",
+    "DIVSD",
+    "Divide Scalar Double-Precision Floating-Point Value",
+    123
+  ],
+  [
+    "DIVSS",
+    "DIVSS",
+    "Divide Scalar Single-Precision Floating-Point Values",
+    124
+  ],
+  [
+    "DPPD",
+    "DPPD",
+    "Dot Product of Packed Double Precision Floating-Point Values",
+    125
+  ],
+  [
+    "DPPS",
+    "DPPS",
+    "Dot Product of Packed Single Precision Floating-Point Values",
+    126
+  ],
+  ["EMMS", "EMMS", "Empty MMX Technology State", 127],
+  ["ENCODEKEY128", "ENCODEKEY128", "Encode 128-Bit Key with Key Locker", 128],
+  ["ENCODEKEY256", "ENCODEKEY256", "Encode 256-Bit Key with Key Locker", 129],
+  [
+    "ENDBR32",
+    "ENDBR32",
+    "Terminate an Indirect Branch in 32-bit and Compatibility Mode",
+    130
+  ],
+  ["ENDBR64", "ENDBR64", "Terminate an Indirect Branch in 64-bit Mode", 131],
+  ["ENTER", "ENTER", "Make Stack Frame for Procedure Parameters", 132],
+  ["EXTRACTPS", "EXTRACTPS", "Extract Packed Floating-Point Values", 133],
+  ["F2XM1", "F2XM1", "Compute 2x\u20131", 134],
+  ["FABS", "FABS", "Absolute Value", 135],
+  ["FADD:FADDP:FIADD", "FADD", "Add", 136],
+  ["FADD:FADDP:FIADD", "FADDP", "Add", 137],
+  ["FBLD", "FBLD", "Load Binary Coded Decimal", 138],
+  ["FBSTP", "FBSTP", "Store BCD Integer and Pop", 139],
+  ["FCHS", "FCHS", "Change Sign", 140],
+  ["FCLEX:FNCLEX", "FCLEX", "Clear Exceptions", 141],
+  ["FCMOVcc", "FCMOVcc", "Floating-Point Conditional Move", 142],
+  ["FCOM:FCOMP:FCOMPP", "FCOM", "Compare Floating Point Values", 143],
+  [
+    "FCOMI:FCOMIP:FUCOMI:FUCOMIP",
+    "FCOMI",
+    "Compare Floating Point Values and Set EFLAGS",
+    144
+  ],
+  [
+    "FCOMI:FCOMIP:FUCOMI:FUCOMIP",
+    "FCOMIP",
+    "Compare Floating Point Values and Set EFLAGS",
+    145
+  ],
+  ["FCOM:FCOMP:FCOMPP", "FCOMP", "Compare Floating Point Values", 146],
+  ["FCOM:FCOMP:FCOMPP", "FCOMPP", "Compare Floating Point Values", 147],
+  ["FCOS", "FCOS", "Cosine", 148],
+  ["FDECSTP", "FDECSTP", "Decrement Stack-Top Pointer", 149],
+  ["FDIV:FDIVP:FIDIV", "FDIV", "Divide", 150],
+  ["FDIV:FDIVP:FIDIV", "FDIVP", "Divide", 151],
+  ["FDIVR:FDIVRP:FIDIVR", "FDIVR", "Reverse Divide", 152],
+  ["FDIVR:FDIVRP:FIDIVR", "FDIVRP", "Reverse Divide", 153],
+  ["FFREE", "FFREE", "Free Floating-Point Register", 154],
+  ["FADD:FADDP:FIADD", "FIADD", "Add", 155],
+  ["FICOM:FICOMP", "FICOM", "Compare Integer", 156],
+  ["FICOM:FICOMP", "FICOMP", "Compare Integer", 157],
+  ["FDIV:FDIVP:FIDIV", "FIDIV", "Divide", 158],
+  ["FDIVR:FDIVRP:FIDIVR", "FIDIVR", "Reverse Divide", 159],
+  ["FILD", "FILD", "Load Integer", 160],
+  ["FMUL:FMULP:FIMUL", "FIMUL", "Multiply", 161],
+  ["FINCSTP", "FINCSTP", "Increment Stack-Top Pointer", 162],
+  ["FINIT:FNINIT", "FINIT", "Initialize Floating-Point Unit", 163],
+  ["FIST:FISTP", "FIST", "Store Integer", 164],
+  ["FIST:FISTP", "FISTP", "Store Integer", 165],
+  ["FISTTP", "FISTTP", "Store Integer with Truncation", 166],
+  ["FSUB:FSUBP:FISUB", "FISUB", "Subtract", 167],
+  ["FSUBR:FSUBRP:FISUBR", "FISUBR", "Reverse Subtract", 168],
+  ["FLD", "FLD", "Load Floating Point Value", 169],
+  ["FLD1:FLDL2T:FLDL2E:FLDPI:FLDLG2:FLDLN2:FLDZ", "FLD1", "Load Constant", 170],
+  ["FLDCW", "FLDCW", "Load x87 FPU Control Word", 171],
+  ["FLDENV", "FLDENV", "Load x87 FPU Environment", 172],
+  [
+    "FLD1:FLDL2T:FLDL2E:FLDPI:FLDLG2:FLDLN2:FLDZ",
+    "FLDL2E",
+    "Load Constant",
+    173
+  ],
+  [
+    "FLD1:FLDL2T:FLDL2E:FLDPI:FLDLG2:FLDLN2:FLDZ",
+    "FLDL2T",
+    "Load Constant",
+    174
+  ],
+  [
+    "FLD1:FLDL2T:FLDL2E:FLDPI:FLDLG2:FLDLN2:FLDZ",
+    "FLDLG2",
+    "Load Constant",
+    175
+  ],
+  [
+    "FLD1:FLDL2T:FLDL2E:FLDPI:FLDLG2:FLDLN2:FLDZ",
+    "FLDLN2",
+    "Load Constant",
+    176
+  ],
+  [
+    "FLD1:FLDL2T:FLDL2E:FLDPI:FLDLG2:FLDLN2:FLDZ",
+    "FLDPI",
+    "Load Constant",
+    177
+  ],
+  ["FLD1:FLDL2T:FLDL2E:FLDPI:FLDLG2:FLDLN2:FLDZ", "FLDZ", "Load Constant", 178],
+  ["FMUL:FMULP:FIMUL", "FMUL", "Multiply", 179],
+  ["FMUL:FMULP:FIMUL", "FMULP", "Multiply", 180],
+  ["FCLEX:FNCLEX", "FNCLEX", "Clear Exceptions", 181],
+  ["FINIT:FNINIT", "FNINIT", "Initialize Floating-Point Unit", 182],
+  ["FNOP", "FNOP", "No Operation", 183],
+  ["FSAVE:FNSAVE", "FNSAVE", "Store x87 FPU State", 184],
+  ["FSTCW:FNSTCW", "FNSTCW", "Store x87 FPU Control Word", 185],
+  ["FSTENV:FNSTENV", "FNSTENV", "Store x87 FPU Environment", 186],
+  ["FSTSW:FNSTSW", "FNSTSW", "Store x87 FPU Status Word", 187],
+  ["FPATAN", "FPATAN", "Partial Arctangent", 188],
+  ["FPREM", "FPREM", "Partial Remainder", 189],
+  ["FPREM1", "FPREM1", "Partial Remainder", 190],
+  ["FPTAN", "FPTAN", "Partial Tangent", 191],
+  ["FRNDINT", "FRNDINT", "Round to Integer", 192],
+  ["FRSTOR", "FRSTOR", "Restore x87 FPU State", 193],
+  ["FSAVE:FNSAVE", "FSAVE", "Store x87 FPU State", 194],
+  ["FSCALE", "FSCALE", "Scale", 195],
+  ["FSIN", "FSIN", "Sine", 196],
+  ["FSINCOS", "FSINCOS", "Sine and Cosine", 197],
+  ["FSQRT", "FSQRT", "Square Root", 198],
+  ["FST:FSTP", "FST", "Store Floating Point Value", 199],
+  ["FSTCW:FNSTCW", "FSTCW", "Store x87 FPU Control Word", 200],
+  ["FSTENV:FNSTENV", "FSTENV", "Store x87 FPU Environment", 201],
+  ["FST:FSTP", "FSTP", "Store Floating Point Value", 202],
+  ["FSTSW:FNSTSW", "FSTSW", "Store x87 FPU Status Word", 203],
+  ["FSUB:FSUBP:FISUB", "FSUB", "Subtract", 204],
+  ["FSUB:FSUBP:FISUB", "FSUBP", "Subtract", 205],
+  ["FSUBR:FSUBRP:FISUBR", "FSUBR", "Reverse Subtract", 206],
+  ["FSUBR:FSUBRP:FISUBR", "FSUBRP", "Reverse Subtract", 207],
+  ["FTST", "FTST", "TEST", 208],
+  [
+    "FUCOM:FUCOMP:FUCOMPP",
+    "FUCOM",
+    "Unordered Compare Floating Point Values",
+    209
+  ],
+  [
+    "FCOMI:FCOMIP:FUCOMI:FUCOMIP",
+    "FUCOMI",
+    "Compare Floating Point Values and Set EFLAGS",
+    210
+  ],
+  [
+    "FCOMI:FCOMIP:FUCOMI:FUCOMIP",
+    "FUCOMIP",
+    "Compare Floating Point Values and Set EFLAGS",
+    211
+  ],
+  [
+    "FUCOM:FUCOMP:FUCOMPP",
+    "FUCOMP",
+    "Unordered Compare Floating Point Values",
+    212
+  ],
+  [
+    "FUCOM:FUCOMP:FUCOMPP",
+    "FUCOMPP",
+    "Unordered Compare Floating Point Values",
+    213
+  ],
+  ["WAIT:FWAIT", "FWAIT", "Wait", 214],
+  ["FXAM", "FXAM", "Examine Floating-Point", 215],
+  ["FXCH", "FXCH", "Exchange Register Contents", 216],
+  ["FXRSTOR", "FXRSTOR", "Restore x87 FPU, MMX, XMM, and MXCSR State", 217],
+  ["FXSAVE", "FXSAVE", "Save x87 FPU, MMX Technology, and SSE State", 218],
+  ["FXTRACT", "FXTRACT", "Extract Exponent and Significand", 219],
+  ["FYL2X", "FYL2X", "Compute y \u2217 log2x", 220],
+  ["FYL2XP1", "FYL2XP1", "Compute y \u2217 log2(x +1)", 221],
+  [
+    "GF2P8AFFINEINVQB",
+    "GF2P8AFFINEINVQB",
+    "Galois Field Affine Transformation Inverse",
+    222
+  ],
+  ["GF2P8AFFINEQB", "GF2P8AFFINEQB", "Galois Field Affine Transformation", 223],
+  ["GF2P8MULB", "GF2P8MULB", "Galois Field Multiply Bytes", 224],
+  ["HADDPD", "HADDPD", "Packed Double-FP Horizontal Add", 225],
+  ["HADDPS", "HADDPS", "Packed Single-FP Horizontal Add", 226],
+  ["HLT", "HLT", "Halt", 227],
+  ["HRESET", "HRESET", "History Reset", 228],
+  ["HSUBPD", "HSUBPD", "Packed Double-FP Horizontal Subtract", 229],
+  ["HSUBPS", "HSUBPS", "Packed Single-FP Horizontal Subtract", 230],
+  ["IDIV", "IDIV", "Signed Divide", 231],
+  ["IMUL", "IMUL", "Signed Multiply", 232],
+  ["IN", "IN", "Input from Port", 233],
+  ["INC", "INC", "Increment by 1", 234],
+  ["INCSSPD:INCSSPQ", "INCSSPD", "Increment Shadow Stack Pointer", 235],
+  ["INCSSPD:INCSSPQ", "INCSSPQ", "Increment Shadow Stack Pointer", 236],
+  ["INS:INSB:INSW:INSD", "INS", "Input from Port to String", 237],
+  ["INS:INSB:INSW:INSD", "INSB", "Input from Port to String", 238],
+  ["INS:INSB:INSW:INSD", "INSD", "Input from Port to String", 239],
+  [
+    "INSERTPS",
+    "INSERTPS",
+    "Insert Scalar Single-Precision Floating-Point Value",
+    240
+  ],
+  ["INS:INSB:INSW:INSD", "INSW", "Input from Port to String", 241],
+  ["INTn:INTO:INT3:INT1", "INT n", "Call to Interrupt Procedure", 242],
+  ["INTn:INTO:INT3:INT1", "INT1", "Call to Interrupt Procedure", 243],
+  ["INTn:INTO:INT3:INT1", "INT3", "Call to Interrupt Procedure", 244],
+  ["INTn:INTO:INT3:INT1", "INTO", "Call to Interrupt Procedure", 245],
+  ["INVD", "INVD", "Invalidate Internal Caches", 246],
+  ["INVLPG", "INVLPG", "Invalidate TLB Entries", 247],
+  ["INVPCID", "INVPCID", "Invalidate Process-Context Identifier", 248],
+  ["IRET:IRETD:IRETQ", "IRET", "Interrupt Return", 249],
+  ["IRET:IRETD:IRETQ", "IRETD", "Interrupt Return", 250],
+  ["IRET:IRETD:IRETQ", "IRETQ", "Interrupt Return", 251],
+  ["JMP", "JMP", "Jump", 252],
+  ["Jcc", "Jcc", "Jump if Condition Is Met", 253],
+  ["KADDW:KADDB:KADDQ:KADDD", "KADDB", "ADD Two Masks", 254],
+  ["KADDW:KADDB:KADDQ:KADDD", "KADDD", "ADD Two Masks", 255],
+  ["KADDW:KADDB:KADDQ:KADDD", "KADDQ", "ADD Two Masks", 256],
+  ["KADDW:KADDB:KADDQ:KADDD", "KADDW", "ADD Two Masks", 257],
+  ["KANDW:KANDB:KANDQ:KANDD", "KANDB", "Bitwise Logical AND Masks", 258],
+  ["KANDW:KANDB:KANDQ:KANDD", "KANDD", "Bitwise Logical AND Masks", 259],
+  [
+    "KANDNW:KANDNB:KANDNQ:KANDND",
+    "KANDNB",
+    "Bitwise Logical AND NOT Masks",
+    260
+  ],
+  [
+    "KANDNW:KANDNB:KANDNQ:KANDND",
+    "KANDND",
+    "Bitwise Logical AND NOT Masks",
+    261
+  ],
+  [
+    "KANDNW:KANDNB:KANDNQ:KANDND",
+    "KANDNQ",
+    "Bitwise Logical AND NOT Masks",
+    262
+  ],
+  [
+    "KANDNW:KANDNB:KANDNQ:KANDND",
+    "KANDNW",
+    "Bitwise Logical AND NOT Masks",
+    263
+  ],
+  ["KANDW:KANDB:KANDQ:KANDD", "KANDQ", "Bitwise Logical AND Masks", 264],
+  ["KANDW:KANDB:KANDQ:KANDD", "KANDW", "Bitwise Logical AND Masks", 265],
+  ["KMOVW:KMOVB:KMOVQ:KMOVD", "KMOVB", "Move from and to Mask Registers", 266],
+  ["KMOVW:KMOVB:KMOVQ:KMOVD", "KMOVD", "Move from and to Mask Registers", 267],
+  ["KMOVW:KMOVB:KMOVQ:KMOVD", "KMOVQ", "Move from and to Mask Registers", 268],
+  ["KMOVW:KMOVB:KMOVQ:KMOVD", "KMOVW", "Move from and to Mask Registers", 269],
+  ["KNOTW:KNOTB:KNOTQ:KNOTD", "KNOTB", "NOT Mask Register", 270],
+  ["KNOTW:KNOTB:KNOTQ:KNOTD", "KNOTD", "NOT Mask Register", 271],
+  ["KNOTW:KNOTB:KNOTQ:KNOTD", "KNOTQ", "NOT Mask Register", 272],
+  ["KNOTW:KNOTB:KNOTQ:KNOTD", "KNOTW", "NOT Mask Register", 273],
+  ["KORW:KORB:KORQ:KORD", "KORB", "Bitwise Logical OR Masks", 274],
+  ["KORW:KORB:KORQ:KORD", "KORD", "Bitwise Logical OR Masks", 275],
+  ["KORW:KORB:KORQ:KORD", "KORQ", "Bitwise Logical OR Masks", 276],
+  [
+    "KORTESTW:KORTESTB:KORTESTQ:KORTESTD",
+    "KORTESTB",
+    "OR Masks And Set Flags",
+    277
+  ],
+  [
+    "KORTESTW:KORTESTB:KORTESTQ:KORTESTD",
+    "KORTESTD",
+    "OR Masks And Set Flags",
+    278
+  ],
+  [
+    "KORTESTW:KORTESTB:KORTESTQ:KORTESTD",
+    "KORTESTQ",
+    "OR Masks And Set Flags",
+    279
+  ],
+  [
+    "KORTESTW:KORTESTB:KORTESTQ:KORTESTD",
+    "KORTESTW",
+    "OR Masks And Set Flags",
+    280
+  ],
+  ["KORW:KORB:KORQ:KORD", "KORW", "Bitwise Logical OR Masks", 281],
+  [
+    "KSHIFTLW:KSHIFTLB:KSHIFTLQ:KSHIFTLD",
+    "KSHIFTLB",
+    "Shift Left Mask Registers",
+    282
+  ],
+  [
+    "KSHIFTLW:KSHIFTLB:KSHIFTLQ:KSHIFTLD",
+    "KSHIFTLD",
+    "Shift Left Mask Registers",
+    283
+  ],
+  [
+    "KSHIFTLW:KSHIFTLB:KSHIFTLQ:KSHIFTLD",
+    "KSHIFTLQ",
+    "Shift Left Mask Registers",
+    284
+  ],
+  [
+    "KSHIFTLW:KSHIFTLB:KSHIFTLQ:KSHIFTLD",
+    "KSHIFTLW",
+    "Shift Left Mask Registers",
+    285
+  ],
+  [
+    "KSHIFTRW:KSHIFTRB:KSHIFTRQ:KSHIFTRD",
+    "KSHIFTRB",
+    "Shift Right Mask Registers",
+    286
+  ],
+  [
+    "KSHIFTRW:KSHIFTRB:KSHIFTRQ:KSHIFTRD",
+    "KSHIFTRD",
+    "Shift Right Mask Registers",
+    287
+  ],
+  [
+    "KSHIFTRW:KSHIFTRB:KSHIFTRQ:KSHIFTRD",
+    "KSHIFTRQ",
+    "Shift Right Mask Registers",
+    288
+  ],
+  [
+    "KSHIFTRW:KSHIFTRB:KSHIFTRQ:KSHIFTRD",
+    "KSHIFTRW",
+    "Shift Right Mask Registers",
+    289
+  ],
+  [
+    "KTESTW:KTESTB:KTESTQ:KTESTD",
+    "KTESTB",
+    "Packed Bit Test Masks and Set Flags",
+    290
+  ],
+  [
+    "KTESTW:KTESTB:KTESTQ:KTESTD",
+    "KTESTD",
+    "Packed Bit Test Masks and Set Flags",
+    291
+  ],
+  [
+    "KTESTW:KTESTB:KTESTQ:KTESTD",
+    "KTESTQ",
+    "Packed Bit Test Masks and Set Flags",
+    292
+  ],
+  [
+    "KTESTW:KTESTB:KTESTQ:KTESTD",
+    "KTESTW",
+    "Packed Bit Test Masks and Set Flags",
+    293
+  ],
+  ["KUNPCKBW:KUNPCKWD:KUNPCKDQ", "KUNPCKBW", "Unpack for Mask Registers", 294],
+  ["KUNPCKBW:KUNPCKWD:KUNPCKDQ", "KUNPCKDQ", "Unpack for Mask Registers", 295],
+  ["KUNPCKBW:KUNPCKWD:KUNPCKDQ", "KUNPCKWD", "Unpack for Mask Registers", 296],
+  ["KXNORW:KXNORB:KXNORQ:KXNORD", "KXNORB", "Bitwise Logical XNOR Masks", 297],
+  ["KXNORW:KXNORB:KXNORQ:KXNORD", "KXNORD", "Bitwise Logical XNOR Masks", 298],
+  ["KXNORW:KXNORB:KXNORQ:KXNORD", "KXNORQ", "Bitwise Logical XNOR Masks", 299],
+  ["KXNORW:KXNORB:KXNORQ:KXNORD", "KXNORW", "Bitwise Logical XNOR Masks", 300],
+  ["KXORW:KXORB:KXORQ:KXORD", "KXORB", "Bitwise Logical XOR Masks", 301],
+  ["KXORW:KXORB:KXORQ:KXORD", "KXORD", "Bitwise Logical XOR Masks", 302],
+  ["KXORW:KXORB:KXORQ:KXORD", "KXORQ", "Bitwise Logical XOR Masks", 303],
+  ["KXORW:KXORB:KXORQ:KXORD", "KXORW", "Bitwise Logical XOR Masks", 304],
+  ["LAHF", "LAHF", "Load Status Flags into AH Register", 305],
+  ["LAR", "LAR", "Load Access Rights Byte", 306],
+  ["LDDQU", "LDDQU", "Load Unaligned Integer 128 Bits", 307],
+  ["LDMXCSR", "LDMXCSR", "Load MXCSR Register", 308],
+  ["LDS:LES:LFS:LGS:LSS", "LDS", "Load Far Pointer", 309],
+  ["LEA", "LEA", "Load Effective Address", 310],
+  ["LEAVE", "LEAVE", "High Level Procedure Exit", 311],
+  ["LDS:LES:LFS:LGS:LSS", "LES", "Load Far Pointer", 312],
+  ["LFENCE", "LFENCE", "Load Fence", 313],
+  ["LDS:LES:LFS:LGS:LSS", "LFS", "Load Far Pointer", 314],
+  ["LGDT:LIDT", "LGDT", "Load Global/Interrupt Descriptor Table Register", 315],
+  ["LDS:LES:LFS:LGS:LSS", "LGS", "Load Far Pointer", 316],
+  ["LGDT:LIDT", "LIDT", "Load Global/Interrupt Descriptor Table Register", 317],
+  ["LLDT", "LLDT", "Load Local Descriptor Table Register", 318],
+  ["LMSW", "LMSW", "Load Machine Status Word", 319],
+  ["LOADIWKEY", "LOADIWKEY", "Load Internal Wrapping Key with Key Locker", 320],
+  ["LOCK", "LOCK", "Assert LOCK# Signal Prefix", 321],
+  ["LODS:LODSB:LODSW:LODSD:LODSQ", "LODS", "Load String", 322],
+  ["LODS:LODSB:LODSW:LODSD:LODSQ", "LODSB", "Load String", 323],
+  ["LODS:LODSB:LODSW:LODSD:LODSQ", "LODSD", "Load String", 324],
+  ["LODS:LODSB:LODSW:LODSD:LODSQ", "LODSQ", "Load String", 325],
+  ["LODS:LODSB:LODSW:LODSD:LODSQ", "LODSW", "Load String", 326],
+  ["LOOP:LOOPcc", "LOOP", "Loop According to ECX Counter", 327],
+  ["LOOP:LOOPcc", "LOOPcc", "Loop According to ECX Counter", 328],
+  ["LSL", "LSL", "Load Segment Limit", 329],
+  ["LDS:LES:LFS:LGS:LSS", "LSS", "Load Far Pointer", 330],
+  ["LTR", "LTR", "Load Task Register", 331],
+  ["LZCNT", "LZCNT", "Count the Number of Leading Zero Bits", 332],
+  ["MASKMOVDQU", "MASKMOVDQU", "Store Selected Bytes of Double Quadword", 333],
+  ["MASKMOVQ", "MASKMOVQ", "Store Selected Bytes of Quadword", 334],
+  [
+    "MAXPD",
+    "MAXPD",
+    "Maximum of Packed Double-Precision Floating-Point Values",
+    335
+  ],
+  [
+    "MAXPS",
+    "MAXPS",
+    "Maximum of Packed Single-Precision Floating-Point Values",
+    336
+  ],
+  [
+    "MAXSD",
+    "MAXSD",
+    "Return Maximum Scalar Double-Precision Floating-Point Value",
+    337
+  ],
+  [
+    "MAXSS",
+    "MAXSS",
+    "Return Maximum Scalar Single-Precision Floating-Point Value",
+    338
+  ],
+  ["MFENCE", "MFENCE", "Memory Fence", 339],
+  [
+    "MINPD",
+    "MINPD",
+    "Minimum of Packed Double-Precision Floating-Point Values",
+    340
+  ],
+  [
+    "MINPS",
+    "MINPS",
+    "Minimum of Packed Single-Precision Floating-Point Values",
+    341
+  ],
+  [
+    "MINSD",
+    "MINSD",
+    "Return Minimum Scalar Double-Precision Floating-Point Value",
+    342
+  ],
+  [
+    "MINSS",
+    "MINSS",
+    "Return Minimum Scalar Single-Precision Floating-Point Value",
+    343
+  ],
+  ["MONITOR", "MONITOR", "Set Up Monitor Address", 344],
+  ["MOV", "MOV", "Move", 345],
+  ["MOV-1", "MOV", "Move to/from Control Registers", 346],
+  ["MOV-2", "MOV", "Move to/from Debug Registers", 347],
+  [
+    "MOVAPD",
+    "MOVAPD",
+    "Move Aligned Packed Double-Precision Floating-Point Values",
+    348
+  ],
+  [
+    "MOVAPS",
+    "MOVAPS",
+    "Move Aligned Packed Single-Precision Floating-Point Values",
+    349
+  ],
+  ["MOVBE", "MOVBE", "Move Data After Swapping Bytes", 350],
+  ["MOVD:MOVQ", "MOVD", "Move Doubleword/Move Quadword", 351],
+  ["MOVDDUP", "MOVDDUP", "Replicate Double FP Values", 352],
+  ["MOVDIR64B", "MOVDIR64B", "Move 64 Bytes as Direct Store", 353],
+  ["MOVDIRI", "MOVDIRI", "Move Doubleword as Direct Store", 354],
+  [
+    "MOVDQ2Q",
+    "MOVDQ2Q",
+    "Move Quadword from XMM to MMX Technology Register",
+    355
+  ],
+  [
+    "MOVDQA:VMOVDQA32:VMOVDQA64",
+    "MOVDQA",
+    "Move Aligned Packed Integer Values",
+    356
+  ],
+  [
+    "MOVDQU:VMOVDQU8:VMOVDQU16:VMOVDQU32:VMOVDQU64",
+    "MOVDQU",
+    "Move Unaligned Packed Integer Values",
+    357
+  ],
+  [
+    "MOVHLPS",
+    "MOVHLPS",
+    "Move Packed Single-Precision Floating-Point Values High to Low",
+    358
+  ],
+  [
+    "MOVHPD",
+    "MOVHPD",
+    "Move High Packed Double-Precision Floating-Point Value",
+    359
+  ],
+  [
+    "MOVHPS",
+    "MOVHPS",
+    "Move High Packed Single-Precision Floating-Point Values",
+    360
+  ],
+  [
+    "MOVLHPS",
+    "MOVLHPS",
+    "Move Packed Single-Precision Floating-Point Values Low to High",
+    361
+  ],
+  [
+    "MOVLPD",
+    "MOVLPD",
+    "Move Low Packed Double-Precision Floating-Point Value",
+    362
+  ],
+  [
+    "MOVLPS",
+    "MOVLPS",
+    "Move Low Packed Single-Precision Floating-Point Values",
+    363
+  ],
+  [
+    "MOVMSKPD",
+    "MOVMSKPD",
+    "Extract Packed Double-Precision Floating-Point Sign Mask",
+    364
+  ],
+  [
+    "MOVMSKPS",
+    "MOVMSKPS",
+    "Extract Packed Single-Precision Floating-Point Sign Mask",
+    365
+  ],
+  ["MOVNTDQ", "MOVNTDQ", "Store Packed Integers Using Non-Temporal Hint", 366],
+  [
+    "MOVNTDQA",
+    "MOVNTDQA",
+    "Load Double Quadword Non-Temporal Aligned Hint",
+    367
+  ],
+  ["MOVNTI", "MOVNTI", "Store Doubleword Using Non-Temporal Hint", 368],
+  [
+    "MOVNTPD",
+    "MOVNTPD",
+    "Store Packed Double-Precision Floating-Point Values Using Non-Temporal Hint",
+    369
+  ],
+  [
+    "MOVNTPS",
+    "MOVNTPS",
+    "Store Packed Single-Precision Floating-Point Values Using Non-Temporal Hint",
+    370
+  ],
+  ["MOVNTQ", "MOVNTQ", "Store of Quadword Using Non-Temporal Hint", 371],
+  ["MOVD:MOVQ", "MOVQ", "Move Doubleword/Move Quadword", 372],
+  ["MOVQ", "MOVQ", "Move Quadword", 373],
+  [
+    "MOVQ2DQ",
+    "MOVQ2DQ",
+    "Move Quadword from MMX Technology to XMM Register",
+    374
+  ],
+  [
+    "MOVS:MOVSB:MOVSW:MOVSD:MOVSQ",
+    "MOVS",
+    "Move Data from String to String",
+    375
+  ],
+  [
+    "MOVS:MOVSB:MOVSW:MOVSD:MOVSQ",
+    "MOVSB",
+    "Move Data from String to String",
+    376
+  ],
+  [
+    "MOVS:MOVSB:MOVSW:MOVSD:MOVSQ",
+    "MOVSD",
+    "Move Data from String to String",
+    377
+  ],
+  [
+    "MOVSD",
+    "MOVSD",
+    "Move or Merge Scalar Double-Precision Floating-Point Value",
+    378
+  ],
+  ["MOVSHDUP", "MOVSHDUP", "Replicate Single FP Values", 379],
+  ["MOVSLDUP", "MOVSLDUP", "Replicate Single FP Values", 380],
+  [
+    "MOVS:MOVSB:MOVSW:MOVSD:MOVSQ",
+    "MOVSQ",
+    "Move Data from String to String",
+    381
+  ],
+  [
+    "MOVSS",
+    "MOVSS",
+    "Move or Merge Scalar Single-Precision Floating-Point Value",
+    382
+  ],
+  [
+    "MOVS:MOVSB:MOVSW:MOVSD:MOVSQ",
+    "MOVSW",
+    "Move Data from String to String",
+    383
+  ],
+  ["MOVSX:MOVSXD", "MOVSX", "Move with Sign-Extension", 384],
+  ["MOVSX:MOVSXD", "MOVSXD", "Move with Sign-Extension", 385],
+  [
+    "MOVUPD",
+    "MOVUPD",
+    "Move Unaligned Packed Double-Precision Floating-Point Values",
+    386
+  ],
+  [
+    "MOVUPS",
+    "MOVUPS",
+    "Move Unaligned Packed Single-Precision Floating-Point Values",
+    387
+  ],
+  ["MOVZX", "MOVZX", "Move with Zero-Extend", 388],
+  [
+    "MPSADBW",
+    "MPSADBW",
+    "Compute Multiple Packed Sums of Absolute Difference",
+    389
+  ],
+  ["MUL", "MUL", "Unsigned Multiply", 390],
+  [
+    "MULPD",
+    "MULPD",
+    "Multiply Packed Double-Precision Floating-Point Values",
+    391
+  ],
+  [
+    "MULPS",
+    "MULPS",
+    "Multiply Packed Single-Precision Floating-Point Values",
+    392
+  ],
+  [
+    "MULSD",
+    "MULSD",
+    "Multiply Scalar Double-Precision Floating-Point Value",
+    393
+  ],
+  [
+    "MULSS",
+    "MULSS",
+    "Multiply Scalar Single-Precision Floating-Point Values",
+    394
+  ],
+  ["MULX", "MULX", "Unsigned Multiply Without Affecting Flags", 395],
+  ["MWAIT", "MWAIT", "Monitor Wait", 396],
+  ["NEG", "NEG", "Two's Complement Negation", 397],
+  ["NOP", "NOP", "No Operation", 398],
+  ["NOT", "NOT", "One's Complement Negation", 399],
+  ["OR", "OR", "Logical Inclusive OR", 400],
+  [
+    "ORPD",
+    "ORPD",
+    "Bitwise Logical OR of Packed Double Precision Floating-Point Values",
+    401
+  ],
+  [
+    "ORPS",
+    "ORPS",
+    "Bitwise Logical OR of Packed Single Precision Floating-Point Values",
+    402
+  ],
+  ["OUT", "OUT", "Output to Port", 403],
+  ["OUTS:OUTSB:OUTSW:OUTSD", "OUTS", "Output String to Port", 404],
+  ["OUTS:OUTSB:OUTSW:OUTSD", "OUTSB", "Output String to Port", 405],
+  ["OUTS:OUTSB:OUTSW:OUTSD", "OUTSD", "Output String to Port", 406],
+  ["OUTS:OUTSB:OUTSW:OUTSD", "OUTSW", "Output String to Port", 407],
+  ["PABSB:PABSW:PABSD:PABSQ", "PABSB", "Packed Absolute Value", 408],
+  ["PABSB:PABSW:PABSD:PABSQ", "PABSD", "Packed Absolute Value", 409],
+  ["PABSB:PABSW:PABSD:PABSQ", "PABSQ", "Packed Absolute Value", 410],
+  ["PABSB:PABSW:PABSD:PABSQ", "PABSW", "Packed Absolute Value", 411],
+  ["PACKSSWB:PACKSSDW", "PACKSSDW", "Pack with Signed Saturation", 412],
+  ["PACKSSWB:PACKSSDW", "PACKSSWB", "Pack with Signed Saturation", 413],
+  ["PACKUSDW", "PACKUSDW", "Pack with Unsigned Saturation", 414],
+  ["PACKUSWB", "PACKUSWB", "Pack with Unsigned Saturation", 415],
+  ["PADDB:PADDW:PADDD:PADDQ", "PADDB", "Add Packed Integers", 416],
+  ["PADDB:PADDW:PADDD:PADDQ", "PADDD", "Add Packed Integers", 417],
+  ["PADDB:PADDW:PADDD:PADDQ", "PADDQ", "Add Packed Integers", 418],
+  [
+    "PADDSB:PADDSW",
+    "PADDSB",
+    "Add Packed Signed Integers with Signed Saturation",
+    419
+  ],
+  [
+    "PADDSB:PADDSW",
+    "PADDSW",
+    "Add Packed Signed Integers with Signed Saturation",
+    420
+  ],
+  [
+    "PADDUSB:PADDUSW",
+    "PADDUSB",
+    "Add Packed Unsigned Integers with Unsigned Saturation",
+    421
+  ],
+  [
+    "PADDUSB:PADDUSW",
+    "PADDUSW",
+    "Add Packed Unsigned Integers with Unsigned Saturation",
+    422
+  ],
+  ["PADDB:PADDW:PADDD:PADDQ", "PADDW", "Add Packed Integers", 423],
+  ["PALIGNR", "PALIGNR", "Packed Align Right", 424],
+  ["PAND", "PAND", "Logical AND", 425],
+  ["PANDN", "PANDN", "Logical AND NOT", 426],
+  ["PAUSE", "PAUSE", "Spin Loop Hint", 427],
+  ["PAVGB:PAVGW", "PAVGB", "Average Packed Integers", 428],
+  ["PAVGB:PAVGW", "PAVGW", "Average Packed Integers", 429],
+  ["PBLENDVB", "PBLENDVB", "Variable Blend Packed Bytes", 430],
+  ["PBLENDW", "PBLENDW", "Blend Packed Words", 431],
+  ["PCLMULQDQ", "PCLMULQDQ", "Carry-Less Multiplication Quadword", 432],
+  ["PCMPEQB:PCMPEQW:PCMPEQD", "PCMPEQB", "Compare Packed Data for Equal", 433],
+  ["PCMPEQB:PCMPEQW:PCMPEQD", "PCMPEQD", "Compare Packed Data for Equal", 434],
+  ["PCMPEQQ", "PCMPEQQ", "Compare Packed Qword Data for Equal", 435],
+  ["PCMPEQB:PCMPEQW:PCMPEQD", "PCMPEQW", "Compare Packed Data for Equal", 436],
+  [
+    "PCMPESTRI",
+    "PCMPESTRI",
+    "Packed Compare Explicit Length Strings, Return Index",
+    437
+  ],
+  [
+    "PCMPESTRM",
+    "PCMPESTRM",
+    "Packed Compare Explicit Length Strings, Return Mask",
+    438
+  ],
+  [
+    "PCMPGTB:PCMPGTW:PCMPGTD",
+    "PCMPGTB",
+    "Compare Packed Signed Integers for Greater Than",
+    439
+  ],
+  [
+    "PCMPGTB:PCMPGTW:PCMPGTD",
+    "PCMPGTD",
+    "Compare Packed Signed Integers for Greater Than",
+    440
+  ],
+  ["PCMPGTQ", "PCMPGTQ", "Compare Packed Data for Greater Than", 441],
+  [
+    "PCMPGTB:PCMPGTW:PCMPGTD",
+    "PCMPGTW",
+    "Compare Packed Signed Integers for Greater Than",
+    442
+  ],
+  [
+    "PCMPISTRI",
+    "PCMPISTRI",
+    "Packed Compare Implicit Length Strings, Return Index",
+    443
+  ],
+  [
+    "PCMPISTRM",
+    "PCMPISTRM",
+    "Packed Compare Implicit Length Strings, Return Mask",
+    444
+  ],
+  ["PCONFIG", "PCONFIG", "Platform Configuration", 445],
+  ["PDEP", "PDEP", "Parallel Bits Deposit", 446],
+  ["PEXT", "PEXT", "Parallel Bits Extract", 447],
+  ["PEXTRB:PEXTRD:PEXTRQ", "PEXTRB", "Extract Byte/Dword/Qword", 448],
+  ["PEXTRB:PEXTRD:PEXTRQ", "PEXTRD", "Extract Byte/Dword/Qword", 449],
+  ["PEXTRB:PEXTRD:PEXTRQ", "PEXTRQ", "Extract Byte/Dword/Qword", 450],
+  ["PEXTRW", "PEXTRW", "Extract Word", 451],
+  ["PHADDW:PHADDD", "PHADDD", "Packed Horizontal Add", 452],
+  ["PHADDSW", "PHADDSW", "Packed Horizontal Add and Saturate", 453],
+  ["PHADDW:PHADDD", "PHADDW", "Packed Horizontal Add", 454],
+  ["PHMINPOSUW", "PHMINPOSUW", "Packed Horizontal Word Minimum", 455],
+  ["PHSUBW:PHSUBD", "PHSUBD", "Packed Horizontal Subtract", 456],
+  ["PHSUBSW", "PHSUBSW", "Packed Horizontal Subtract and Saturate", 457],
+  ["PHSUBW:PHSUBD", "PHSUBW", "Packed Horizontal Subtract", 458],
+  ["PINSRB:PINSRD:PINSRQ", "PINSRB", "Insert Byte/Dword/Qword", 459],
+  ["PINSRB:PINSRD:PINSRQ", "PINSRD", "Insert Byte/Dword/Qword", 460],
+  ["PINSRB:PINSRD:PINSRQ", "PINSRQ", "Insert Byte/Dword/Qword", 461],
+  ["PINSRW", "PINSRW", "Insert Word", 462],
+  [
+    "PMADDUBSW",
+    "PMADDUBSW",
+    "Multiply and Add Packed Signed and Unsigned Bytes",
+    463
+  ],
+  ["PMADDWD", "PMADDWD", "Multiply and Add Packed Integers", 464],
+  [
+    "PMAXSB:PMAXSW:PMAXSD:PMAXSQ",
+    "PMAXSB",
+    "Maximum of Packed Signed Integers",
+    465
+  ],
+  [
+    "PMAXSB:PMAXSW:PMAXSD:PMAXSQ",
+    "PMAXSD",
+    "Maximum of Packed Signed Integers",
+    466
+  ],
+  [
+    "PMAXSB:PMAXSW:PMAXSD:PMAXSQ",
+    "PMAXSQ",
+    "Maximum of Packed Signed Integers",
+    467
+  ],
+  [
+    "PMAXSB:PMAXSW:PMAXSD:PMAXSQ",
+    "PMAXSW",
+    "Maximum of Packed Signed Integers",
+    468
+  ],
+  ["PMAXUB:PMAXUW", "PMAXUB", "Maximum of Packed Unsigned Integers", 469],
+  ["PMAXUD:PMAXUQ", "PMAXUD", "Maximum of Packed Unsigned Integers", 470],
+  ["PMAXUD:PMAXUQ", "PMAXUQ", "Maximum of Packed Unsigned Integers", 471],
+  ["PMAXUB:PMAXUW", "PMAXUW", "Maximum of Packed Unsigned Integers", 472],
+  ["PMINSB:PMINSW", "PMINSB", "Minimum of Packed Signed Integers", 473],
+  ["PMINSD:PMINSQ", "PMINSD", "Minimum of Packed Signed Integers", 474],
+  ["PMINSD:PMINSQ", "PMINSQ", "Minimum of Packed Signed Integers", 475],
+  ["PMINSB:PMINSW", "PMINSW", "Minimum of Packed Signed Integers", 476],
+  ["PMINUB:PMINUW", "PMINUB", "Minimum of Packed Unsigned Integers", 477],
+  ["PMINUD:PMINUQ", "PMINUD", "Minimum of Packed Unsigned Integers", 478],
+  ["PMINUD:PMINUQ", "PMINUQ", "Minimum of Packed Unsigned Integers", 479],
+  ["PMINUB:PMINUW", "PMINUW", "Minimum of Packed Unsigned Integers", 480],
+  ["PMOVMSKB", "PMOVMSKB", "Move Byte Mask", 481],
+  ["PMOVSX", "PMOVSX", "Packed Move with Sign Extend", 482],
+  ["PMOVZX", "PMOVZX", "Packed Move with Zero Extend", 483],
+  ["PMULDQ", "PMULDQ", "Multiply Packed Doubleword Integers", 484],
+  ["PMULHRSW", "PMULHRSW", "Packed Multiply High with Round and Scale", 485],
+  [
+    "PMULHUW",
+    "PMULHUW",
+    "Multiply Packed Unsigned Integers and Store High Result",
+    486
+  ],
+  [
+    "PMULHW",
+    "PMULHW",
+    "Multiply Packed Signed Integers and Store High Result",
+    487
+  ],
+  [
+    "PMULLD:PMULLQ",
+    "PMULLD",
+    "Multiply Packed Integers and Store Low Result",
+    488
+  ],
+  [
+    "PMULLD:PMULLQ",
+    "PMULLQ",
+    "Multiply Packed Integers and Store Low Result",
+    489
+  ],
+  [
+    "PMULLW",
+    "PMULLW",
+    "Multiply Packed Signed Integers and Store Low Result",
+    490
+  ],
+  ["PMULUDQ", "PMULUDQ", "Multiply Packed Unsigned Doubleword Integers", 491],
+  ["POP", "POP", "Pop a Value from the Stack", 492],
+  ["POPA:POPAD", "POPA", "Pop All General-Purpose Registers", 493],
+  ["POPA:POPAD", "POPAD", "Pop All General-Purpose Registers", 494],
+  ["POPCNT", "POPCNT", "Return the Count of Number of Bits Set to 1", 495],
+  ["POPF:POPFD:POPFQ", "POPF", "Pop Stack into EFLAGS Register", 496],
+  ["POPF:POPFD:POPFQ", "POPFD", "Pop Stack into EFLAGS Register", 497],
+  ["POPF:POPFD:POPFQ", "POPFQ", "Pop Stack into EFLAGS Register", 498],
+  ["POR", "POR", "Bitwise Logical OR", 499],
+  [
+    "PREFETCHW",
+    "PREFETCHW",
+    "Prefetch Data into Caches in Anticipation of a Write",
+    500
+  ],
+  ["PREFETCHh", "PREFETCHh", "Prefetch Data Into Caches", 501],
+  ["PSADBW", "PSADBW", "Compute Sum of Absolute Differences", 502],
+  ["PSHUFB", "PSHUFB", "Packed Shuffle Bytes", 503],
+  ["PSHUFD", "PSHUFD", "Shuffle Packed Doublewords", 504],
+  ["PSHUFHW", "PSHUFHW", "Shuffle Packed High Words", 505],
+  ["PSHUFLW", "PSHUFLW", "Shuffle Packed Low Words", 506],
+  ["PSHUFW", "PSHUFW", "Shuffle Packed Words", 507],
+  ["PSIGNB:PSIGNW:PSIGND", "PSIGNB", "Packed SIGN", 508],
+  ["PSIGNB:PSIGNW:PSIGND", "PSIGND", "Packed SIGN", 509],
+  ["PSIGNB:PSIGNW:PSIGND", "PSIGNW", "Packed SIGN", 510],
+  ["PSLLW:PSLLD:PSLLQ", "PSLLD", "Shift Packed Data Left Logical", 511],
+  ["PSLLDQ", "PSLLDQ", "Shift Double Quadword Left Logical", 512],
+  ["PSLLW:PSLLD:PSLLQ", "PSLLQ", "Shift Packed Data Left Logical", 513],
+  ["PSLLW:PSLLD:PSLLQ", "PSLLW", "Shift Packed Data Left Logical", 514],
+  ["PSRAW:PSRAD:PSRAQ", "PSRAD", "Shift Packed Data Right Arithmetic", 515],
+  ["PSRAW:PSRAD:PSRAQ", "PSRAQ", "Shift Packed Data Right Arithmetic", 516],
+  ["PSRAW:PSRAD:PSRAQ", "PSRAW", "Shift Packed Data Right Arithmetic", 517],
+  ["PSRLW:PSRLD:PSRLQ", "PSRLD", "Shift Packed Data Right Logical", 518],
+  ["PSRLDQ", "PSRLDQ", "Shift Double Quadword Right Logical", 519],
+  ["PSRLW:PSRLD:PSRLQ", "PSRLQ", "Shift Packed Data Right Logical", 520],
+  ["PSRLW:PSRLD:PSRLQ", "PSRLW", "Shift Packed Data Right Logical", 521],
+  ["PSUBB:PSUBW:PSUBD", "PSUBB", "Subtract Packed Integers", 522],
+  ["PSUBB:PSUBW:PSUBD", "PSUBD", "Subtract Packed Integers", 523],
+  ["PSUBQ", "PSUBQ", "Subtract Packed Quadword Integers", 524],
+  [
+    "PSUBSB:PSUBSW",
+    "PSUBSB",
+    "Subtract Packed Signed Integers with Signed Saturation",
+    525
+  ],
+  [
+    "PSUBSB:PSUBSW",
+    "PSUBSW",
+    "Subtract Packed Signed Integers with Signed Saturation",
+    526
+  ],
+  [
+    "PSUBUSB:PSUBUSW",
+    "PSUBUSB",
+    "Subtract Packed Unsigned Integers with Unsigned Saturation",
+    527
+  ],
+  [
+    "PSUBUSB:PSUBUSW",
+    "PSUBUSW",
+    "Subtract Packed Unsigned Integers with Unsigned Saturation",
+    528
+  ],
+  ["PSUBB:PSUBW:PSUBD", "PSUBW", "Subtract Packed Integers", 529],
+  ["PTEST", "PTEST", "Logical Compare", 530],
+  ["PTWRITE", "PTWRITE", "Write Data to a Processor Trace Packet", 531],
+  [
+    "PUNPCKHBW:PUNPCKHWD:PUNPCKHDQ:PUNPCKHQDQ",
+    "PUNPCKHBW",
+    "Unpack High Data",
+    532
+  ],
+  [
+    "PUNPCKHBW:PUNPCKHWD:PUNPCKHDQ:PUNPCKHQDQ",
+    "PUNPCKHDQ",
+    "Unpack High Data",
+    533
+  ],
+  [
+    "PUNPCKHBW:PUNPCKHWD:PUNPCKHDQ:PUNPCKHQDQ",
+    "PUNPCKHQDQ",
+    "Unpack High Data",
+    534
+  ],
+  [
+    "PUNPCKHBW:PUNPCKHWD:PUNPCKHDQ:PUNPCKHQDQ",
+    "PUNPCKHWD",
+    "Unpack High Data",
+    535
+  ],
+  [
+    "PUNPCKLBW:PUNPCKLWD:PUNPCKLDQ:PUNPCKLQDQ",
+    "PUNPCKLBW",
+    "Unpack Low Data",
+    536
+  ],
+  [
+    "PUNPCKLBW:PUNPCKLWD:PUNPCKLDQ:PUNPCKLQDQ",
+    "PUNPCKLDQ",
+    "Unpack Low Data",
+    537
+  ],
+  [
+    "PUNPCKLBW:PUNPCKLWD:PUNPCKLDQ:PUNPCKLQDQ",
+    "PUNPCKLQDQ",
+    "Unpack Low Data",
+    538
+  ],
+  [
+    "PUNPCKLBW:PUNPCKLWD:PUNPCKLDQ:PUNPCKLQDQ",
+    "PUNPCKLWD",
+    "Unpack Low Data",
+    539
+  ],
+  ["PUSH", "PUSH", "Push Word, Doubleword or Quadword Onto the Stack", 540],
+  ["PUSHA:PUSHAD", "PUSHA", "Push All General-Purpose Registers", 541],
+  ["PUSHA:PUSHAD", "PUSHAD", "Push All General-Purpose Registers", 542],
+  ["PUSHF:PUSHFD:PUSHFQ", "PUSHF", "Push EFLAGS Register onto the Stack", 543],
+  ["PUSHF:PUSHFD:PUSHFQ", "PUSHFD", "Push EFLAGS Register onto the Stack", 544],
+  ["PUSHF:PUSHFD:PUSHFQ", "PUSHFQ", "Push EFLAGS Register onto the Stack", 545],
+  ["PXOR", "PXOR", "Logical Exclusive OR", 546],
+  ["RCL:RCR:ROL:ROR", "RCL", "Rotate", 547],
+  [
+    "RCPPS",
+    "RCPPS",
+    "Compute Reciprocals of Packed Single-Precision Floating-Point Values",
+    548
+  ],
+  [
+    "RCPSS",
+    "RCPSS",
+    "Compute Reciprocal of Scalar Single-Precision Floating-Point Values",
+    549
+  ],
+  ["RCL:RCR:ROL:ROR", "RCR", "Rotate", 550],
+  ["RDFSBASE:RDGSBASE", "RDFSBASE", "Read FS/GS Segment Base", 551],
+  ["RDFSBASE:RDGSBASE", "RDGSBASE", "Read FS/GS Segment Base", 552],
+  ["RDMSR", "RDMSR", "Read from Model Specific Register", 553],
+  ["RDPID", "RDPID", "Read Processor ID", 554],
+  ["RDPKRU", "RDPKRU", "Read Protection Key Rights for User Pages", 555],
+  ["RDPMC", "RDPMC", "Read Performance-Monitoring Counters", 556],
+  ["RDRAND", "RDRAND", "Read Random Number", 557],
+  ["RDSEED", "RDSEED", "Read Random SEED", 558],
+  ["RDSSPD:RDSSPQ", "RDSSPD", "Read Shadow Stack Pointer", 559],
+  ["RDSSPD:RDSSPQ", "RDSSPQ", "Read Shadow Stack Pointer", 560],
+  ["RDTSC", "RDTSC", "Read Time-Stamp Counter", 561],
+  ["RDTSCP", "RDTSCP", "Read Time-Stamp Counter and Processor ID", 562],
+  ["REP:REPE:REPZ:REPNE:REPNZ", "REP", "Repeat String Operation Prefix", 563],
+  ["REP:REPE:REPZ:REPNE:REPNZ", "REPE", "Repeat String Operation Prefix", 564],
+  ["REP:REPE:REPZ:REPNE:REPNZ", "REPNE", "Repeat String Operation Prefix", 565],
+  ["REP:REPE:REPZ:REPNE:REPNZ", "REPNZ", "Repeat String Operation Prefix", 566],
+  ["REP:REPE:REPZ:REPNE:REPNZ", "REPZ", "Repeat String Operation Prefix", 567],
+  ["RET", "RET", "Return from Procedure", 568],
+  ["RCL:RCR:ROL:ROR", "ROL", "Rotate", 569],
+  ["RCL:RCR:ROL:ROR", "ROR", "Rotate", 570],
+  ["RORX", "RORX", "Rotate Right Logical Without Affecting Flags", 571],
+  [
+    "ROUNDPD",
+    "ROUNDPD",
+    "Round Packed Double Precision Floating-Point Values",
+    572
+  ],
+  [
+    "ROUNDPS",
+    "ROUNDPS",
+    "Round Packed Single Precision Floating-Point Values",
+    573
+  ],
+  [
+    "ROUNDSD",
+    "ROUNDSD",
+    "Round Scalar Double Precision Floating-Point Values",
+    574
+  ],
+  [
+    "ROUNDSS",
+    "ROUNDSS",
+    "Round Scalar Single Precision Floating-Point Values",
+    575
+  ],
+  ["RSM", "RSM", "Resume from System Management Mode", 576],
+  [
+    "RSQRTPS",
+    "RSQRTPS",
+    "Compute Reciprocals of Square Roots of Packed Single-Precision Floating-Point Values",
+    577
+  ],
+  [
+    "RSQRTSS",
+    "RSQRTSS",
+    "Compute Reciprocal of Square Root of Scalar Single-Precision Floating-Point Value",
+    578
+  ],
+  ["RSTORSSP", "RSTORSSP", "Restore Saved Shadow Stack Pointer", 579],
+  ["SAHF", "SAHF", "Store AH into Flags", 580],
+  ["SAL:SAR:SHL:SHR", "SAL", "Shift", 581],
+  ["SAL:SAR:SHL:SHR", "SAR", "Shift", 582],
+  ["SARX:SHLX:SHRX", "SARX", "Shift Without Affecting Flags", 583],
+  ["SAVEPREVSSP", "SAVEPREVSSP", "Save Previous Shadow Stack Pointer", 584],
+  ["SBB", "SBB", "Integer Subtraction with Borrow", 585],
+  ["SCAS:SCASB:SCASW:SCASD", "SCAS", "Scan String", 586],
+  ["SCAS:SCASB:SCASW:SCASD", "SCASB", "Scan String", 587],
+  ["SCAS:SCASB:SCASW:SCASD", "SCASD", "Scan String", 588],
+  ["SCAS:SCASB:SCASW:SCASD", "SCASW", "Scan String", 589],
+  ["SERIALIZE", "SERIALIZE", "Serialize Instruction Execution", 590],
+  ["SETSSBSY", "SETSSBSY", "Mark Shadow Stack Busy", 591],
+  ["SETcc", "SETcc", "Set Byte on Condition", 592],
+  ["SFENCE", "SFENCE", "Store Fence", 593],
+  ["SGDT", "SGDT", "Store Global Descriptor Table Register", 594],
+  [
+    "SHA1MSG1",
+    "SHA1MSG1",
+    "Perform an Intermediate Calculation for the Next Four SHA1 Message Dwords",
+    595
+  ],
+  [
+    "SHA1MSG2",
+    "SHA1MSG2",
+    "Perform a Final Calculation for the Next Four SHA1 Message Dwords",
+    596
+  ],
+  [
+    "SHA1NEXTE",
+    "SHA1NEXTE",
+    "Calculate SHA1 State Variable E after Four Rounds",
+    597
+  ],
+  ["SHA1RNDS4", "SHA1RNDS4", "Perform Four Rounds of SHA1 Operation", 598],
+  [
+    "SHA256MSG1",
+    "SHA256MSG1",
+    "Perform an Intermediate Calculation for the Next Four SHA256 Message Dwords",
+    599
+  ],
+  [
+    "SHA256MSG2",
+    "SHA256MSG2",
+    "Perform a Final Calculation for the Next Four SHA256 Message Dwords",
+    600
+  ],
+  ["SHA256RNDS2", "SHA256RNDS2", "Perform Two Rounds of SHA256 Operation", 601],
+  ["SAL:SAR:SHL:SHR", "SHL", "Shift", 602],
+  ["SHLD", "SHLD", "Double Precision Shift Left", 603],
+  ["SARX:SHLX:SHRX", "SHLX", "Shift Without Affecting Flags", 604],
+  ["SAL:SAR:SHL:SHR", "SHR", "Shift", 605],
+  ["SHRD", "SHRD", "Double Precision Shift Right", 606],
+  ["SARX:SHLX:SHRX", "SHRX", "Shift Without Affecting Flags", 607],
+  [
+    "SHUFPD",
+    "SHUFPD",
+    "Packed Interleave Shuffle of Pairs of Double-Precision Floating-Point Values",
+    608
+  ],
+  [
+    "SHUFPS",
+    "SHUFPS",
+    "Packed Interleave Shuffle of Quadruplets of Single-Precision Floating-Point Values",
+    609
+  ],
+  ["SIDT", "SIDT", "Store Interrupt Descriptor Table Register", 610],
+  ["SLDT", "SLDT", "Store Local Descriptor Table Register", 611],
+  ["SMSW", "SMSW", "Store Machine Status Word", 612],
+  [
+    "SQRTPD",
+    "SQRTPD",
+    "Square Root of Double-Precision Floating-Point Values",
+    613
+  ],
+  [
+    "SQRTPS",
+    "SQRTPS",
+    "Square Root of Single-Precision Floating-Point Values",
+    614
+  ],
+  [
+    "SQRTSD",
+    "SQRTSD",
+    "Compute Square Root of Scalar Double-Precision Floating-Point Value",
+    615
+  ],
+  [
+    "SQRTSS",
+    "SQRTSS",
+    "Compute Square Root of Scalar Single-Precision Value",
+    616
+  ],
+  ["STAC", "STAC", "Set AC Flag in EFLAGS Register", 617],
+  ["STC", "STC", "Set Carry Flag", 618],
+  ["STD", "STD", "Set Direction Flag", 619],
+  ["STI", "STI", "Set Interrupt Flag", 620],
+  ["STMXCSR", "STMXCSR", "Store MXCSR Register State", 621],
+  ["STOS:STOSB:STOSW:STOSD:STOSQ", "STOS", "Store String", 622],
+  ["STOS:STOSB:STOSW:STOSD:STOSQ", "STOSB", "Store String", 623],
+  ["STOS:STOSB:STOSW:STOSD:STOSQ", "STOSD", "Store String", 624],
+  ["STOS:STOSB:STOSW:STOSD:STOSQ", "STOSQ", "Store String", 625],
+  ["STOS:STOSB:STOSW:STOSD:STOSQ", "STOSW", "Store String", 626],
+  ["STR", "STR", "Store Task Register", 627],
+  ["SUB", "SUB", "Subtract", 628],
+  [
+    "SUBPD",
+    "SUBPD",
+    "Subtract Packed Double-Precision Floating-Point Values",
+    629
+  ],
+  [
+    "SUBPS",
+    "SUBPS",
+    "Subtract Packed Single-Precision Floating-Point Values",
+    630
+  ],
+  [
+    "SUBSD",
+    "SUBSD",
+    "Subtract Scalar Double-Precision Floating-Point Value",
+    631
+  ],
+  [
+    "SUBSS",
+    "SUBSS",
+    "Subtract Scalar Single-Precision Floating-Point Value",
+    632
+  ],
+  ["SWAPGS", "SWAPGS", "Swap GS Base Register", 633],
+  ["SYSCALL", "SYSCALL", "Fast System Call", 634],
+  ["SYSENTER", "SYSENTER", "Fast System Call", 635],
+  ["SYSEXIT", "SYSEXIT", "Fast Return from Fast System Call", 636],
+  ["SYSRET", "SYSRET", "Return From Fast System Call", 637],
+  ["TEST", "TEST", "Logical Compare", 638],
+  ["TPAUSE", "TPAUSE", "Timed PAUSE", 639],
+  ["TZCNT", "TZCNT", "Count the Number of Trailing Zero Bits", 640],
+  [
+    "UCOMISD",
+    "UCOMISD",
+    "Unordered Compare Scalar Double-Precision Floating-Point Values and Set EFLAGS",
+    641
+  ],
+  [
+    "UCOMISS",
+    "UCOMISS",
+    "Unordered Compare Scalar Single-Precision Floating-Point Values and Set EFLAGS",
+    642
+  ],
+  ["UD", "UD", "Undefined Instruction", 643],
+  ["UMONITOR", "UMONITOR", "User Level Set Up Monitor Address", 644],
+  ["UMWAIT", "UMWAIT", "User Level Monitor Wait", 645],
+  [
+    "UNPCKHPD",
+    "UNPCKHPD",
+    "Unpack and Interleave High Packed Double-Precision Floating-Point Values",
+    646
+  ],
+  [
+    "UNPCKHPS",
+    "UNPCKHPS",
+    "Unpack and Interleave High Packed Single-Precision Floating-Point Values",
+    647
+  ],
+  [
+    "UNPCKLPD",
+    "UNPCKLPD",
+    "Unpack and Interleave Low Packed Double-Precision Floating-Point Values",
+    648
+  ],
+  [
+    "UNPCKLPS",
+    "UNPCKLPS",
+    "Unpack and Interleave Low Packed Single-Precision Floating-Point Values",
+    649
+  ],
+  ["VALIGND:VALIGNQ", "VALIGND", "Align Doubleword/Quadword Vectors", 650],
+  ["VALIGND:VALIGNQ", "VALIGNQ", "Align Doubleword/Quadword Vectors", 651],
+  [
+    "VBLENDMPD:VBLENDMPS",
+    "VBLENDMPD",
+    "Blend Float64/Float32 Vectors Using an OpMask Control",
+    652
+  ],
+  [
+    "VBLENDMPD:VBLENDMPS",
+    "VBLENDMPS",
+    "Blend Float64/Float32 Vectors Using an OpMask Control",
+    653
+  ],
+  ["VBROADCAST", "VBROADCAST", "Load with Broadcast Floating-Point Data", 654],
+  [
+    "VCOMPRESSPD",
+    "VCOMPRESSPD",
+    "Store Sparse Packed Double-Precision Floating-Point Values into Dense Memory",
+    655
+  ],
+  [
+    "VCOMPRESSPS",
+    "VCOMPRESSPS",
+    "Store Sparse Packed Single-Precision Floating-Point Values into Dense Memory",
+    656
+  ],
+  [
+    "VPCOMPRESSB:VCOMPRESSW",
+    "VCOMPRESSW",
+    "Store Sparse Packed Byte/Word Integer Values into Dense Memory/Register",
+    657
+  ],
+  [
+    "VCVTNE2PS2BF16",
+    "VCVTNE2PS2BF16",
+    "Convert Two Packed Single Data to One Packed BF16 Data",
+    658
+  ],
+  [
+    "VCVTNEPS2BF16",
+    "VCVTNEPS2BF16",
+    "Convert Packed Single Data to Packed BF16 Data",
+    659
+  ],
+  [
+    "VCVTPD2QQ",
+    "VCVTPD2QQ",
+    "Convert Packed Double-Precision Floating-Point Values to Packed Quadword Integers",
+    660
+  ],
+  [
+    "VCVTPD2UDQ",
+    "VCVTPD2UDQ",
+    "Convert Packed Double-Precision Floating-Point Values to Packed Unsigned Doubleword Integers",
+    661
+  ],
+  [
+    "VCVTPD2UQQ",
+    "VCVTPD2UQQ",
+    "Convert Packed Double-Precision Floating-Point Values to Packed Unsigned Quadword Integers",
+    662
+  ],
+  [
+    "VCVTPH2PS",
+    "VCVTPH2PS",
+    "Convert 16-bit FP values to Single-Precision FP values",
+    663
+  ],
+  [
+    "VCVTPS2PH",
+    "VCVTPS2PH",
+    "Convert Single-Precision FP value to 16-bit FP value",
+    664
+  ],
+  [
+    "VCVTPS2QQ",
+    "VCVTPS2QQ",
+    "Convert Packed Single Precision Floating-Point Values to Packed Signed Quadword Integer Values",
+    665
+  ],
+  [
+    "VCVTPS2UDQ",
+    "VCVTPS2UDQ",
+    "Convert Packed Single-Precision Floating-Point Values to Packed Unsigned Doubleword Integer Values",
+    666
+  ],
+  [
+    "VCVTPS2UQQ",
+    "VCVTPS2UQQ",
+    "Convert Packed Single Precision Floating-Point Values to Packed Unsigned Quadword Integer Values",
+    667
+  ],
+  [
+    "VCVTQQ2PD",
+    "VCVTQQ2PD",
+    "Convert Packed Quadword Integers to Packed Double-Precision Floating-Point Values",
+    668
+  ],
+  [
+    "VCVTQQ2PS",
+    "VCVTQQ2PS",
+    "Convert Packed Quadword Integers to Packed Single-Precision Floating-Point Values",
+    669
+  ],
+  [
+    "VCVTSD2USI",
+    "VCVTSD2USI",
+    "Convert Scalar Double-Precision Floating-Point Value to Unsigned Doubleword Integer",
+    670
+  ],
+  [
+    "VCVTSS2USI",
+    "VCVTSS2USI",
+    "Convert Scalar Single-Precision Floating-Point Value to Unsigned Doubleword Integer",
+    671
+  ],
+  [
+    "VCVTTPD2QQ",
+    "VCVTTPD2QQ",
+    "Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Quadword Integers",
+    672
+  ],
+  [
+    "VCVTTPD2UDQ",
+    "VCVTTPD2UDQ",
+    "Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Unsigned Doubleword Integers",
+    673
+  ],
+  [
+    "VCVTTPD2UQQ",
+    "VCVTTPD2UQQ",
+    "Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Unsigned Quadword Integers",
+    674
+  ],
+  [
+    "VCVTTPS2QQ",
+    "VCVTTPS2QQ",
+    "Convert with Truncation Packed Single Precision Floating-Point Values to Packed Signed Quadword Integer Values",
+    675
+  ],
+  [
+    "VCVTTPS2UDQ",
+    "VCVTTPS2UDQ",
+    "Convert with Truncation Packed Single-Precision Floating-Point Values to Packed Unsigned Doubleword Integer Values",
+    676
+  ],
+  [
+    "VCVTTPS2UQQ",
+    "VCVTTPS2UQQ",
+    "Convert with Truncation Packed Single Precision Floating-Point Values to Packed Unsigned Quadword Integer Values",
+    677
+  ],
+  [
+    "VCVTTSD2USI",
+    "VCVTTSD2USI",
+    "Convert with Truncation Scalar Double-Precision Floating-Point Value to Unsigned Integer",
+    678
+  ],
+  [
+    "VCVTTSS2USI",
+    "VCVTTSS2USI",
+    "Convert with Truncation Scalar Single-Precision Floating-Point Value to Unsigned Integer",
+    679
+  ],
+  [
+    "VCVTUDQ2PD",
+    "VCVTUDQ2PD",
+    "Convert Packed Unsigned Doubleword Integers to Packed Double-Precision Floating-Point Values",
+    680
+  ],
+  [
+    "VCVTUDQ2PS",
+    "VCVTUDQ2PS",
+    "Convert Packed Unsigned Doubleword Integers to Packed Single-Precision Floating-Point Values",
+    681
+  ],
+  [
+    "VCVTUQQ2PD",
+    "VCVTUQQ2PD",
+    "Convert Packed Unsigned Quadword Integers to Packed Double-Precision Floating-Point Values",
+    682
+  ],
+  [
+    "VCVTUQQ2PS",
+    "VCVTUQQ2PS",
+    "Convert Packed Unsigned Quadword Integers to Packed Single-Precision Floating-Point Values",
+    683
+  ],
+  [
+    "VCVTUSI2SD",
+    "VCVTUSI2SD",
+    "Convert Unsigned Integer to Scalar Double-Precision Floating-Point Value",
+    684
+  ],
+  [
+    "VCVTUSI2SS",
+    "VCVTUSI2SS",
+    "Convert Unsigned Integer to Scalar Single-Precision Floating-Point Value",
+    685
+  ],
+  [
+    "VDBPSADBW",
+    "VDBPSADBW",
+    "Double Block Packed Sum-Absolute-Differences (SAD) on Unsigned Bytes",
+    686
+  ],
+  [
+    "VDPBF16PS",
+    "VDPBF16PS",
+    "Dot Product of BF16 Pairs Accumulated into Packed Single Precision",
+    687
+  ],
+  ["VERR:VERW", "VERR", "Verify a Segment for Reading or Writing", 688],
+  ["VERR:VERW", "VERW", "Verify a Segment for Reading or Writing", 689],
+  [
+    "VEXPANDPD",
+    "VEXPANDPD",
+    "Load Sparse Packed Double-Precision Floating-Point Values from Dense Memory",
+    690
+  ],
+  [
+    "VEXPANDPS",
+    "VEXPANDPS",
+    "Load Sparse Packed Single-Precision Floating-Point Values from Dense Memory",
+    691
+  ],
+  [
+    "VEXTRACTF128:VEXTRACTF32x4:VEXTRACTF64x2:VEXTRACTF32x8:VEXTRACTF64x4",
+    "VEXTRACTF128",
+    "Extr act Packed Floating-Point Values",
+    692
+  ],
+  [
+    "VEXTRACTF128:VEXTRACTF32x4:VEXTRACTF64x2:VEXTRACTF32x8:VEXTRACTF64x4",
+    "VEXTRACTF32x4",
+    "Extr act Packed Floating-Point Values",
+    693
+  ],
+  [
+    "VEXTRACTF128:VEXTRACTF32x4:VEXTRACTF64x2:VEXTRACTF32x8:VEXTRACTF64x4",
+    "VEXTRACTF32x8",
+    "Extr act Packed Floating-Point Values",
+    694
+  ],
+  [
+    "VEXTRACTF128:VEXTRACTF32x4:VEXTRACTF64x2:VEXTRACTF32x8:VEXTRACTF64x4",
+    "VEXTRACTF64x2",
+    "Extr act Packed Floating-Point Values",
+    695
+  ],
+  [
+    "VEXTRACTF128:VEXTRACTF32x4:VEXTRACTF64x2:VEXTRACTF32x8:VEXTRACTF64x4",
+    "VEXTRACTF64x4",
+    "Extr act Packed Floating-Point Values",
+    696
+  ],
+  [
+    "VEXTRACTI128:VEXTRACTI32x4:VEXTRACTI64x2:VEXTRACTI32x8:VEXTRACTI64x4",
+    "VEXTRACTI128",
+    "Extract packed Integer Values",
+    697
+  ],
+  [
+    "VEXTRACTI128:VEXTRACTI32x4:VEXTRACTI64x2:VEXTRACTI32x8:VEXTRACTI64x4",
+    "VEXTRACTI32x4",
+    "Extract packed Integer Values",
+    698
+  ],
+  [
+    "VEXTRACTI128:VEXTRACTI32x4:VEXTRACTI64x2:VEXTRACTI32x8:VEXTRACTI64x4",
+    "VEXTRACTI32x8",
+    "Extract packed Integer Values",
+    699
+  ],
+  [
+    "VEXTRACTI128:VEXTRACTI32x4:VEXTRACTI64x2:VEXTRACTI32x8:VEXTRACTI64x4",
+    "VEXTRACTI64x2",
+    "Extract packed Integer Values",
+    700
+  ],
+  [
+    "VEXTRACTI128:VEXTRACTI32x4:VEXTRACTI64x2:VEXTRACTI32x8:VEXTRACTI64x4",
+    "VEXTRACTI64x4",
+    "Extract packed Integer Values",
+    701
+  ],
+  ["VFIXUPIMMPD", "VFIXUPIMMPD", "Fix Up Special Packed Float64 Values", 702],
+  ["VFIXUPIMMPS", "VFIXUPIMMPS", "Fix Up Special Packed Float32 Values", 703],
+  ["VFIXUPIMMSD", "VFIXUPIMMSD", "Fix Up Special Scalar Float64 Value", 704],
+  ["VFIXUPIMMSS", "VFIXUPIMMSS", "Fix Up Special Scalar Float32 Value", 705],
+  [
+    "VFMADD132PD:VFMADD213PD:VFMADD231PD",
+    "VFMADD132PD",
+    "Fused Multiply-Add of Packed Double- Precision Floating-Point Values",
+    706
+  ],
+  [
+    "VFMADD132PS:VFMADD213PS:VFMADD231PS",
+    "VFMADD132PS",
+    "Fused Multiply-Add of Packed Single- Precision Floating-Point Values",
+    707
+  ],
+  [
+    "VFMADD132SD:VFMADD213SD:VFMADD231SD",
+    "VFMADD132SD",
+    "Fused Multiply-Add of Scalar Double- Precision Floating-Point Values",
+    708
+  ],
+  [
+    "VFMADD132SS:VFMADD213SS:VFMADD231SS",
+    "VFMADD132SS",
+    "Fused Multiply-Add of Scalar Single-Precision Floating-Point Values",
+    709
+  ],
+  [
+    "VFMADD132PD:VFMADD213PD:VFMADD231PD",
+    "VFMADD213PD",
+    "Fused Multiply-Add of Packed Double- Precision Floating-Point Values",
+    710
+  ],
+  [
+    "VFMADD132PS:VFMADD213PS:VFMADD231PS",
+    "VFMADD213PS",
+    "Fused Multiply-Add of Packed Single- Precision Floating-Point Values",
+    711
+  ],
+  [
+    "VFMADD132SD:VFMADD213SD:VFMADD231SD",
+    "VFMADD213SD",
+    "Fused Multiply-Add of Scalar Double- Precision Floating-Point Values",
+    712
+  ],
+  [
+    "VFMADD132SS:VFMADD213SS:VFMADD231SS",
+    "VFMADD213SS",
+    "Fused Multiply-Add of Scalar Single-Precision Floating-Point Values",
+    713
+  ],
+  [
+    "VFMADD132PD:VFMADD213PD:VFMADD231PD",
+    "VFMADD231PD",
+    "Fused Multiply-Add of Packed Double- Precision Floating-Point Values",
+    714
+  ],
+  [
+    "VFMADD132PS:VFMADD213PS:VFMADD231PS",
+    "VFMADD231PS",
+    "Fused Multiply-Add of Packed Single- Precision Floating-Point Values",
+    715
+  ],
+  [
+    "VFMADD132SD:VFMADD213SD:VFMADD231SD",
+    "VFMADD231SD",
+    "Fused Multiply-Add of Scalar Double- Precision Floating-Point Values",
+    716
+  ],
+  [
+    "VFMADD132SS:VFMADD213SS:VFMADD231SS",
+    "VFMADD231SS",
+    "Fused Multiply-Add of Scalar Single-Precision Floating-Point Values",
+    717
+  ],
+  [
+    "VFMADDSUB132PD:VFMADDSUB213PD:VFMADDSUB231PD",
+    "VFMADDSUB132PD",
+    "Fused Multiply-Alternating Add/Subtract of Packed Double-Precision Floating-Point Values",
+    718
+  ],
+  [
+    "VFMADDSUB132PS:VFMADDSUB213PS:VFMADDSUB231PS",
+    "VFMADDSUB132PS",
+    "Fused Multiply-Alternating Add/Subtract of Packed Single-Precision Floating-Point Values",
+    719
+  ],
+  [
+    "VFMADDSUB132PD:VFMADDSUB213PD:VFMADDSUB231PD",
+    "VFMADDSUB213PD",
+    "Fused Multiply-Alternating Add/Subtract of Packed Double-Precision Floating-Point Values",
+    720
+  ],
+  [
+    "VFMADDSUB132PS:VFMADDSUB213PS:VFMADDSUB231PS",
+    "VFMADDSUB213PS",
+    "Fused Multiply-Alternating Add/Subtract of Packed Single-Precision Floating-Point Values",
+    721
+  ],
+  [
+    "VFMADDSUB132PD:VFMADDSUB213PD:VFMADDSUB231PD",
+    "VFMADDSUB231PD",
+    "Fused Multiply-Alternating Add/Subtract of Packed Double-Precision Floating-Point Values",
+    722
+  ],
+  [
+    "VFMADDSUB132PS:VFMADDSUB213PS:VFMADDSUB231PS",
+    "VFMADDSUB231PS",
+    "Fused Multiply-Alternating Add/Subtract of Packed Single-Precision Floating-Point Values",
+    723
+  ],
+  [
+    "VFMSUB132PD:VFMSUB213PD:VFMSUB231PD",
+    "VFMSUB132PD",
+    "Fused Multiply-Subtract of Packed Double- Precision Floating-Point Values",
+    724
+  ],
+  [
+    "VFMSUB132PS:VFMSUB213PS:VFMSUB231PS",
+    "VFMSUB132PS",
+    "Fused Multiply-Subtract of Packed Single- Precision Floating-Point Values",
+    725
+  ],
+  [
+    "VFMSUB132SD:VFMSUB213SD:VFMSUB231SD",
+    "VFMSUB132SD",
+    "Fused Multiply-Subtract of Scalar Double- Precision Floating-Point Values",
+    726
+  ],
+  [
+    "VFMSUB132SS:VFMSUB213SS:VFMSUB231SS",
+    "VFMSUB132SS",
+    "Fused Multiply-Subtract of Scalar Single- Precision Floating-Point Values",
+    727
+  ],
+  [
+    "VFMSUB132PD:VFMSUB213PD:VFMSUB231PD",
+    "VFMSUB213PD",
+    "Fused Multiply-Subtract of Packed Double- Precision Floating-Point Values",
+    728
+  ],
+  [
+    "VFMSUB132PS:VFMSUB213PS:VFMSUB231PS",
+    "VFMSUB213PS",
+    "Fused Multiply-Subtract of Packed Single- Precision Floating-Point Values",
+    729
+  ],
+  [
+    "VFMSUB132SD:VFMSUB213SD:VFMSUB231SD",
+    "VFMSUB213SD",
+    "Fused Multiply-Subtract of Scalar Double- Precision Floating-Point Values",
+    730
+  ],
+  [
+    "VFMSUB132SS:VFMSUB213SS:VFMSUB231SS",
+    "VFMSUB213SS",
+    "Fused Multiply-Subtract of Scalar Single- Precision Floating-Point Values",
+    731
+  ],
+  [
+    "VFMSUB132PD:VFMSUB213PD:VFMSUB231PD",
+    "VFMSUB231PD",
+    "Fused Multiply-Subtract of Packed Double- Precision Floating-Point Values",
+    732
+  ],
+  [
+    "VFMSUB132PS:VFMSUB213PS:VFMSUB231PS",
+    "VFMSUB231PS",
+    "Fused Multiply-Subtract of Packed Single- Precision Floating-Point Values",
+    733
+  ],
+  [
+    "VFMSUB132SD:VFMSUB213SD:VFMSUB231SD",
+    "VFMSUB231SD",
+    "Fused Multiply-Subtract of Scalar Double- Precision Floating-Point Values",
+    734
+  ],
+  [
+    "VFMSUB132SS:VFMSUB213SS:VFMSUB231SS",
+    "VFMSUB231SS",
+    "Fused Multiply-Subtract of Scalar Single- Precision Floating-Point Values",
+    735
+  ],
+  [
+    "VFMSUBADD132PD:VFMSUBADD213PD:VFMSUBADD231PD",
+    "VFMSUBADD132PD",
+    "Fused Multiply-Alternating Subtract/Add of Packed Double-Precision Floating-Point Values",
+    736
+  ],
+  [
+    "VFMSUBADD132PS:VFMSUBADD213PS:VFMSUBADD231PS",
+    "VFMSUBADD132PS",
+    "Fused Multiply-Alternating Subtract/Add of Packed Single-Precision Floating-Point Values",
+    737
+  ],
+  [
+    "VFMSUBADD132PD:VFMSUBADD213PD:VFMSUBADD231PD",
+    "VFMSUBADD213PD",
+    "Fused Multiply-Alternating Subtract/Add of Packed Double-Precision Floating-Point Values",
+    738
+  ],
+  [
+    "VFMSUBADD132PS:VFMSUBADD213PS:VFMSUBADD231PS",
+    "VFMSUBADD213PS",
+    "Fused Multiply-Alternating Subtract/Add of Packed Single-Precision Floating-Point Values",
+    739
+  ],
+  [
+    "VFMSUBADD132PD:VFMSUBADD213PD:VFMSUBADD231PD",
+    "VFMSUBADD231PD",
+    "Fused Multiply-Alternating Subtract/Add of Packed Double-Precision Floating-Point Values",
+    740
+  ],
+  [
+    "VFMSUBADD132PS:VFMSUBADD213PS:VFMSUBADD231PS",
+    "VFMSUBADD231PS",
+    "Fused Multiply-Alternating Subtract/Add of Packed Single-Precision Floating-Point Values",
+    741
+  ],
+  [
+    "VFNMADD132PD:VFNMADD213PD:VFNMADD231PD",
+    "VFNMADD132PD",
+    "Fused Negative Multiply-Add of Packed Double-Precision Floating-Point Values",
+    742
+  ],
+  [
+    "VFNMADD132PS:VFNMADD213PS:VFNMADD231PS",
+    "VFNMADD132PS",
+    "Fused Negative Multiply-Add of Packed Single-Precision Floating-Point Values",
+    743
+  ],
+  [
+    "VFNMADD132SD:VFNMADD213SD:VFNMADD231SD",
+    "VFNMADD132SD",
+    "Fused Negative Multiply-Add of Scalar Double-Precision Floating-Point Values",
+    744
+  ],
+  [
+    "VFNMADD132SS:VFNMADD213SS:VFNMADD231SS",
+    "VFNMADD132SS",
+    "Fused Negative Multiply-Add of Scalar Single-Precision Floating-Point Values",
+    745
+  ],
+  [
+    "VFNMADD132PD:VFNMADD213PD:VFNMADD231PD",
+    "VFNMADD213PD",
+    "Fused Negative Multiply-Add of Packed Double-Precision Floating-Point Values",
+    746
+  ],
+  [
+    "VFNMADD132PS:VFNMADD213PS:VFNMADD231PS",
+    "VFNMADD213PS",
+    "Fused Negative Multiply-Add of Packed Single-Precision Floating-Point Values",
+    747
+  ],
+  [
+    "VFNMADD132SD:VFNMADD213SD:VFNMADD231SD",
+    "VFNMADD213SD",
+    "Fused Negative Multiply-Add of Scalar Double-Precision Floating-Point Values",
+    748
+  ],
+  [
+    "VFNMADD132SS:VFNMADD213SS:VFNMADD231SS",
+    "VFNMADD213SS",
+    "Fused Negative Multiply-Add of Scalar Single-Precision Floating-Point Values",
+    749
+  ],
+  [
+    "VFNMADD132PD:VFNMADD213PD:VFNMADD231PD",
+    "VFNMADD231PD",
+    "Fused Negative Multiply-Add of Packed Double-Precision Floating-Point Values",
+    750
+  ],
+  [
+    "VFNMADD132PS:VFNMADD213PS:VFNMADD231PS",
+    "VFNMADD231PS",
+    "Fused Negative Multiply-Add of Packed Single-Precision Floating-Point Values",
+    751
+  ],
+  [
+    "VFNMADD132SD:VFNMADD213SD:VFNMADD231SD",
+    "VFNMADD231SD",
+    "Fused Negative Multiply-Add of Scalar Double-Precision Floating-Point Values",
+    752
+  ],
+  [
+    "VFNMADD132SS:VFNMADD213SS:VFNMADD231SS",
+    "VFNMADD231SS",
+    "Fused Negative Multiply-Add of Scalar Single-Precision Floating-Point Values",
+    753
+  ],
+  [
+    "VFNMSUB132PD:VFNMSUB213PD:VFNMSUB231PD",
+    "VFNMSUB132PD",
+    "Fused Negative Multiply-Subtract of Packed Double-Precision Floating-Point Values",
+    754
+  ],
+  [
+    "VFNMSUB132PS:VFNMSUB213PS:VFNMSUB231PS",
+    "VFNMSUB132PS",
+    "Fused Negative Multiply-Subtract of Packed Single-Precision Floating-Point Values",
+    755
+  ],
+  [
+    "VFNMSUB132SD:VFNMSUB213SD:VFNMSUB231SD",
+    "VFNMSUB132SD",
+    "Fused Negative Multiply-Subtract of Scalar Double-Precision Floating-Point Values",
+    756
+  ],
+  [
+    "VFNMSUB132SS:VFNMSUB213SS:VFNMSUB231SS",
+    "VFNMSUB132SS",
+    "Fused Negative Multiply-Subtract of Scalar Single-Precision Floating-Point Values",
+    757
+  ],
+  [
+    "VFNMSUB132PD:VFNMSUB213PD:VFNMSUB231PD",
+    "VFNMSUB213PD",
+    "Fused Negative Multiply-Subtract of Packed Double-Precision Floating-Point Values",
+    758
+  ],
+  [
+    "VFNMSUB132PS:VFNMSUB213PS:VFNMSUB231PS",
+    "VFNMSUB213PS",
+    "Fused Negative Multiply-Subtract of Packed Single-Precision Floating-Point Values",
+    759
+  ],
+  [
+    "VFNMSUB132SD:VFNMSUB213SD:VFNMSUB231SD",
+    "VFNMSUB213SD",
+    "Fused Negative Multiply-Subtract of Scalar Double-Precision Floating-Point Values",
+    760
+  ],
+  [
+    "VFNMSUB132SS:VFNMSUB213SS:VFNMSUB231SS",
+    "VFNMSUB213SS",
+    "Fused Negative Multiply-Subtract of Scalar Single-Precision Floating-Point Values",
+    761
+  ],
+  [
+    "VFNMSUB132PD:VFNMSUB213PD:VFNMSUB231PD",
+    "VFNMSUB231PD",
+    "Fused Negative Multiply-Subtract of Packed Double-Precision Floating-Point Values",
+    762
+  ],
+  [
+    "VFNMSUB132PS:VFNMSUB213PS:VFNMSUB231PS",
+    "VFNMSUB231PS",
+    "Fused Negative Multiply-Subtract of Packed Single-Precision Floating-Point Values",
+    763
+  ],
+  [
+    "VFNMSUB132SD:VFNMSUB213SD:VFNMSUB231SD",
+    "VFNMSUB231SD",
+    "Fused Negative Multiply-Subtract of Scalar Double-Precision Floating-Point Values",
+    764
+  ],
+  [
+    "VFNMSUB132SS:VFNMSUB213SS:VFNMSUB231SS",
+    "VFNMSUB231SS",
+    "Fused Negative Multiply-Subtract of Scalar Single-Precision Floating-Point Values",
+    765
+  ],
+  ["VFPCLASSPD", "VFPCLASSPD", "Tests Types Of a Packed Float64 Values", 766],
+  ["VFPCLASSPS", "VFPCLASSPS", "Tests Types Of a Packed Float32 Values", 767],
+  ["VFPCLASSSD", "VFPCLASSSD", "Tests Types Of a Scalar Float64 Values", 768],
+  ["VFPCLASSSS", "VFPCLASSSS", "Tests Types Of a Scalar Float32 Values", 769],
+  [
+    "VGATHERDPD:VGATHERQPD",
+    "VGATHERDPD",
+    "Gather Packed DP FP Values Using Signed Dword/Qword Indices",
+    770
+  ],
+  [
+    "VGATHERDPS:VGATHERDPD",
+    "VGATHERDPD",
+    "Gather Packed Single, Packed Double with Signed Dword",
+    771
+  ],
+  [
+    "VGATHERDPS:VGATHERQPS",
+    "VGATHERDPS",
+    "Gather Packed SP FP values Using Signed Dword/Qword Indices",
+    772
+  ],
+  [
+    "VGATHERDPS:VGATHERDPD",
+    "VGATHERDPS",
+    "Gather Packed Single, Packed Double with Signed Dword",
+    773
+  ],
+  [
+    "VGATHERDPD:VGATHERQPD",
+    "VGATHERQPD",
+    "Gather Packed DP FP Values Using Signed Dword/Qword Indices",
+    774
+  ],
+  [
+    "VGATHERQPS:VGATHERQPD",
+    "VGATHERQPD",
+    "Gather Packed Single, Packed Double with Signed Qword Indices",
+    775
+  ],
+  [
+    "VGATHERDPS:VGATHERQPS",
+    "VGATHERQPS",
+    "Gather Packed SP FP values Using Signed Dword/Qword Indices",
+    776
+  ],
+  [
+    "VGATHERQPS:VGATHERQPD",
+    "VGATHERQPS",
+    "Gather Packed Single, Packed Double with Signed Qword Indices",
+    777
+  ],
+  [
+    "VGETEXPPD",
+    "VGETEXPPD",
+    "Convert Exponents of Packed DP FP Values to DP FP Values",
+    778
+  ],
+  [
+    "VGETEXPPS",
+    "VGETEXPPS",
+    "Convert Exponents of Packed SP FP Values to SP FP Values",
+    779
+  ],
+  [
+    "VGETEXPSD",
+    "VGETEXPSD",
+    "Convert Exponents of Scalar DP FP Values to DP FP Value",
+    780
+  ],
+  [
+    "VGETEXPSS",
+    "VGETEXPSS",
+    "Convert Exponents of Scalar SP FP Values to SP FP Value",
+    781
+  ],
+  [
+    "VGETMANTPD",
+    "VGETMANTPD",
+    "Extract Float64 Vector of Normalized Mantissas from Float64 Vector",
+    782
+  ],
+  [
+    "VGETMANTPS",
+    "VGETMANTPS",
+    "Extract Float32 Vector of Normalized Mantissas from Float32 Vector",
+    783
+  ],
+  [
+    "VGETMANTSD",
+    "VGETMANTSD",
+    "Extract Float64 of Normalized Mantissas from Float64 Scalar",
+    784
+  ],
+  [
+    "VGETMANTSS",
+    "VGETMANTSS",
+    "Extract Float32 Vector of Normalized Mantissa from Float32 Vector",
+    785
+  ],
+  [
+    "VINSERTF128:VINSERTF32x4:VINSERTF64x2:VINSERTF32x8:VINSERTF64x4",
+    "VINSERTF128",
+    "Insert Packed Floating-Point Values",
+    786
+  ],
+  [
+    "VINSERTF128:VINSERTF32x4:VINSERTF64x2:VINSERTF32x8:VINSERTF64x4",
+    "VINSERTF32x4",
+    "Insert Packed Floating-Point Values",
+    787
+  ],
+  [
+    "VINSERTF128:VINSERTF32x4:VINSERTF64x2:VINSERTF32x8:VINSERTF64x4",
+    "VINSERTF32x8",
+    "Insert Packed Floating-Point Values",
+    788
+  ],
+  [
+    "VINSERTF128:VINSERTF32x4:VINSERTF64x2:VINSERTF32x8:VINSERTF64x4",
+    "VINSERTF64x2",
+    "Insert Packed Floating-Point Values",
+    789
+  ],
+  [
+    "VINSERTF128:VINSERTF32x4:VINSERTF64x2:VINSERTF32x8:VINSERTF64x4",
+    "VINSERTF64x4",
+    "Insert Packed Floating-Point Values",
+    790
+  ],
+  [
+    "VINSERTI128:VINSERTI32x4:VINSERTI64x2:VINSERTI32x8:VINSERTI64x4",
+    "VINSERTI128",
+    "Insert Packed Integer Values",
+    791
+  ],
+  [
+    "VINSERTI128:VINSERTI32x4:VINSERTI64x2:VINSERTI32x8:VINSERTI64x4",
+    "VINSERTI32x4",
+    "Insert Packed Integer Values",
+    792
+  ],
+  [
+    "VINSERTI128:VINSERTI32x4:VINSERTI64x2:VINSERTI32x8:VINSERTI64x4",
+    "VINSERTI32x8",
+    "Insert Packed Integer Values",
+    793
+  ],
+  [
+    "VINSERTI128:VINSERTI32x4:VINSERTI64x2:VINSERTI32x8:VINSERTI64x4",
+    "VINSERTI64x2",
+    "Insert Packed Integer Values",
+    794
+  ],
+  [
+    "VINSERTI128:VINSERTI32x4:VINSERTI64x2:VINSERTI32x8:VINSERTI64x4",
+    "VINSERTI64x4",
+    "Insert Packed Integer Values",
+    795
+  ],
+  ["VMASKMOV", "VMASKMOV", "Conditional SIMD Packed Loads and Stores", 796],
+  [
+    "MOVDQA:VMOVDQA32:VMOVDQA64",
+    "VMOVDQA32",
+    "Move Aligned Packed Integer Values",
+    797
+  ],
+  [
+    "MOVDQA:VMOVDQA32:VMOVDQA64",
+    "VMOVDQA64",
+    "Move Aligned Packed Integer Values",
+    798
+  ],
+  [
+    "MOVDQU:VMOVDQU8:VMOVDQU16:VMOVDQU32:VMOVDQU64",
+    "VMOVDQU16",
+    "Move Unaligned Packed Integer Values",
+    799
+  ],
+  [
+    "MOVDQU:VMOVDQU8:VMOVDQU16:VMOVDQU32:VMOVDQU64",
+    "VMOVDQU32",
+    "Move Unaligned Packed Integer Values",
+    800
+  ],
+  [
+    "MOVDQU:VMOVDQU8:VMOVDQU16:VMOVDQU32:VMOVDQU64",
+    "VMOVDQU64",
+    "Move Unaligned Packed Integer Values",
+    801
+  ],
+  [
+    "MOVDQU:VMOVDQU8:VMOVDQU16:VMOVDQU32:VMOVDQU64",
+    "VMOVDQU8",
+    "Move Unaligned Packed Integer Values",
+    802
+  ],
+  [
+    "VP2INTERSECTD:VP2INTERSECTQ",
+    "VP2INTERSECTD",
+    "Compute Intersection Between DWORDS/QUADWORDS to a Pair of Mask Registers",
+    803
+  ],
+  [
+    "VP2INTERSECTD:VP2INTERSECTQ",
+    "VP2INTERSECTQ",
+    "Compute Intersection Between DWORDS/QUADWORDS to a Pair of Mask Registers",
+    804
+  ],
+  ["VPBLENDD", "VPBLENDD", "Blend Packed Dwords", 805],
+  [
+    "VPBLENDMB:VPBLENDMW",
+    "VPBLENDMB",
+    "Blend Byte/Word Vectors Using an Opmask Control",
+    806
+  ],
+  [
+    "VPBLENDMD:VPBLENDMQ",
+    "VPBLENDMD",
+    "Blend Int32/Int64 Vectors Using an OpMask Control",
+    807
+  ],
+  [
+    "VPBLENDMD:VPBLENDMQ",
+    "VPBLENDMQ",
+    "Blend Int32/Int64 Vectors Using an OpMask Control",
+    808
+  ],
+  [
+    "VPBLENDMB:VPBLENDMW",
+    "VPBLENDMW",
+    "Blend Byte/Word Vectors Using an Opmask Control",
+    809
+  ],
+  ["VPBROADCAST", "VPBROADCAST", "Load Integer and Broadcast", 810],
+  [
+    "VPBROADCASTB:VPBROADCASTW:VPBROADCASTD:VPBROADCASTQ",
+    "VPBROADCASTB",
+    "Load with Broadcast Integer Data from General Purpose Register",
+    811
+  ],
+  [
+    "VPBROADCASTB:VPBROADCASTW:VPBROADCASTD:VPBROADCASTQ",
+    "VPBROADCASTD",
+    "Load with Broadcast Integer Data from General Purpose Register",
+    812
+  ],
+  ["VPBROADCASTM", "VPBROADCASTM", "Broadcast Mask to Vector Register", 813],
+  [
+    "VPBROADCASTB:VPBROADCASTW:VPBROADCASTD:VPBROADCASTQ",
+    "VPBROADCASTQ",
+    "Load with Broadcast Integer Data from General Purpose Register",
+    814
+  ],
+  [
+    "VPBROADCASTB:VPBROADCASTW:VPBROADCASTD:VPBROADCASTQ",
+    "VPBROADCASTW",
+    "Load with Broadcast Integer Data from General Purpose Register",
+    815
+  ],
+  ["VPCMPB:VPCMPUB", "VPCMPB", "Compare Packed Byte Values Into Mask", 816],
+  ["VPCMPD:VPCMPUD", "VPCMPD", "Compare Packed Integer Values into Mask", 817],
+  ["VPCMPQ:VPCMPUQ", "VPCMPQ", "Compare Packed Integer Values into Mask", 818],
+  ["VPCMPB:VPCMPUB", "VPCMPUB", "Compare Packed Byte Values Into Mask", 819],
+  ["VPCMPD:VPCMPUD", "VPCMPUD", "Compare Packed Integer Values into Mask", 820],
+  ["VPCMPQ:VPCMPUQ", "VPCMPUQ", "Compare Packed Integer Values into Mask", 821],
+  ["VPCMPW:VPCMPUW", "VPCMPUW", "Compare Packed Word Values Into Mask", 822],
+  ["VPCMPW:VPCMPUW", "VPCMPW", "Compare Packed Word Values Into Mask", 823],
+  [
+    "VPCOMPRESSB:VCOMPRESSW",
+    "VPCOMPRESSB",
+    "Store Sparse Packed Byte/Word Integer Values into Dense Memory/Register",
+    824
+  ],
+  [
+    "VPCOMPRESSD",
+    "VPCOMPRESSD",
+    "Store Sparse Packed Doubleword Integer Values into Dense Memory/Register",
+    825
+  ],
+  [
+    "VPCOMPRESSQ",
+    "VPCOMPRESSQ",
+    "Store Sparse Packed Quadword Integer Values into Dense Memory/Register",
+    826
+  ],
+  [
+    "VPCONFLICTD:VPCONFLICTQ",
+    "VPCONFLICTD",
+    "Detect Conflicts Within a Vector of Packed Dword/Qword Values into Dense Memory/ Register",
+    827
+  ],
+  [
+    "VPCONFLICTD:VPCONFLICTQ",
+    "VPCONFLICTQ",
+    "Detect Conflicts Within a Vector of Packed Dword/Qword Values into Dense Memory/ Register",
+    828
+  ],
+  ["VPDPBUSD", "VPDPBUSD", "Multiply and Add Unsigned and Signed Bytes", 829],
+  [
+    "VPDPBUSDS",
+    "VPDPBUSDS",
+    "Multiply and Add Unsigned and Signed Bytes with Saturation",
+    830
+  ],
+  ["VPDPWSSD", "VPDPWSSD", "Multiply and Add Signed Word Integers", 831],
+  [
+    "VPDPWSSDS",
+    "VPDPWSSDS",
+    "Multiply and Add Signed Word Integers with Saturation",
+    832
+  ],
+  ["VPERM2F128", "VPERM2F128", "Permute Floating-Point Values", 833],
+  ["VPERM2I128", "VPERM2I128", "Permute Integer Values", 834],
+  ["VPERMB", "VPERMB", "Permute Packed Bytes Elements", 835],
+  ["VPERMD:VPERMW", "VPERMD", "Permute Packed Doublewords/Words Elements", 836],
+  [
+    "VPERMI2B",
+    "VPERMI2B",
+    "Full Permute of Bytes from Two Tables Overwriting the Index",
+    837
+  ],
+  [
+    "VPERMI2W:VPERMI2D:VPERMI2Q:VPERMI2PS:VPERMI2PD",
+    "VPERMI2D",
+    "Full Permute From Two Tables Overwriting the Index",
+    838
+  ],
+  [
+    "VPERMI2W:VPERMI2D:VPERMI2Q:VPERMI2PS:VPERMI2PD",
+    "VPERMI2PD",
+    "Full Permute From Two Tables Overwriting the Index",
+    839
+  ],
+  [
+    "VPERMI2W:VPERMI2D:VPERMI2Q:VPERMI2PS:VPERMI2PD",
+    "VPERMI2PS",
+    "Full Permute From Two Tables Overwriting the Index",
+    840
+  ],
+  [
+    "VPERMI2W:VPERMI2D:VPERMI2Q:VPERMI2PS:VPERMI2PD",
+    "VPERMI2Q",
+    "Full Permute From Two Tables Overwriting the Index",
+    841
+  ],
+  [
+    "VPERMI2W:VPERMI2D:VPERMI2Q:VPERMI2PS:VPERMI2PD",
+    "VPERMI2W",
+    "Full Permute From Two Tables Overwriting the Index",
+    842
+  ],
+  [
+    "VPERMILPD",
+    "VPERMILPD",
+    "Permute In-Lane of Pairs of Double-Precision Floating-Point Values",
+    843
+  ],
+  [
+    "VPERMILPS",
+    "VPERMILPS",
+    "Permute In-Lane of Quadruples of Single-Precision Floating-Point Values",
+    844
+  ],
+  [
+    "VPERMPD",
+    "VPERMPD",
+    "Permute Double-Precision Floating-Point Elements",
+    845
+  ],
+  [
+    "VPERMPS",
+    "VPERMPS",
+    "Permute Single-Precision Floating-Point Elements",
+    846
+  ],
+  ["VPERMQ", "VPERMQ", "Qwords Element Permutation", 847],
+  [
+    "VPERMT2B",
+    "VPERMT2B",
+    "Full Permute of Bytes from Two Tables Overwriting a Table",
+    848
+  ],
+  [
+    "VPERMT2W:VPERMT2D:VPERMT2Q:VPERMT2PS:VPERMT2PD",
+    "VPERMT2D",
+    "Full Permute from Two Tables Overwriting one Table",
+    849
+  ],
+  [
+    "VPERMT2W:VPERMT2D:VPERMT2Q:VPERMT2PS:VPERMT2PD",
+    "VPERMT2PD",
+    "Full Permute from Two Tables Overwriting one Table",
+    850
+  ],
+  [
+    "VPERMT2W:VPERMT2D:VPERMT2Q:VPERMT2PS:VPERMT2PD",
+    "VPERMT2PS",
+    "Full Permute from Two Tables Overwriting one Table",
+    851
+  ],
+  [
+    "VPERMT2W:VPERMT2D:VPERMT2Q:VPERMT2PS:VPERMT2PD",
+    "VPERMT2Q",
+    "Full Permute from Two Tables Overwriting one Table",
+    852
+  ],
+  [
+    "VPERMT2W:VPERMT2D:VPERMT2Q:VPERMT2PS:VPERMT2PD",
+    "VPERMT2W",
+    "Full Permute from Two Tables Overwriting one Table",
+    853
+  ],
+  ["VPERMD:VPERMW", "VPERMW", "Permute Packed Doublewords/Words Elements", 854],
+  ["VPEXPANDB:VPEXPANDW", "VPEXPANDB", "Expand Byte/Word Values", 855],
+  [
+    "VPEXPANDD",
+    "VPEXPANDD",
+    "Load Sparse Packed Doubleword Integer Values from Dense Memory / Register",
+    856
+  ],
+  [
+    "VPEXPANDQ",
+    "VPEXPANDQ",
+    "Load Sparse Packed Quadword Integer Values from Dense Memory / Register",
+    857
+  ],
+  ["VPEXPANDB:VPEXPANDW", "VPEXPANDW", "Expand Byte/Word Values", 858],
+  [
+    "VPGATHERDD:VPGATHERQD",
+    "VPGATHERDD",
+    "Gather Packed Dword Values Using Signed Dword/Qword Indices",
+    859
+  ],
+  [
+    "VPGATHERDD:VPGATHERDQ",
+    "VPGATHERDD",
+    "Gather Packed Dword, Packed Qword with Signed Dword Indices",
+    860
+  ],
+  [
+    "VPGATHERDD:VPGATHERDQ",
+    "VPGATHERDQ",
+    "Gather Packed Dword, Packed Qword with Signed Dword Indices",
+    861
+  ],
+  [
+    "VPGATHERDQ:VPGATHERQQ",
+    "VPGATHERDQ",
+    "Gather Packed Qword Values Using Signed Dword/Qword Indices",
+    862
+  ],
+  [
+    "VPGATHERDD:VPGATHERQD",
+    "VPGATHERQD",
+    "Gather Packed Dword Values Using Signed Dword/Qword Indices",
+    863
+  ],
+  [
+    "VPGATHERQD:VPGATHERQQ",
+    "VPGATHERQD",
+    "Gather Packed Dword, Packed Qword with Signed Qword Indices",
+    864
+  ],
+  [
+    "VPGATHERDQ:VPGATHERQQ",
+    "VPGATHERQQ",
+    "Gather Packed Qword Values Using Signed Dword/Qword Indices",
+    865
+  ],
+  [
+    "VPGATHERQD:VPGATHERQQ",
+    "VPGATHERQQ",
+    "Gather Packed Dword, Packed Qword with Signed Qword Indices",
+    866
+  ],
+  [
+    "VPLZCNTD:VPLZCNTQ",
+    "VPLZCNTD",
+    "Count the Number of Leading Zero Bits for Packed Dword, Packed Qword Values",
+    867
+  ],
+  [
+    "VPLZCNTD:VPLZCNTQ",
+    "VPLZCNTQ",
+    "Count the Number of Leading Zero Bits for Packed Dword, Packed Qword Values",
+    868
+  ],
+  [
+    "VPMADD52HUQ",
+    "VPMADD52HUQ",
+    "Packed Multiply of Unsigned 52-bit Unsigned Integers and Add High 52-bit Products to 64-bit Accumulators",
+    869
+  ],
+  [
+    "VPMADD52LUQ",
+    "VPMADD52LUQ",
+    "Packed Multiply of Unsigned 52-bit Integers and Add the Low 52-bit Products to Qword Accumulators",
+    870
+  ],
+  [
+    "VPMASKMOV",
+    "VPMASKMOV",
+    "Conditional SIMD Integer Packed Loads and Stores",
+    871
+  ],
+  [
+    "VPMOVB2M:VPMOVW2M:VPMOVD2M:VPMOVQ2M",
+    "VPMOVB2M",
+    "Convert a Vector Register to a Mask",
+    872
+  ],
+  [
+    "VPMOVB2M:VPMOVW2M:VPMOVD2M:VPMOVQ2M",
+    "VPMOVD2M",
+    "Convert a Vector Register to a Mask",
+    873
+  ],
+  ["VPMOVDB:VPMOVSDB:VPMOVUSDB", "VPMOVDB", "Down Convert DWord to Byte", 874],
+  ["VPMOVDW:VPMOVSDW:VPMOVUSDW", "VPMOVDW", "Down Convert DWord to Word", 875],
+  [
+    "VPMOVM2B:VPMOVM2W:VPMOVM2D:VPMOVM2Q",
+    "VPMOVM2B",
+    "Convert a Mask Register to a Vector Register",
+    876
+  ],
+  [
+    "VPMOVM2B:VPMOVM2W:VPMOVM2D:VPMOVM2Q",
+    "VPMOVM2D",
+    "Convert a Mask Register to a Vector Register",
+    877
+  ],
+  [
+    "VPMOVM2B:VPMOVM2W:VPMOVM2D:VPMOVM2Q",
+    "VPMOVM2Q",
+    "Convert a Mask Register to a Vector Register",
+    878
+  ],
+  [
+    "VPMOVM2B:VPMOVM2W:VPMOVM2D:VPMOVM2Q",
+    "VPMOVM2W",
+    "Convert a Mask Register to a Vector Register",
+    879
+  ],
+  [
+    "VPMOVB2M:VPMOVW2M:VPMOVD2M:VPMOVQ2M",
+    "VPMOVQ2M",
+    "Convert a Vector Register to a Mask",
+    880
+  ],
+  ["VPMOVQB:VPMOVSQB:VPMOVUSQB", "VPMOVQB", "Down Convert QWord to Byte", 881],
+  ["VPMOVQD:VPMOVSQD:VPMOVUSQD", "VPMOVQD", "Down Convert QWord to DWord", 882],
+  ["VPMOVQW:VPMOVSQW:VPMOVUSQW", "VPMOVQW", "Down Convert QWord to Word", 883],
+  ["VPMOVDB:VPMOVSDB:VPMOVUSDB", "VPMOVSDB", "Down Convert DWord to Byte", 884],
+  ["VPMOVDW:VPMOVSDW:VPMOVUSDW", "VPMOVSDW", "Down Convert DWord to Word", 885],
+  ["VPMOVQB:VPMOVSQB:VPMOVUSQB", "VPMOVSQB", "Down Convert QWord to Byte", 886],
+  [
+    "VPMOVQD:VPMOVSQD:VPMOVUSQD",
+    "VPMOVSQD",
+    "Down Convert QWord to DWord",
+    887
+  ],
+  ["VPMOVQW:VPMOVSQW:VPMOVUSQW", "VPMOVSQW", "Down Convert QWord to Word", 888],
+  ["VPMOVWB:VPMOVSWB:VPMOVUSWB", "VPMOVSWB", "Down Convert Word to Byte", 889],
+  [
+    "VPMOVDB:VPMOVSDB:VPMOVUSDB",
+    "VPMOVUSDB",
+    "Down Convert DWord to Byte",
+    890
+  ],
+  [
+    "VPMOVDW:VPMOVSDW:VPMOVUSDW",
+    "VPMOVUSDW",
+    "Down Convert DWord to Word",
+    891
+  ],
+  [
+    "VPMOVQB:VPMOVSQB:VPMOVUSQB",
+    "VPMOVUSQB",
+    "Down Convert QWord to Byte",
+    892
+  ],
+  [
+    "VPMOVQD:VPMOVSQD:VPMOVUSQD",
+    "VPMOVUSQD",
+    "Down Convert QWord to DWord",
+    893
+  ],
+  [
+    "VPMOVQW:VPMOVSQW:VPMOVUSQW",
+    "VPMOVUSQW",
+    "Down Convert QWord to Word",
+    894
+  ],
+  ["VPMOVWB:VPMOVSWB:VPMOVUSWB", "VPMOVUSWB", "Down Convert Word to Byte", 895],
+  [
+    "VPMOVB2M:VPMOVW2M:VPMOVD2M:VPMOVQ2M",
+    "VPMOVW2M",
+    "Convert a Vector Register to a Mask",
+    896
+  ],
+  ["VPMOVWB:VPMOVSWB:VPMOVUSWB", "VPMOVWB", "Down Convert Word to Byte", 897],
+  [
+    "VPMULTISHIFTQB",
+    "VPMULTISHIFTQB",
+    "Select Packed Unaligned Bytes from Quadword Sources",
+    898
+  ],
+  [
+    "VPOPCNT",
+    "VPOPCNT",
+    "Return the Count of Number of Bits Set to 1 in BYTE/WORD/DWORD/QWORD",
+    899
+  ],
+  ["VPROLD:VPROLVD:VPROLQ:VPROLVQ", "VPROLD", "Bit Rotate Left", 900],
+  ["VPROLD:VPROLVD:VPROLQ:VPROLVQ", "VPROLQ", "Bit Rotate Left", 901],
+  ["VPROLD:VPROLVD:VPROLQ:VPROLVQ", "VPROLVD", "Bit Rotate Left", 902],
+  ["VPROLD:VPROLVD:VPROLQ:VPROLVQ", "VPROLVQ", "Bit Rotate Left", 903],
+  ["VPRORD:VPRORVD:VPRORQ:VPRORVQ", "VPRORD", "Bit Rotate Right", 904],
+  ["VPRORD:VPRORVD:VPRORQ:VPRORVQ", "VPRORQ", "Bit Rotate Right", 905],
+  ["VPRORD:VPRORVD:VPRORQ:VPRORVQ", "VPRORVD", "Bit Rotate Right", 906],
+  ["VPRORD:VPRORVD:VPRORQ:VPRORVQ", "VPRORVQ", "Bit Rotate Right", 907],
+  [
+    "VPSCATTERDD:VPSCATTERDQ:VPSCATTERQD:VPSCATTERQQ",
+    "VPSCATTERDD",
+    "Scatter Packed Dword, Packed Qword with Signed Dword, Signed Qword Indices",
+    908
+  ],
+  [
+    "VPSCATTERDD:VPSCATTERDQ:VPSCATTERQD:VPSCATTERQQ",
+    "VPSCATTERDQ",
+    "Scatter Packed Dword, Packed Qword with Signed Dword, Signed Qword Indices",
+    909
+  ],
+  [
+    "VPSCATTERDD:VPSCATTERDQ:VPSCATTERQD:VPSCATTERQQ",
+    "VPSCATTERQD",
+    "Scatter Packed Dword, Packed Qword with Signed Dword, Signed Qword Indices",
+    910
+  ],
+  [
+    "VPSCATTERDD:VPSCATTERDQ:VPSCATTERQD:VPSCATTERQQ",
+    "VPSCATTERQQ",
+    "Scatter Packed Dword, Packed Qword with Signed Dword, Signed Qword Indices",
+    911
+  ],
+  ["VPSHLD", "VPSHLD", "Concatenate and Shift Packed Data Left Logical", 912],
+  [
+    "VPSHLDV",
+    "VPSHLDV",
+    "Concatenate and Variable Shift Packed Data Left Logical",
+    913
+  ],
+  ["VPSHRD", "VPSHRD", "Concatenate and Shift Packed Data Right Logical", 914],
+  [
+    "VPSHRDV",
+    "VPSHRDV",
+    "Concatenate and Variable Shift Packed Data Right Logical",
+    915
+  ],
+  [
+    "VPSHUFBITQMB",
+    "VPSHUFBITQMB",
+    "Shuffle Bits from Quadword Elements Using Byte Indexes into Mask",
+    916
+  ],
+  [
+    "VPSLLVW:VPSLLVD:VPSLLVQ",
+    "VPSLLVD",
+    "Variable Bit Shift Left Logical",
+    917
+  ],
+  [
+    "VPSLLVW:VPSLLVD:VPSLLVQ",
+    "VPSLLVQ",
+    "Variable Bit Shift Left Logical",
+    918
+  ],
+  [
+    "VPSLLVW:VPSLLVD:VPSLLVQ",
+    "VPSLLVW",
+    "Variable Bit Shift Left Logical",
+    919
+  ],
+  [
+    "VPSRAVW:VPSRAVD:VPSRAVQ",
+    "VPSRAVD",
+    "Variable Bit Shift Right Arithmetic",
+    920
+  ],
+  [
+    "VPSRAVW:VPSRAVD:VPSRAVQ",
+    "VPSRAVQ",
+    "Variable Bit Shift Right Arithmetic",
+    921
+  ],
+  [
+    "VPSRAVW:VPSRAVD:VPSRAVQ",
+    "VPSRAVW",
+    "Variable Bit Shift Right Arithmetic",
+    922
+  ],
+  [
+    "VPSRLVW:VPSRLVD:VPSRLVQ",
+    "VPSRLVD",
+    "Variable Bit Shift Right Logical",
+    923
+  ],
+  [
+    "VPSRLVW:VPSRLVD:VPSRLVQ",
+    "VPSRLVQ",
+    "Variable Bit Shift Right Logical",
+    924
+  ],
+  [
+    "VPSRLVW:VPSRLVD:VPSRLVQ",
+    "VPSRLVW",
+    "Variable Bit Shift Right Logical",
+    925
+  ],
+  ["VPTERNLOGD:VPTERNLOGQ", "VPTERNLOGD", "Bitwise Ternary Logic", 926],
+  ["VPTERNLOGD:VPTERNLOGQ", "VPTERNLOGQ", "Bitwise Ternary Logic", 927],
+  [
+    "VPTESTMB:VPTESTMW:VPTESTMD:VPTESTMQ",
+    "VPTESTMB",
+    "Logical AND and Set Mask",
+    928
+  ],
+  [
+    "VPTESTMB:VPTESTMW:VPTESTMD:VPTESTMQ",
+    "VPTESTMD",
+    "Logical AND and Set Mask",
+    929
+  ],
+  [
+    "VPTESTMB:VPTESTMW:VPTESTMD:VPTESTMQ",
+    "VPTESTMQ",
+    "Logical AND and Set Mask",
+    930
+  ],
+  [
+    "VPTESTMB:VPTESTMW:VPTESTMD:VPTESTMQ",
+    "VPTESTMW",
+    "Logical AND and Set Mask",
+    931
+  ],
+  [
+    "VPTESTNMB:VPTESTNMW:VPTESTNMD:VPTESTNMQ",
+    "VPTESTNMB",
+    "Logical NAND and Set",
+    932
+  ],
+  [
+    "VPTESTNMB:VPTESTNMW:VPTESTNMD:VPTESTNMQ",
+    "VPTESTNMD",
+    "Logical NAND and Set",
+    933
+  ],
+  [
+    "VPTESTNMB:VPTESTNMW:VPTESTNMD:VPTESTNMQ",
+    "VPTESTNMQ",
+    "Logical NAND and Set",
+    934
+  ],
+  [
+    "VPTESTNMB:VPTESTNMW:VPTESTNMD:VPTESTNMQ",
+    "VPTESTNMW",
+    "Logical NAND and Set",
+    935
+  ],
+  [
+    "VRANGEPD",
+    "VRANGEPD",
+    "Range Restriction Calculation For Packed Pairs of Float64 Values",
+    936
+  ],
+  [
+    "VRANGEPS",
+    "VRANGEPS",
+    "Range Restriction Calculation For Packed Pairs of Float32 Values",
+    937
+  ],
+  [
+    "VRANGESD",
+    "VRANGESD",
+    "Range Restriction Calculation From a pair of Scalar Float64 Values",
+    938
+  ],
+  [
+    "VRANGESS",
+    "VRANGESS",
+    "Range Restriction Calculation From a Pair of Scalar Float32 Values",
+    939
+  ],
+  [
+    "VRCP14PD",
+    "VRCP14PD",
+    "Compute Approximate Reciprocals of Packed Float64 Values",
+    940
+  ],
+  [
+    "VRCP14PS",
+    "VRCP14PS",
+    "Compute Approximate Reciprocals of Packed Float32 Values",
+    941
+  ],
+  [
+    "VRCP14SD",
+    "VRCP14SD",
+    "Compute Approximate Reciprocal of Scalar Float64 Value",
+    942
+  ],
+  [
+    "VRCP14SS",
+    "VRCP14SS",
+    "Compute Approximate Reciprocal of Scalar Float32 Value",
+    943
+  ],
+  [
+    "VREDUCEPD",
+    "VREDUCEPD",
+    "Perform Reduction Transformation on Packed Float64 Values",
+    944
+  ],
+  [
+    "VREDUCEPS",
+    "VREDUCEPS",
+    "Perform Reduction Transformation on Packed Float32 Values",
+    945
+  ],
+  [
+    "VREDUCESD",
+    "VREDUCESD",
+    "Perform a Reduction Transformation on a Scalar Float64 Value",
+    946
+  ],
+  [
+    "VREDUCESS",
+    "VREDUCESS",
+    "Perform a Reduction Transformation on a Scalar Float32 Value",
+    947
+  ],
+  [
+    "VRNDSCALEPD",
+    "VRNDSCALEPD",
+    "Round Packed Float64 Values To Include A Given Number Of Fraction Bits",
+    948
+  ],
+  [
+    "VRNDSCALEPS",
+    "VRNDSCALEPS",
+    "Round Packed Float32 Values To Include A Given Number Of Fraction Bits",
+    949
+  ],
+  [
+    "VRNDSCALESD",
+    "VRNDSCALESD",
+    "Round Scalar Float64 Value To Include A Given Number Of Fraction Bits",
+    950
+  ],
+  [
+    "VRNDSCALESS",
+    "VRNDSCALESS",
+    "Round Scalar Float32 Value To Include A Given Number Of Fraction Bits",
+    951
+  ],
+  [
+    "VRSQRT14PD",
+    "VRSQRT14PD",
+    "Compute Approximate Reciprocals of Square Roots of Packed Float64 Values",
+    952
+  ],
+  [
+    "VRSQRT14PS",
+    "VRSQRT14PS",
+    "Compute Approximate Reciprocals of Square Roots of Packed Float32 Values",
+    953
+  ],
+  [
+    "VRSQRT14SD",
+    "VRSQRT14SD",
+    "Compute Approximate Reciprocal of Square Root of Scalar Float64 Value",
+    954
+  ],
+  [
+    "VRSQRT14SS",
+    "VRSQRT14SS",
+    "Compute Approximate Reciprocal of Square Root of Scalar Float32 Value",
+    955
+  ],
+  [
+    "VSCALEFPD",
+    "VSCALEFPD",
+    "Scale Packed Float64 Values With Float64 Values",
+    956
+  ],
+  [
+    "VSCALEFPS",
+    "VSCALEFPS",
+    "Scale Packed Float32 Values With Float32 Values",
+    957
+  ],
+  [
+    "VSCALEFSD",
+    "VSCALEFSD",
+    "Scale Scalar Float64 Values With Float64 Values",
+    958
+  ],
+  [
+    "VSCALEFSS",
+    "VSCALEFSS",
+    "Scale Scalar Float32 Value With Float32 Value",
+    959
+  ],
+  [
+    "VSCATTERDPS:VSCATTERDPD:VSCATTERQPS:VSCATTERQPD",
+    "VSCATTERDPD",
+    "Scatter Packed Single, Packed Double with Signed Dword and Qword Indices",
+    960
+  ],
+  [
+    "VSCATTERDPS:VSCATTERDPD:VSCATTERQPS:VSCATTERQPD",
+    "VSCATTERDPS",
+    "Scatter Packed Single, Packed Double with Signed Dword and Qword Indices",
+    961
+  ],
+  [
+    "VSCATTERDPS:VSCATTERDPD:VSCATTERQPS:VSCATTERQPD",
+    "VSCATTERQPD",
+    "Scatter Packed Single, Packed Double with Signed Dword and Qword Indices",
+    962
+  ],
+  [
+    "VSCATTERDPS:VSCATTERDPD:VSCATTERQPS:VSCATTERQPD",
+    "VSCATTERQPS",
+    "Scatter Packed Single, Packed Double with Signed Dword and Qword Indices",
+    963
+  ],
+  [
+    "VSHUFF32x4:VSHUFF64x2:VSHUFI32x4:VSHUFI64x2",
+    "VSHUFF32x4",
+    "Shuffle Packed Values at 128-bit Granularity",
+    964
+  ],
+  [
+    "VSHUFF32x4:VSHUFF64x2:VSHUFI32x4:VSHUFI64x2",
+    "VSHUFF64x2",
+    "Shuffle Packed Values at 128-bit Granularity",
+    965
+  ],
+  [
+    "VSHUFF32x4:VSHUFF64x2:VSHUFI32x4:VSHUFI64x2",
+    "VSHUFI32x4",
+    "Shuffle Packed Values at 128-bit Granularity",
+    966
+  ],
+  [
+    "VSHUFF32x4:VSHUFF64x2:VSHUFI32x4:VSHUFI64x2",
+    "VSHUFI64x2",
+    "Shuffle Packed Values at 128-bit Granularity",
+    967
+  ],
+  ["VTESTPD:VTESTPS", "VTESTPD", "Packed Bit Test", 968],
+  ["VTESTPD:VTESTPS", "VTESTPS", "Packed Bit Test", 969],
+  ["VZEROALL", "VZEROALL", "Zero XMM, YMM and ZMM Registers", 970],
+  ["VZEROUPPER", "VZEROUPPER", "Zero Upper Bits of YMM and ZMM Registers", 971],
+  ["WAIT:FWAIT", "WAIT", "Wait", 972],
+  ["WBINVD", "WBINVD", "Write Back and Invalidate Cache", 973],
+  ["WBNOINVD", "WBNOINVD", "Write Back and Do Not Invalidate Cache", 974],
+  ["WRFSBASE:WRGSBASE", "WRFSBASE", "Write FS/GS Segment Base", 975],
+  ["WRFSBASE:WRGSBASE", "WRGSBASE", "Write FS/GS Segment Base", 976],
+  ["WRMSR", "WRMSR", "Write to Model Specific Register", 977],
+  ["WRPKRU", "WRPKRU", "Write Data to User Page Key Register", 978],
+  ["WRSSD:WRSSQ", "WRSSD", "Write to Shadow Stack", 979],
+  ["WRSSD:WRSSQ", "WRSSQ", "Write to Shadow Stack", 980],
+  ["WRUSSD:WRUSSQ", "WRUSSD", "Write to User Shadow Stack", 981],
+  ["WRUSSD:WRUSSQ", "WRUSSQ", "Write to User Shadow Stack", 982],
+  ["XABORT", "XABORT", "Transactional Abort", 983],
+  ["XACQUIRE:XRELEASE", "XACQUIRE", "Hardware Lock Elision Prefix Hints", 984],
+  ["XADD", "XADD", "Exchange and Add", 985],
+  ["XBEGIN", "XBEGIN", "Transactional Begin", 986],
+  ["XCHG", "XCHG", "Exchange Register/Memory with Register", 987],
+  ["XEND", "XEND", "Transactional End", 988],
+  ["XGETBV", "XGETBV", "Get Value of Extended Control Register", 989],
+  ["XLAT:XLATB", "XLAT", "Table Look-up Translation", 990],
+  ["XLAT:XLATB", "XLATB", "Table Look-up Translation", 991],
+  ["XOR", "XOR", "Logical Exclusive OR", 992],
+  [
+    "XORPD",
+    "XORPD",
+    "Bitwise Logical XOR of Packed Double Precision Floating-Point Values",
+    993
+  ],
+  [
+    "XORPS",
+    "XORPS",
+    "Bitwise Logical XOR of Packed Single Precision Floating-Point Values",
+    994
+  ],
+  ["XACQUIRE:XRELEASE", "XRELEASE", "Hardware Lock Elision Prefix Hints", 995],
+  ["XRSTOR", "XRSTOR", "Restore Processor Extended States", 996],
+  ["XRSTORS", "XRSTORS", "Restore Processor Extended States Supervisor", 997],
+  ["XSAVE", "XSAVE", "Save Processor Extended States", 998],
+  ["XSAVEC", "XSAVEC", "Save Processor Extended States with Compaction", 999],
+  ["XSAVEOPT", "XSAVEOPT", "Save Processor Extended States Optimized", 1000],
+  ["XSAVES", "XSAVES", "Save Processor Extended States Supervisor", 1001],
+  ["XSETBV", "XSETBV", "Set Extended Control Register", 1002],
+  ["XTEST", "XTEST", "Test If In Transactional Execution", 1003]
+]

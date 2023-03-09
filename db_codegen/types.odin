@@ -32,7 +32,7 @@ FlagAction :: enum {
 	One, // Writes 1
 	AH, // Write from AH
 }
-
+FlagGroup :: bit_set[Flags]
 Flags :: enum {
 	Invalid,
 	Overflow,
@@ -57,15 +57,21 @@ Flags :: enum {
 	FC2,
 	FC3,
 }
+FlagsState :: struct {
+	WritesOne:  FlagGroup,
+	WritesZero: FlagGroup,
+	Modified:   FlagGroup,
+	Tested:     FlagGroup,
+	Undefined:  FlagGroup,
+}
 
-ModRM_State :: struct {
-	use_mod: bool,
-	mod_NE:  u8,
-	mm:      u8,
-	//
-	use_reg: bool,
-	reg:     u8,
-	//
-	use_rm:  bool,
-	rm:      u8,
+Mode :: bit_set[ModeFlag]
+ModeFlag :: enum {
+	//Legacy
+	Real,
+	Protected,
+	Virtual8086,
+	// Long
+	Compatibility,
+	X64,
 }
