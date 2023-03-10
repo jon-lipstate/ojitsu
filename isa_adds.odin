@@ -10,7 +10,7 @@ adds: map[InstrDesc]ISA_Instruction = {
 		opcode_str = "05 id",
 		arch = {.x64, .x86},
 		opcodes = {0x05},
-		operands = {{kind = .Gpr, size = .Bits_32, fixed_register = .EAX}, {kind = .Imm, size = .Bits_32}},
+		operands = {{kind = .Reg, size = .Bits_32, fixed_register = .EAX}, {kind = .Imm, size = .Bits_32}},
 	},
 	0x0 = ISA_Instruction{
 		instr_str = "ADD RAX, imm32",
@@ -18,7 +18,7 @@ adds: map[InstrDesc]ISA_Instruction = {
 		arch = {.x64},
 		rex = {.REX_Enable, .REX_W},
 		opcodes = {0x05},
-		operands = {{kind = .Gpr, size = .Bits_64, fixed_register = .RAX}, {kind = .Imm, size = .Bits_32}},
+		operands = {{kind = .Reg, size = .Bits_64, fixed_register = .RAX}, {kind = .Imm, size = .Bits_32}},
 	}, // Add sign-extended imm32 to RAX
 	//
 	// REG-IMM OPS
@@ -28,7 +28,7 @@ adds: map[InstrDesc]ISA_Instruction = {
 		opcode_str = "ADD r/m16, imm16",
 		arch = {.x64, .x86},
 		opcodes = {0x81},
-		operands = {{kind = .Gpr, size = .Bits_16}, {kind = .Imm, mod_rm = .Reg_0, size = .Bits_16}},
+		operands = {{kind = .Reg, size = .Bits_16}, {kind = .Imm, mod_rm = .Reg_0, size = .Bits_16}},
 	}, // NEEDS OP-PREFIX??
 	0x0 = ISA_Instruction{
 		instr_str = "REX.W + 83 /0 ib",
@@ -36,7 +36,7 @@ adds: map[InstrDesc]ISA_Instruction = {
 		arch = {.x64},
 		rex = {.REX_Enable, .REX_W},
 		opcodes = {0x83},
-		operands = {{kind = .Gpr, size = .Bits_64}, {kind = .Imm, size = .Bits_8}},
+		operands = {{kind = .Reg, size = .Bits_64}, {kind = .Imm, size = .Bits_8}},
 	}, //Add imm32 sign-extended to 64-bits to r/m64.
 	//
 	// REG-REG OPS
@@ -46,21 +46,21 @@ adds: map[InstrDesc]ISA_Instruction = {
 		opcode_str = "ADD r/m16, r16",
 		arch = {.x64, .x86},
 		opcodes = {0x01},
-		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_16}, {kind = .Gpr, mod_rm = .Reg, size = .Bits_16}},
+		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_16}, {kind = .Reg, mod_rm = .Reg, size = .Bits_16}},
 	},
 	0x82082 = ISA_Instruction{
 		instr_str = "01 /r",
 		opcode_str = "ADD r/m32, r32",
 		arch = {.x64, .x86},
 		opcodes = {0x01},
-		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_32}, {kind = .Gpr, mod_rm = .Reg, size = .Bits_32}},
+		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_32}, {kind = .Reg, mod_rm = .Reg, size = .Bits_32}},
 	},
 	0x0 = ISA_Instruction{
 		instr_str = "REX.W + 01 /r",
 		opcode_str = "ADD r/m64, r64",
 		arch = {.x64},
 		opcodes = {0x01},
-		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_64}, {kind = .Gpr, mod_rm = .Reg, size = .Bits_64}},
+		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_64}, {kind = .Reg, mod_rm = .Reg, size = .Bits_64}},
 	},
 }
 
@@ -71,14 +71,14 @@ adds: map[InstrDesc]ISA_Instruction = {
 //     opcode_str = "04 ib",
 //     arch = {.x64, .x86},
 //     opcodes = {0x04},
-//     operands = {{kind = .Gpr, size = .Bits_8, fixed_register = .AL}, {kind = .Imm, size = .Bits_8}},
+//     operands = {{kind = .Reg, size = .Bits_8, fixed_register = .AL}, {kind = .Imm, size = .Bits_8}},
 // },
 // 0x0 = ISA_Instruction{
 //     instr_str = "ADD AX, imm16",
 //     opcode_str = "05 iw",
 //     arch = {.x64, .x86},
 //     opcodes = {0x05},
-//     operands = {{kind = .Gpr, size = .Bits_16, fixed_register = .AX}, {kind = .Imm, size = .Bits_16}},
+//     operands = {{kind = .Reg, size = .Bits_16, fixed_register = .AX}, {kind = .Imm, size = .Bits_16}},
 // },
 // 0x0 = ISA_Instruction{
 //     instr_str = "ADD reg/mem8, imm8 ",

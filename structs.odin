@@ -3,11 +3,17 @@ package ojitsu
 // Use a symbol / relocation table
 Label :: struct {}
 Procedure :: struct {
-	buf: [dynamic]Instruction,
+	buf:    [dynamic]Instruction,
+	//Post-Assmebly, this is more of a symbol thing..?:
+	offset: uint,
+	bytes:  uint,
+	addr:   [^]u8,
 }
 Asm :: struct {
 	// Convention: procs[0] is always the 'main' proc
-	procs: []Procedure,
+	procs:         []Procedure,
+	buf:           [^]u8,
+	bytes_written: uint,
 }
 Reg :: struct {
 	reg: Gpr,
@@ -47,6 +53,36 @@ Imm :: union {
 	u32,
 	u64,
 }
-Rel :: struct {}
+Rel :: struct {
+	value: i64, // downcast per size - distinct Imm ??
+	size:  Size,
+}
 Ptr :: struct {} // jmp far [bx+si+0x7401]   jnz near 0x4856
-MOff :: struct {}
+MOff :: struct {
+	address_size: AddrSize,
+	data_size:    Size,
+}
+AddrSize :: enum {
+	A16,
+	A32,
+	A64,
+}
+Scale :: enum {
+	x1,
+	x2,
+	x4,
+	x8,
+}
+ScalarType :: enum {
+	Untyped, // byte, word, dword, qword, ...
+	SignedInt,
+	UnsignedInt,
+	Ieee754Float, // f16, f32, f64
+	X87Float80, // f80
+	NearPointer,
+	FarPointer, // ptr16:16, ptr16:32, ptr16:64
+	UnpackedBcd,
+	PackedBcd,
+	LongPackedBcd, // m80bcd
+	DescriptorTable, // m16&32, m16&64
+}

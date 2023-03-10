@@ -32,6 +32,7 @@ Work In Progress
   - Con is that it obfuscates register usage into an alias - Done with macros 
 
      - Odin may not have a nice way to represent this
+- use a cli on generated code to build minimal sized libs?
 
 
 

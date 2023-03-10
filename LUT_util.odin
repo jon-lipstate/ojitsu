@@ -3,53 +3,55 @@ import "core:fmt"
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 InstrDesc :: distinct u64
 
+// TODO: i dont think this hashing method will extend to avx...
 get_descriptor :: proc(arch: Arch, operands: ..SizedKind) -> InstrDesc {
-	spall.event_scope(&ctx, &buffer, #procedure)
+	spall.SCOPED_EVENT(&spall_ctx, &spall_buffer, #procedure)
 	desc: InstrDesc = 0
 	// use 12 bit spaces for each operand, starting at zero
 	for op, i in operands {
 		assert(i < 6) // TODO: why did i put 6, sb 4??
-		class_val: u8 = 0
+		kind_bit_offset: u8 = 0
 		switch op.kind {
 		case .SegmentReg:
-			class_val = 0
-		case .Gpr:
-			class_val = 1
+			kind_bit_offset = 0
+		case .Reg:
+			kind_bit_offset = 1
 		case .Mem:
-			class_val = 2
+			kind_bit_offset = 2
 		case .Imm:
-			class_val = 3
+			kind_bit_offset = 3
 		case .Offset:
-			class_val = 4
-		case .Invalid, .Gpr_or_Mem:
-			panic("Invalid, RegMem not supported")
+			kind_bit_offset = 4
+		case .Invalid, .Reg_or_Mem, .BranchDisp:
+			fmt.println(operands)
+			panic("not supported yet")
 		}
-		desc |= 1 << (u8(i) * 12 + class_val)
-		size_val: u8 = 0
+		desc |= 1 << (u8(i) * 12 + kind_bit_offset)
+		size_bit_offset: u8 = 0
 		#partial switch op.size {
 		case .Bits_8:
-			size_val = 0
+			size_bit_offset = 0
 		case .Bits_16:
-			size_val = 1
+			size_bit_offset = 1
 		case .Bits_32:
-			size_val = 2
+			size_bit_offset = 2
 		case .Bits_64:
-			size_val = 3
+			size_bit_offset = 3
 		case:
 			panic("unhandled_size") // TODO: 128-512
 		}
-		desc |= 1 << (u8(i) * 12 + 5 + size_val) // +5 moves above desc
+		desc |= 1 << (u8(i) * 12 + 5 + size_bit_offset) // +5 moves above desc
 	}
 	return desc
 }
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 get_sized_kind :: proc(arg: Operand) -> SizedKind {
-	spall.event_scope(&ctx, &buffer, #procedure)
+	spall.SCOPED_EVENT(&spall_ctx, &spall_buffer, #procedure)
 	switch a in arg {
 	// case (Gpr):
 	// 	return SizedKind{.Gpr, reg_to_size(a)}
 	case (Reg):
-		return SizedKind{.Gpr, reg_to_size(a.reg)}
+		return SizedKind{.Reg, reg_to_size(a.reg)}
 	case (Mem):
 		panic("not impl")
 	case (Imm):
@@ -61,7 +63,7 @@ get_sized_kind :: proc(arg: Operand) -> SizedKind {
 }
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 reg_to_size :: proc(gp: Gpr) -> Size {
-	spall.event_scope(&ctx, &buffer, #procedure)
+	spall.SCOPED_EVENT(&spall_ctx, &spall_buffer, #procedure)
 	#partial switch gp {
 	case .AL, .AH, .BL, .BH, .CL, .CH, .DH, .DIL, .SIL, .SPL:
 		return .Bits_8
@@ -77,7 +79,7 @@ reg_to_size :: proc(gp: Gpr) -> Size {
 	}
 }
 imm_to_size :: proc(imm: Imm) -> Size {
-	spall.event_scope(&ctx, &buffer, #procedure)
+	spall.SCOPED_EVENT(&spall_ctx, &spall_buffer, #procedure)
 	switch i in imm {
 	case (u8):
 		return .Bits_8

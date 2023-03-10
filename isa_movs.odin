@@ -10,14 +10,14 @@ movs: map[InstrDesc]ISA_Instruction = {
 		opcode_str = "C7 /0 iw",
 		arch = {.x64, .x86},
 		opcodes = {0xC7},
-		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_16}, {kind = .Imm, mod_rm = .Reg_0, size = .Bits_16}},
+		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_16}, {kind = .Imm, mod_rm = .Reg_0, size = .Bits_16}},
 	},
 	0x0 = ISA_Instruction{
 		instr_str = "MOV r/m32, imm32",
 		opcode_str = "C7 /0 id",
 		arch = {.x64, .x86},
 		opcodes = {0xC7},
-		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_32}, {kind = .Imm, mod_rm = .Reg_0, size = .Bits_32}},
+		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_32}, {kind = .Imm, mod_rm = .Reg_0, size = .Bits_32}},
 	},
 	0x0 = ISA_Instruction{
 		instr_str = "REX.W + C7 /0 id",
@@ -25,7 +25,7 @@ movs: map[InstrDesc]ISA_Instruction = {
 		arch = {.x64},
 		rex = {.REX_Enable, .REX_W},
 		opcodes = {0xC7},
-		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_64}, {kind = .Imm, mod_rm = .Reg_0, size = .Bits_32}},
+		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_64}, {kind = .Imm, mod_rm = .Reg_0, size = .Bits_32}},
 	}, // Move imm32 sign extended to 64-bits to r/m64.
 	//
 	// REG-REG OPS
@@ -35,14 +35,14 @@ movs: map[InstrDesc]ISA_Instruction = {
 		opcode_str = "MOV r/m16,r16",
 		arch = {.x64, .x86},
 		opcodes = {0x89},
-		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_16}, {kind = .Gpr, mod_rm = .Reg, size = .Bits_16}},
+		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_16}, {kind = .Reg, mod_rm = .Reg, size = .Bits_16}},
 	},
 	0x82082 = ISA_Instruction{
 		instr_str = "89 /r",
 		opcode_str = "MOV r/m32,r32",
 		arch = {.x64, .x86},
 		opcodes = {0x89},
-		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_32}, {kind = .Gpr, mod_rm = .Reg, size = .Bits_32}},
+		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_32}, {kind = .Reg, mod_rm = .Reg, size = .Bits_32}},
 	},
 	0x0 = ISA_Instruction{
 		instr_str = "REX.W + 89 /r",
@@ -50,7 +50,7 @@ movs: map[InstrDesc]ISA_Instruction = {
 		arch = {.x64},
 		rex = {.REX_Enable, .REX_W},
 		opcodes = {0x89},
-		operands = {{kind = .Gpr, mod_rm = .RM, size = .Bits_64}, {kind = .Gpr, mod_rm = .Reg, size = .Bits_64}},
+		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_64}, {kind = .Reg, mod_rm = .Reg, size = .Bits_64}},
 	},
 }
 //odinfmt: enable

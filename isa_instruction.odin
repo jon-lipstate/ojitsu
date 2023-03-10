@@ -5,7 +5,7 @@ ArchFlag :: enum {
 	x86,
 	x64,
 }
-// TODO: keep values or convert to u8? can make sizedkind u16 if so
+
 Size :: enum u16 {
 	Invalid  = 0xFFFF,
 	Unsized  = 0,
@@ -20,10 +20,11 @@ Size :: enum u16 {
 }
 OperandKind :: enum u8 {
 	Invalid,
+	BranchDisp,
 	SegmentReg,
-	Gpr,
+	Reg,
 	Mem,
-	Gpr_or_Mem,
+	Reg_or_Mem,
 	Imm,
 	Offset,
 }
@@ -31,7 +32,9 @@ SizedKind :: struct {
 	kind: OperandKind,
 	size: Size,
 }
+
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+
 ISA_Instruction :: struct {
 	arch:          Arch, // x86 | x64
 	legacy:        LegacyPrefixes, // Legacy Group 1-4
@@ -66,7 +69,9 @@ ModRM_Flag :: enum {
 	Reg_6,
 	Reg_7,
 }
+
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+
 Extensions :: bit_set[ExtensionFlag]
 ExtensionFlag :: enum {
 	_3DNOW,
