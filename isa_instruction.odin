@@ -32,7 +32,41 @@ SizedKind :: struct {
 	kind: OperandKind,
 	size: Size,
 }
+r_al :: ISA_Operand {
+	sized_kind     = reg8,
+	fixed_register = .AL,
+}
+r_ax :: ISA_Operand {
+	sized_kind     = reg8,
+	fixed_register = .AX,
+}
+r_eax :: ISA_Operand {
+	sized_kind     = reg8,
+	fixed_register = .EAX,
+}
+r_rax :: ISA_Operand {
+	sized_kind     = reg8,
+	fixed_register = .RAX,
+}
+reg8 :: SizedKind{.Reg, .Bits_8}
+reg16 :: SizedKind{.Reg, .Bits_16}
+reg32 :: SizedKind{.Reg, .Bits_32}
+reg64 :: SizedKind{.Reg, .Bits_64}
+//
+rm8 :: SizedKind{.Reg_or_Mem, .Bits_8}
+rm16 :: SizedKind{.Reg_or_Mem, .Bits_16}
+rm32 :: SizedKind{.Reg_or_Mem, .Bits_32}
+rm64 :: SizedKind{.Reg_or_Mem, .Bits_64}
+//
+imm8 :: SizedKind{.Imm, .Bits_8}
+imm16 :: SizedKind{.Imm, .Bits_16}
+imm32 :: SizedKind{.Imm, .Bits_32}
+imm64 :: SizedKind{.Imm, .Bits_64}
 
+Symbol :: struct {
+	offset: u32,
+	len:    u16,
+}
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 
 ISA_Instruction :: struct {
@@ -50,10 +84,9 @@ ISA_Instruction :: struct {
 	opcode_str:    string,
 }
 ISA_Operand :: struct {
-	kind:           OperandKind,
-	size:           Size,
-	mod_rm:         ModRM_Flag,
-	fixed_register: Gpr, // E.g. Targets RAX Only // TODO: .ANY_A or bit_set[allowed]
+	using sized_kind: SizedKind,
+	mod_rm:           ModRM_Flag,
+	fixed_register:   Gpr, // E.g. Targets RAX Only // TODO: .ANY_A or bit_set[allowed]
 }
 ModRM_Flag :: enum {
 	None,

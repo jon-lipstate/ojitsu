@@ -49,22 +49,12 @@ PREFIX_VALUES := map[LegacyPrefixFlag]u8 {
 // (see Appendix E, "Intel Memory Protection Extensions", of the Intel 64 and IA-32 Architectures
 // Software Developer's Manual, Volume 1).
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
-REX :: bit_set[REXFlag]
-REXFlag :: enum {
-	// Ref ISR-V2 Fig 2-6
-	REX_Opt,
-	REX_Enable, // 64
-	REX_W, // 8, 1: 64-bit Operand, 0: Operand size deteOperandned by CS.D
-	REX_R, // 4, Extends ModRM Reg (Dest)
-	REX_X, // 2, Extends SIB Index
-	REX_B, // 1, Extends SIB Base
-}
-REX_VALUES := map[REXFlag]u8 {
-	.REX_Enable = 0b0100_0000,
-	.REX_W      = 0b1000,
-	.REX_R      = 0b0100,
-	.REX_X      = 0b0010,
-	.REX_B      = 0b0001,
+REX :: enum {
+	REX   = 0b0100_0000,
+	REX_W = 0b0100_1000, // 0:Op by CS.D, 1:64-bit
+	REX_R = 0b0100_0100, // Mod-RM Reg-Field
+	REX_X = 0b0100_0010, // SIB Index
+	REX_B = 0b0100_0001, // Mod-RM RM-Field
 }
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 VectorPrefix :: bit_set[VectorFlag]

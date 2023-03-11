@@ -13,8 +13,8 @@ ret :: #force_inline proc(p: ^Procedure) {push_op(p, .ret)}
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 
 //#sparse[Mnemonic]ISA_Map  // <--- Enumerated Array, sparse is for holes
-ISA_LUT := map[Mnemonic]ISA_MAP {
-	.mov = movs,
-	.add = adds,
-	.ret = ret_far,
+ISA_LUT := [Mnemonic]^ISA_MAP {
+	.mov = &movs,
+	.add = &adds,
+	.ret = &ret_far,
 } // TODO: array of map..?

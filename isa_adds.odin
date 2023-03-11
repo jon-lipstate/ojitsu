@@ -5,20 +5,14 @@ adds: map[InstrDesc]ISA_Instruction = {
 	//
 	// FIXED_A - IMM OPS
 	//
-	0x0 = ISA_Instruction{
-		instr_str = "ADD EAX, imm32",
-		opcode_str = "05 id",
-		arch = {.x64, .x86},
-		opcodes = {0x05},
-		operands = {{kind = .Reg, size = .Bits_32, fixed_register = .EAX}, {kind = .Imm, size = .Bits_32}},
-	},
-	0x0 = ISA_Instruction{
+	0x0 = ISA_Instruction{instr_str = "ADD EAX, imm32", opcode_str = "05 id", arch = {.x64, .x86}, opcodes = {0x05}, operands = {r_eax, {sized_kind = imm32}}},
+	0x02 = ISA_Instruction{
 		instr_str = "ADD RAX, imm32",
 		opcode_str = "05 id",
 		arch = {.x64},
-		rex = {.REX_Enable, .REX_W},
+		rex = .REX_W,
 		opcodes = {0x05},
-		operands = {{kind = .Reg, size = .Bits_64, fixed_register = .RAX}, {kind = .Imm, size = .Bits_32}},
+		operands = {r_rax, {sized_kind = imm32}},
 	}, // Add sign-extended imm32 to RAX
 	//
 	// REG-IMM OPS
@@ -28,15 +22,15 @@ adds: map[InstrDesc]ISA_Instruction = {
 		opcode_str = "ADD r/m16, imm16",
 		arch = {.x64, .x86},
 		opcodes = {0x81},
-		operands = {{kind = .Reg, size = .Bits_16}, {kind = .Imm, mod_rm = .Reg_0, size = .Bits_16}},
-	}, // NEEDS OP-PREFIX??
+		operands = {{sized_kind = rm16, mod_rm = ModRM_Flag.RM}, {sized_kind = imm16, mod_rm = .Reg_0}},
+	}, // NEEDS OP-PREFIX - infer or explicit ??? Also does /0 mean rm is omitted? i would not think so
 	0x0 = ISA_Instruction{
 		instr_str = "REX.W + 83 /0 ib",
 		opcode_str = "ADD r/m64, imm8",
 		arch = {.x64},
-		rex = {.REX_Enable, .REX_W},
+		rex = .REX_W,
 		opcodes = {0x83},
-		operands = {{kind = .Reg, size = .Bits_64}, {kind = .Imm, size = .Bits_8}},
+		operands = {{sized_kind = rm64, mod_rm = .RM}, {sized_kind = imm8, mod_rm = .Reg_0}},
 	}, //Add imm32 sign-extended to 64-bits to r/m64.
 	//
 	// REG-REG OPS
@@ -46,21 +40,22 @@ adds: map[InstrDesc]ISA_Instruction = {
 		opcode_str = "ADD r/m16, r16",
 		arch = {.x64, .x86},
 		opcodes = {0x01},
-		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_16}, {kind = .Reg, mod_rm = .Reg, size = .Bits_16}},
+		operands = {{sized_kind = rm16, mod_rm = .RM}, {sized_kind = reg16, mod_rm = .Reg}},
 	},
 	0x82082 = ISA_Instruction{
 		instr_str = "01 /r",
 		opcode_str = "ADD r/m32, r32",
 		arch = {.x64, .x86},
 		opcodes = {0x01},
-		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_32}, {kind = .Reg, mod_rm = .Reg, size = .Bits_32}},
+		operands = {{sized_kind = rm32, mod_rm = .RM}, {sized_kind = reg32, mod_rm = .Reg}},
 	},
 	0x0 = ISA_Instruction{
 		instr_str = "REX.W + 01 /r",
 		opcode_str = "ADD r/m64, r64",
+		rex = .REX_W,
 		arch = {.x64},
 		opcodes = {0x01},
-		operands = {{kind = .Reg, mod_rm = .RM, size = .Bits_64}, {kind = .Reg, mod_rm = .Reg, size = .Bits_64}},
+		operands = {{sized_kind = rm64, mod_rm = .RM}, {sized_kind = reg64, mod_rm = .Reg}},
 	},
 }
 

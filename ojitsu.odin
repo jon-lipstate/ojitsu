@@ -8,10 +8,9 @@ spall_ctx := spall.Context{}
 spall_buffer := spall.Buffer{}
 //
 main :: proc() {
-	// test_constant(42)
 	// Profiling Setup:
 	spall_ctx = spall.context_create("jit_dump.spall")
-	buffer_backing := make([]u8, 1024)
+	buffer_backing := make([]u8, 1 << 16) // 64kb profiling buffer
 	spall_buffer = spall.buffer_create(buffer_backing)
 	defer spall.context_destroy(&spall_ctx)
 	defer spall.buffer_destroy(&spall_ctx, &spall_buffer)
@@ -24,7 +23,7 @@ main :: proc() {
 	add(main, EAX, EAX)
 	ret(main)
 	fn_ptr := transmute(proc(x: i32) -> i32)assemble(&a) // TODO: accessing other procs
-	fmt.println("Call Asm: ", fn_ptr(21))
+	// fmt.println("Call Asm: ", fn_ptr(21))
 }
 // runtime encode:
 // rt := Procedure{}
@@ -87,7 +86,7 @@ assemble :: proc(a: ^Asm) -> rawptr {
 	return a.buf
 }
 
-encode :: proc(instr: ^Instruction, buf: [^]u8) -> uint {
+encode :: proc(buf: [^]u8, instr: ^Instruction) -> uint {
 	spall.SCOPED_EVENT(&spall_ctx, &spall_buffer, #procedure)
 
 	return 0
@@ -115,13 +114,9 @@ encode_instruction :: proc(isa: ^ISA_Instruction, buf: [^]u8, instr: ArgsInstruc
 		//Group 4 legacy
 		if .AddressSizeOverride in isa.legacy {buf[bytes_written] = PREFIX_VALUES[.AddressSizeOverride];bytes_written += 1}
 	}
-	if should_use_rex(..isa.operands) && .REX_Enable in isa.rex {
-		rex: u8 = 0b0100_0000
-		if .REX_W in isa.rex {rex |= 0b1000}
-		if .REX_R in isa.rex {rex |= 0b0100}
-		if .REX_X in isa.rex {rex |= 0b0010}
-		if .REX_B in isa.rex {rex |= 0b0001}
-		buf[bytes_written] = rex;bytes_written += 1
+	rex_val := u8(isa.rex)
+	if rex_val > 0 {
+		buf[bytes_written] = rex_val;bytes_written += 1
 	}
 	// Write Actual Opcode:
 	for b in isa.opcodes {

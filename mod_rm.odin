@@ -1,4 +1,10 @@
 package ojitsu
+Mode :: enum {
+	Register_Addressing_Indirect = 0b00,
+	Disp_i8                      = 0b01,
+	Disp_i32                     = 0b10,
+	Register_Addressing          = 0b11,
+}
 
 // TODO: Union with XMM?
 MOD_RM_LUT := map[Gpr]u8 {

@@ -16,13 +16,15 @@ get_descriptor :: proc(arch: Arch, operands: ..SizedKind) -> InstrDesc {
 			kind_bit_offset = 0
 		case .Reg:
 			kind_bit_offset = 1
+		// case .Reg_or_Mem:
+		// 	kind_bit_offset = 1 | 2
 		case .Mem:
 			kind_bit_offset = 2
 		case .Imm:
 			kind_bit_offset = 3
 		case .Offset:
 			kind_bit_offset = 4
-		case .Invalid, .Reg_or_Mem, .BranchDisp:
+		case .Invalid, .BranchDisp, .Reg_or_Mem:
 			fmt.println(operands)
 			panic("not supported yet")
 		}
